@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Helper - Stilearn Admin Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stilearn Admin Template - Documentation">
+        <meta name="author" content="Stilearning">
+
+        <!-- Le styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/prettify.css" rel="stylesheet">
+        <link href="css/bootstrap-doc.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <style>
+            .demo-box{
+                display: inline-block;
+                width: 110px;
+                height: 70px;
+                padding: 10px;
+                border: 1px solid #DDDDDD;
+                margin-right: 5px;
+                margin-bottom: 20px;
+            }
+        </style>
+        
+    </head>
+
+    <body onload="prettyPrint()">
+        <!--navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">Stilearn Admin Template - Documentation</a>
+                </div>
+            </div>
+        </div><!--/.navbar -->
+
+        <!-- container -->
+        <div class="container content">
+            <div class="row-fluid">
+                <div class="span3 docs-sidebar">
+                    <!--sidebar -->
+                    <ul class="nav nav-list docs-sidenav">
+                        <li><a href="index.html"><i class="icofont-angle-right"></i> Get Started</a></li>
+                        <li><a href="layout.html"><i class="icofont-angle-right"></i> Layout</a></li>
+                        <li><a href="general.html"><i class="icofont-angle-right"></i> General Style</a></li>
+                        <li class="active"><a href="helper.html"><i class="icofont-angle-right"></i> Helper Style</a></li>
+                        <li><a href="plugin.html"><i class="icofont-angle-right"></i> Plugin</a></li>
+                        <li><a href="example.html"><i class="icofont-angle-right"></i> Example</a></li>
+                    </ul><!--/.sidebar -->
+                </div><!--/.span3 -->
+
+                <div class="span9">
+                    <div class="doc-content-box">
+                        <!-- helper -->
+                        <div class="page-header">
+                            <h1>Helper Style</h1>
+                        </div>
+                        <p>CSS helper contains short code (such as background, color, font size, box corner, etc) that can be used to support existing features. You can add your css here or create a new css file.</p>
+                        
+                        
+                        <!-- background color -->
+                        <h2>Background color</h2>
+                        <p>There are about 14 background helper that I have provided</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;div class=&quot;bg-teal&quot;&gt;bg-helper&lt;/div&gt;
+&lt;div class=&quot;bg-red&quot;&gt;bg-helper&lt;/div&gt;
+&lt;div class=&quot;bg-green&quot;&gt;bg-helper&lt;/div&gt;
+&lt;div class=&quot;bg-blue&quot;&gt;bg-helper&lt;/div&gt;
+...
+</pre>
+                        <!--/code sample-->
+                        <div class="demo-box bg-teal color-white">bg-helper</div>
+                        <div class="demo-box bg-red color-white">bg-helper</div>
+                        <div class="demo-box bg-green color-white">bg-helper</div>
+                        <div class="demo-box bg-blue color-white">bg-helper</div>
+                        
+                        
+                        <!-- background gradient -->
+                        <h2>Background gradient</h2>
+                        <p>There are about 11 gradient helper that I have provided</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;div class=&quot;grd-white&quot;&gt;grd-helper&lt;/div&gt;
+&lt;div class=&quot;grd-teal&quot;&gt;grd-helper&lt;/div&gt;
+&lt;div class=&quot;grd-orange&quot;&gt;grd-helper&lt;/div&gt;
+&lt;div class=&quot;grd-purple&quot;&gt;grd-helper&lt;/div&gt;
+...
+</pre>
+                        <!--/code sample-->
+                        <div class="demo-box grd-white">grd-helper</div>
+                        <div class="demo-box grd-teal color-white">grd-helper</div>
+                        <div class="demo-box grd-orange color-white">grd-helper</div>
+                        <div class="demo-box grd-purple color-white">grd-helper</div>
+                        
+                        
+                        
+                        <!-- Font color -->
+                        <h2>Font color</h2>
+                        <p>There are about 13 color helper that I have provided</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;h4 class=&quot;color-blue&quot;&gt;color-helper&lt;/h4&gt;
+&lt;h4 class=&quot;color-green&quot;&gt;color-helper&lt;/h4&gt;
+&lt;h4 class=&quot;color-orange&quot;&gt;color-helper&lt;/h4&gt;
+&lt;h4 class=&quot;color-purple&quot;&gt;color-helper&lt;/h4&gt;
+...
+</pre>
+                        <!--/code sample-->
+                        <h4 class="help-inline color-blue">color-helper</h4>
+                        <h4 class="help-inline color-green">color-helper</h4>
+                        <h4 class="help-inline color-orange">color-helper</h4>
+                        <h4 class="help-inline color-purple">color-helper</h4>
+                        
+                        
+                        
+                        <!-- Box Corner -->
+                        <h2>Box Corner</h2>
+                        <p>Under certain conditions using the element corner to make it look more beautiful.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;div class=&quot;demo-box corner-all&quot;&gt;corner-helper&lt;/div&gt;
+&lt;div class=&quot;demo-box corner-bottom&quot;&gt;corner-helper&lt;/div&gt;
+&lt;div class=&quot;demo-box corner-top&quot;&gt;corner-helper&lt;/div&gt;
+&lt;div class=&quot;demo-box corner-br&quot;&gt;corner-helper&lt;/div&gt;
+...
+</pre>
+                        <!--/code sample-->
+                        <div class="demo-box corner-all">corner-helper</div>
+                        <div class="demo-box corner-bottom">corner-helper</div>
+                        <div class="demo-box corner-top">corner-helper</div>
+                        <div class="demo-box corner-br">corner-helper</div>
+                        
+                        
+                        
+                        <!-- Combine helper -->
+                        <h2>Combine the helper</h2>
+                        <p>Helper element supports to be used together. It helps to condense the code that we created.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;div class=&quot;demo-box grd-red color-white corner-all&quot;&gt;helper&lt;/div&gt;
+&lt;div class=&quot;demo-box grd-orange color-white corner-tl corner-br shadow&quot;&gt;helper&lt;/div&gt;
+&lt;div class=&quot;demo-box bg-transparent shadow-black&quot;&gt;&lt;span class=&quot;bold italic underline&quot;&gt;helper&lt;/span&gt;&lt;/div&gt;
+&lt;div class=&quot;demo-box bg-teal color-white corner-tr corner-bl&quot;&gt;helper&lt;/div&gt;
+...
+</pre>
+                        <!--/code sample-->
+                        <div class="demo-box grd-red color-white corner-all">helper</div>
+                        <div class="demo-box grd-orange color-white corner-tl corner-br shadow">helper</div>
+                        <div class="demo-box bg-transparent shadow-black"><span class="bold italic underline">helper</span></div>
+                        <div class="demo-box bg-teal color-white corner-tr corner-bl">helper</div>
+                        
+                        
+                        <div class="alert alert-info">
+                            <strong>Note!</strong> I didn't include all the class helper here. you can open the file helper and try it for yourself. like a shadow, divider, font size, etc.
+                        </div>
+                        
+                        <!-- Page Navigation -->
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="general.html">&larr; General Style</a>
+                            </li>
+                            <li class="next">
+                                <a href="plugin.html">Plugin &rarr;</a>
+                            </li>
+                        </ul><!-- Page Navigation -->
+                        
+                        <div class="shadow-right"> </div><!-- shadow doc-content-box -->
+                        
+                    </div><!--/.doc-content-box -->
+                    
+                </div><!--/.span9 -->
+            </div><!--/.row-fluid -->
+        </div><!-- /container -->
+        
+        
+        <!-- footer -->
+        <hr />
+        <footer class="footer">
+            <div class="row-fluid">
+                <div class="container">
+                    <p class="pull-right"><a href="#" class="scroll">back to top</a></p>
+                    <p>Copyright &copy; Stilearning 2013. All rights reserved.</p>
+                </div>
+            </div>
+        </footer><!--/.footer -->
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/prettify/prettify.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){   
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
+        
+            });
+        </script>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Get started - Stilearn Admin Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stilearn Admin Template - Documentation">
+        <meta name="author" content="Stilearning">
+
+        <!-- Le styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/prettify.css" rel="stylesheet">
+        <link href="css/bootstrap-doc.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body onload="prettyPrint()">
+        <!--navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">Stilearn Admin Template - Documentation</a>
+                </div>
+            </div>
+        </div><!--/.navbar -->
+
+        <!-- container -->
+        <div class="container content">
+            <div class="row-fluid">
+                <div class="span3 docs-sidebar">
+                    <!--sidebar -->
+                    <ul class="nav nav-list docs-sidenav">
+                        <li class="active"><a href="index.html"><i class="icofont-angle-right"></i> Get Started</a></li>
+                        <li><a href="layout.html"><i class="icofont-angle-right"></i> Layout</a></li>
+                        <li><a href="general.html"><i class="icofont-angle-right"></i> General Style</a></li>
+                        <li><a href="helper.html"><i class="icofont-angle-right"></i> Helper Style</a></li>
+                        <li><a href="plugin.html"><i class="icofont-angle-right"></i> Plugin</a></li>
+                        <li><a href="example.html"><i class="icofont-angle-right"></i> Example</a></li>
+                    </ul><!--/.sidebar -->
+                </div><!--/.span3 -->
+
+                <div class="span9">
+                    <div class="doc-content-box">
+                        <!-- Overview -->
+                        <div class="page-header">
+                            <h1>Overview</h1>
+                        </div>
+                        <p>Stilearn admin designed to have three columns (left side, content, right side). But, this can also be made ​​into two columns just by removing the right column. </p>
+                        <p>Developed on the basis of bootstrap twitter, if you want to see the documentation please visit the twitter bootstrap. We have not changed any of their code, so if you want to update the version of the bootstrap, you just need to overwrite the old version of the file.</p>
+                        
+                        <h2>Requires HTML5 doctype</h2>
+                        <p>Stilearn makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  ...
+&lt;/html&gt;
+</pre>
+                        <!--/code sample-->
+                        <h2>Integration</h2>
+                        <p>Need to remember, to use stilearn feature you must include at least the following elements:</p>
+                        
+                        <ol>
+                            <li>
+                                For CSS code, you must include : 
+                                <ul class="unstyled">
+                                    <li>
+                                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/bootstrap-responsive.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/stilearn.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/stilearn-responsive.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/stilearn-helper.css&quot; rel=&quot;stylesheet&quot;&gt;
+</pre>
+                                        <!--/code sample-->
+                                        <p>Other css (animate, fonts, plugins, etc) according to your case.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                For JS code, you must include :
+                                <ul class="unstyled">
+                                    <li>
+                                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!--required plugin template--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://platform.twitter.com/widgets.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--required stilearn template--&gt;
+&lt;!--you must include this file. you can edit the code in it, but be careful.--&gt;
+&lt;script src=&quot;js/stilearn-base.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--this required only to demo, you can remove it.--&gt;
+&lt;script src=&quot;js/holder.js&quot;&gt;&lt;/script&gt;
+</pre>
+                                        <!--/code sample-->
+                                        <p>Other js (plugins, etc) according to your case.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+                        <h2>HTML Template</h2>
+                        <p>To create a simple display, we'll utilize a basic HTML template that includes everything mentioned above.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Stilearn Admin Bootstrap&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;stilearning&quot;&gt;
+    
+    &lt;!--google font--&gt;
+    &lt;link href=&quot;http://fonts.googleapis.com/css?family=Aclonica:regular&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    
+    
+    &lt;!--styles--&gt;
+    &lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/bootstrap-responsive.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/stilearn.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/stilearn-responsive.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/stilearn-helper.css&quot; rel=&quot;stylesheet&quot;&gt;
+    
+    &lt;!--other styles--&gt;
+    ...
+    
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;!--header section--&gt;
+    &lt;header class=&quot;header&quot;&gt;
+        &lt;!--nav bar helper--&gt;
+        &lt;div class=&quot;navbar-helper&quot;&gt;
+            &lt;!--we still recommend using a row-fluid to split the grid--&gt;
+            &lt;div class=&quot;row-fluid&quot;&gt;
+                &lt;!--grid site-name--&gt;
+                &lt;div class=&quot;span2&quot;&gt;
+                ...
+                &lt;/div&gt;
+
+                &lt;!--grid form search--&gt;
+                &lt;div class=&quot;span6&quot;&gt;
+                ...
+                &lt;/div&gt;
+
+                &lt;!--grid button navigation--&gt;
+                &lt;div class=&quot;span4&quot;&gt;
+                ...
+                &lt;/div&gt;
+
+                &lt;!--you don't have to split the display as seen above--&gt; 
+                &lt;!--it would be more fun if adjusted to your taste--&gt;
+            &lt;/div&gt; &lt;!--/row-fluid--&gt; 
+        &lt;/div&gt; &lt;!--/nav bar helper--&gt; 
+    &lt;/header&gt; &lt;!--/header--&gt; 
+    
+    &lt;!-- section content --&gt;
+    &lt;section class=&quot;section&quot;&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
+            &lt;!-- span side-left --&gt;
+            &lt;div class=&quot;span1&quot;&gt;
+                &lt;!--side bar--&gt;
+                &lt;aside class=&quot;side-left&quot;&gt;
+                ...
+                &lt;/aside&gt;&lt;!--/side bar --&gt;
+            &lt;/div&gt;&lt;!-- span side-left --&gt;
+            
+            &lt;!-- span content --&gt;
+            &lt;div class=&quot;span9&quot;&gt;
+                &lt;!-- content --&gt;
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;!-- content-header --&gt;
+                    &lt;div class=&quot;content-header&quot;&gt;
+                    ...
+                    &lt;/div&gt;&lt;!-- /content-header --&gt;
+                        
+                    &lt;!-- content-breadcrumb --&gt;
+                    &lt;div class=&quot;content-breadcrumb&quot;&gt;
+                    ...
+                    &lt;/div&gt;&lt;!-- /content-breadcrumb --&gt;
+                        
+                    &lt;!-- content-body --&gt;
+                    &lt;div class=&quot;content-body&quot;&gt;
+                    ...
+                    &lt;/div&gt;&lt;!--/content-body --&gt;
+                    
+                &lt;/div&gt;&lt;!-- /content --&gt;
+            &lt;/div&gt;&lt;!-- /span content --&gt;
+            
+            &lt;!-- span side-right --&gt;
+            &lt;div class=&quot;span2&quot;&gt;
+                &lt;!-- side-right --&gt;
+                &lt;aside class=&quot;side-right&quot;&gt;
+                    &lt;!-- sidebar-right --&gt;
+                    &lt;div class=&quot;sidebar-right&quot;&gt;
+                        
+                        &lt;!--sidebar-right-header--&gt;
+                        &lt;div class=&quot;sidebar-right-header&quot;&gt;
+                        ...
+                        &lt;/div&gt;&lt;!--/sidebar-right-header--&gt;
+                        
+                        &lt;!--sidebar-right-control--&gt;
+                        &lt;div class=&quot;sidebar-right-control&quot;&gt;
+                        ...
+                        &lt;/div&gt;&lt;!-- /sidebar-right-control--&gt;
+                        
+                        &lt;!-- sidebar-right-content --&gt;
+                        &lt;div class=&quot;sidebar-right-content&quot;&gt;
+                        ...
+                        &lt;/div&gt;&lt;!-- /sidebar-right-content --&gt;
+                        
+                    &lt;/div&gt;&lt;!-- /sidebar-right --&gt;
+                &lt;/aside&gt;&lt;!-- /side-right --&gt;
+            &lt;/div&gt;&lt;!-- /span side-right --&gt;
+            
+        &lt;/div&gt;&lt;!--/row-fluid --&gt;
+    &lt;/section&gt;&lt;!--/section content --&gt;
+    
+    &lt;!-- section footer, just simple footer --&gt;
+    &lt;footer&gt;
+        &lt;a rel=&quot;to-top&quot; href=&quot;#top&quot;&gt;&lt;i class=&quot;icofont-circle-arrow-up&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/footer&gt;
+    
+    &lt;!--javascript--&gt;
+    &lt;!--required plugin template--&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://platform.twitter.com/widgets.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!--required stilearn template--&gt;
+    &lt;!--you must include this file. you can edit the code in it, but be careful.--&gt;
+    &lt;script src=&quot;js/stilearn-base.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!--this required only to demo, you can remove it.--&gt;
+    &lt;script src=&quot;js/holder.js&quot;&gt;&lt;/script&gt;
+    
+    &lt;!--other javascript--&gt;
+    ...
+    
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!-- Page Navigation -->
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="example.html">&larr; Prev</a>
+                            </li>
+                            <li class="next">
+                                <a href="layout.html">Layout &rarr;</a>
+                            </li>
+                        </ul><!-- Page Navigation -->
+                        
+                        <div class="shadow-right"> </div><!-- shadow doc-content-box -->
+                        
+                    </div><!--/.doc-content-box -->
+                    
+                </div><!--/.span9 -->
+            </div><!--/.row-fluid -->
+        </div><!-- /container -->
+        
+        
+        <!-- footer -->
+        <hr />
+        <footer class="footer">
+            <div class="row-fluid">
+                <div class="container">
+                    <p class="pull-right"><a href="#" class="scroll">back to top</a></p>
+                    <p>Copyright &copy; Stilearning 2013. All rights reserved.</p>
+                </div>
+            </div>
+        </footer><!--/.footer -->
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/prettify/prettify.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){   
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
+        
+            });
+        </script>
+</html>

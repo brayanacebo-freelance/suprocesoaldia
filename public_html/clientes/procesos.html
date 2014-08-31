@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Procesos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="javier varon saavedra">
+
+        <!-- google font -->
+        <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
+
+        <!-- styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <!-- default theme -->
+        <link id="style-base" href="css/stilearn.css" rel="stylesheet">
+        <link id="style-responsive" href="css/stilearn-responsive.css" rel="stylesheet">
+        <link id="style-helper" href="css/stilearn-helper.css" rel="stylesheet">
+        <!-- usage -->
+        <link href="css/stilearn-icon.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/uniform.default.css" rel="stylesheet">
+        <!-- other -->
+        <link href="css/DT_bootstrap.css" rel="stylesheet">
+        <link href="css/responsive-tables.css" rel="stylesheet">
+        
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <!-- section header -->
+        <header class="header" data-spy="affix" data-offset-top="0">
+            <!--nav bar helper-->
+            <div class="navbar-helper">
+                <div class="row-fluid">
+                    <!--panel site-name-->
+                    <div class="span9">
+                        <div class="panel-sitename">
+                            <h2><a href="index.html"><span class="color-teal">Seguimiento</span> Judicial</a></h2>
+                        </div>
+                    </div>
+                    <!--/panel name-->
+
+                    <div class="span2">
+                       
+                    </div>
+                    <div class="span1">
+                        <!--panel button ext-->
+                        <div class="panel-ext">
+                            <div class="btn-group user-group">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img class="corner-all" align="middle" src="img/avatar-thumb.jpg" title="John Doe" alt="john doe" /> <!--this for display on PC device-->
+                                    <button class="btn btn-small btn-inverse">Javier Sanchez</button> <!--this for display on tablet and phone device-->
+                                </a>
+                                <ul class="dropdown-menu dropdown-user" role="menu" aria-labelledby="dLabel">
+                                    <li>
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <img class="img-circle" src="img/avatar.jpg" title="profile" alt="profile" />
+                                            </a>
+                                            <div class="media-body description">
+                                                <p><strong>Abogados Asociados</strong></p>
+                                                <p class="muted">javier.rodriguez@gmail.com</p>
+                                                <p class="muted">Juan Carlos Rodriguez</p>
+                                                <a class="btn btn-primary btn-small btn-block">Perfil</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-footer">
+                                        <div>
+                                            <a class="btn btn-small" href="index.html">Cerrar sesión</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--panel button ext-->
+                    </div>
+                </div>
+            </div><!--/nav bar helper-->
+        </header>
+
+        <!-- section content -->
+        <section class="section">
+            <div class="row-fluid">
+                <!-- span side-left -->
+                <div class="span1">
+                    <!--side bar-->
+                    <aside class="side-left">
+                        <ul class="sidebar">
+                            <li>
+                                <a href="movimientos.html" title="movimientos">
+                                    <div class="badge badge-important">6</div>
+                                    <div class="helper-font-24">
+                                        <i class="icofont-bullhorn"></i>
+                                    </div>
+                                    <span class="sidebar-text">Movimientos</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="procesos.html" title="procesos">
+                                    <div class="helper-font-24">
+                                        <i class="icofont-folder-open"></i>
+                                    </div>
+                                    <span class="sidebar-text">Procesos</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside><!--/side bar -->
+                </div><!-- span side-left -->
+                
+                <!-- span content -->
+                <div class="span9">
+                    <!-- content -->
+                    <div class="content">
+                        <!-- content-header -->
+                        <div class="content-header">
+                            <ul class="content-header-action pull-right">
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <div class="badge-circle color-white">
+                                            <div class="grd-teal">
+                                                <i class="icofont-folder-open-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="action-text color-teal">83 <span class="helper-font-small color-silver-dark">procesos</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <h2><i class="icofont-table"></i> Procesos</h2>
+                        </div><!-- /content-header -->
+                        
+                        <!-- content-breadcrumb -->
+                        <div class="content-breadcrumb">
+                            <!--breadcrumb-->
+                            <ul class="breadcrumb">
+                                <li><a href="procesos.html"><i class="icofont-circle-arrow-right"></i> Procesos</a> <span class="divider">&rsaquo;</span></li>
+                                <li class="active">Lista de procesos</li>
+                            </ul><!--/breadcrumb-->
+                        </div><!-- /content-breadcrumb -->
+                        
+                        <!-- content-body -->
+                        <div class="content-body">
+                            <div class="span6"><h3>Abogados Asociados</h3></div>
+                            <!-- span12-->
+                            <!-- <div class="row-fluid">
+                                <div class="span2">
+                                    <div class="box corner-all">
+                                        <div class="box-header grd-teal color-white corner-top">
+                                            <div class="header-control">
+                                                <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                                            </div>
+                                            <span>Datos básicos</span>
+                                        </div>
+                                        <div class="box-body">
+                                            <h4 class=""><span class="label label-info">Cód. 254849</span> Abogados Asociados</h4>
+                                            <p><span class="color-teal">Responsable: </span> Lorem ipsum dolor sit amet</p>
+                                            <p><span class="color-teal">Correo electrónico: </span> Lorem ipsum dolor sit amet</p>
+                                            <div class="divider-content"></div>
+                                            <a href="clientes-edit.html" class="btn btn-success"><i class="icofont-pencil"></i> Editar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --><!-- span12-->
+                            <!-- tables -->
+                            <!--datatables-->
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="box corner-all">
+                                        <div class="box-header grd-teal color-white corner-top">
+                                            <div class="header-control">
+                                                <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                                            </div>
+                                            <span>Lista de procesos</span>
+                                        </div>
+                                        <div class="box-body">
+                                            <table id="datatables" class="table table-bordered table-striped responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Cód.</th>
+                                                        <th>Radicación</th>
+                                                        <th>Demandante</th>
+                                                        <th>Demandado</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="odd gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21358</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                    <tr class="even gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21359</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                    <tr class="odd gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21360</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                    <tr class="even gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21361</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                    <tr class="odd gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21362</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                    <tr class="even gradeA">
+                                                        <td><a href="hojadevida.html" class="btn btn-link btn-small">21363</a></td>
+                                                        <td>2012-01029</td>
+                                                        <td>Carlos Antonio Correa Posada</td>
+                                                        <td>Instituto de Seguros Sociales ISS</td>
+                                                        <td class="center"><a href="hojadevida.html" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            
+                                        </div><!-- /box-body -->
+                                    </div><!-- /box -->
+                                </div><!-- /span -->
+                            </div><!--/datatables-->
+                            
+                            <!--/tables-->
+                        </div><!--/content-body -->
+                    </div><!-- /content -->
+                </div><!-- /span content -->
+
+                <!-- span side-right -->
+                <div class="span2">
+                    <!-- side-right -->
+                    <aside class="side-right">
+                        <!-- sidebar-right -->
+                        <div class="sidebar-right">
+                            <!--sidebar-right-header-->
+                            <div class="sidebar-right-header">
+                                <!-- <div class="sr-header-right">
+                                    <h2><span class="label label-info">254849</span></h2>
+                                </div> -->
+                                <div class="sr-header-left">
+                                    <p class="bold">Datos básicos</p>
+                                    <small class="muted">22 Dic 2013</small>
+                                </div>
+                            </div><!--/sidebar-right-header-->
+                            <!--sidebar-right-control-->
+                            <div class="sidebar-right-control">
+                                <ul class="sr-control-item">
+                                    <li class="active"><a href="#alt1" data-toggle="tab" title="alternative 1"><i class="icofont-file-alt"></i></a></li>
+                                </ul>
+                            </div><!-- /sidebar-right-control-->
+                            <!-- sidebar-right-content -->
+                            <div class="sidebar-right-content">
+                                <div class="tab-content">
+                                    <!--alternative 1-->
+                                    <div class="tab-pane fade active in" id="alt1">
+
+                                        <p>
+                                            <span class="color-teal">Empresa</span><br>Abogados Asociados
+                                        </p>
+                                        <div class="divider-content2"></div>
+                                        <p>
+                                            <span class="color-teal">Responsable</span><br>Juan Carlos Rodriguez
+                                        </p>
+                                        <div class="divider-content2"></div>
+                                        <p>
+                                            <span class="color-teal">Teléfono</span><br>2554367
+                                        </p>
+                                        <div class="divider-content2"></div>
+                                        <p>
+                                            <span class="color-teal">Email</span><br>juan.rodriguez@gmail.com
+                                        </p>
+
+                                        <a href="perfil-editar.html" class="btn btn-primary btn-mini btn-block"><i class="icofont-pencil"></i> Editar</a>
+                                        
+                                        <div class="divider-content"><span></span></div> <!--divider-->
+                                    </div><!--/alternative 1-->
+                                    
+                                </div>
+                            </div><!-- /sidebar-right-content -->
+                        </div><!-- /sidebar-right -->
+                    </aside><!-- /side-right -->
+                </div><!-- /span side-right -->
+
+            </div>
+        </section>
+
+        <!-- section footer -->
+        <footer>
+            <a rel="to-top" href="#top"><i class="icofont-circle-arrow-up"></i></a>
+        </footer>
+
+        <!-- javascript
+        ================================================== -->
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/uniform/jquery.uniform.js"></script>
+        <script src="js/peity/jquery.peity.js"></script>
+        
+        <script src="js/datatables/jquery.dataTables.min.js"></script>
+        <script src="js/datatables/extras/ZeroClipboard.js"></script>
+        <script src="js/datatables/extras/TableTools.min.js"></script>
+        <script src="js/datatables/DT_bootstrap.js"></script>
+        <script src="js/responsive-tables/responsive-tables.js"></script>
+        
+        <!-- required stilearn template js, for full feature-->
+        <script src="js/holder.js"></script>
+        <script src="js/stilearn-base.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // try your js
+                
+                // peity chart
+                $("span[data-chart=peity-bar]").peity("bar");
+                
+                // uniform
+                $('[data-form=uniform]').uniform();
+                
+                // datatables
+                $('#datatables').dataTable( {
+                    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                    "sPaginationType": "bootstrap",
+                    "oLanguage": {
+                            "sLengthMenu": "_MENU_ records per page"
+                    }
+                });
+                
+                // datatables table tools
+                $('#datatablestools').dataTable({
+                    "sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                    "oTableTools": {
+                        "aButtons": [
+                            "copy",
+                            "print",
+                            {
+                                "sExtends":    "collection",
+                                "sButtonText": 'Save <span class="caret" />',
+                                "aButtons":    [ 
+                                    "xls", 
+                                    "csv",
+                                    {
+                                        "sExtends": "pdf",
+                                        "sPdfOrientation": "landscape",
+                                        "sPdfMessage": "Your custom message would go here."
+                                    }
+                                ]
+                            }
+                        ],
+                        "sSwfPath": "js/datatables/swf/copy_csv_xls_pdf.swf"
+                    }
+                });
+            });
+      
+        </script>
+    </body>
+</html>

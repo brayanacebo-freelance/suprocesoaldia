@@ -1,0 +1,62 @@
+[24-May-2014 11:42:44 America/Chicago] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20121212
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[24-May-2014 11:42:46 America/Chicago] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20121212
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[24-May-2014 11:42:47 America/Chicago] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20121212
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[24-May-2014 11:42:47 America/Chicago] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20121212
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[24-May-2014 12:34:00 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 19:43:34 America/Bogota] PHP Parse error:  syntax error, unexpected '@', expecting ')' in /home/suproces/public_html/app/app/config/mail.php on line 57
+[28-May-2014 19:55:01 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 19:55:07 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 19:55:15 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 19:56:59 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 19:57:58 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 20:49:15 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 21:04:24 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[28-May-2014 21:04:30 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[27-Jun-2014 07:41:12 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[27-Jun-2014 09:10:15 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[27-Jun-2014 13:54:52 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[02-Jul-2014 16:03:34 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[04-Jul-2014 10:23:51 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[04-Jul-2014 10:26:47 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[04-Jul-2014 10:26:55 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[05-Jul-2014 12:11:19 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[05-Jul-2014 12:11:26 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[05-Jul-2014 12:39:16 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[20-Jul-2014 13:34:47 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[23-Jul-2014 12:30:17 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[23-Jul-2014 12:57:24 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[23-Jul-2014 18:22:07 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[23-Jul-2014 18:26:18 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[26-Jul-2014 20:03:01 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[27-Jul-2014 20:34:12 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:34:23 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:34:27 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:39:03 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:40:15 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:41:35 America/Bogota] PHP Parse error:  syntax error, unexpected end of file in /home/suproces/public_html/app/app/storage/views/282f916ffd934d8990c69d444c355f3c on line 275
+[27-Jul-2014 20:52:24 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[27-Jul-2014 21:26:50 America/Bogota] PHP Fatal error:  Call to a member function format() on a non-object in /home/suproces/public_html/app/app/storage/views/40cade630f00e1db54f53427a1cbf950 on line 105
+[27-Jul-2014 21:27:30 America/Bogota] PHP Fatal error:  Class 'Date' not found in /home/suproces/public_html/app/app/storage/views/40cade630f00e1db54f53427a1cbf950 on line 105
+[11-Aug-2014 10:20:21 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[12-Aug-2014 11:28:04 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[12-Aug-2014 11:28:15 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[12-Aug-2014 11:29:02 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[13-Aug-2014 15:46:58 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[30-Aug-2014 11:48:06 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641
+[30-Aug-2014 11:48:24 America/Bogota] PHP Fatal error:  Class 'SuperAdmin' not found in /home/suproces/public_html/app/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 641

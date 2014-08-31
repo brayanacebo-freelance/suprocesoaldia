@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Layout - Stilearn Admin Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stilearn Admin Template - Documentation">
+        <meta name="author" content="Stilearning">
+
+        <!-- Le styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/prettify.css" rel="stylesheet">
+        <link href="css/bootstrap-doc.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body onload="prettyPrint()">
+        <!--navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">Stilearn Admin Template - Documentation</a>
+                </div>
+            </div>
+        </div><!--/.navbar -->
+
+        <!-- container -->
+        <div class="container content">
+            <div class="row-fluid">
+                <div class="span3 docs-sidebar">
+                    <!--sidebar -->
+                    <ul class="nav nav-list docs-sidenav">
+                        <li><a href="index.html"><i class="icofont-angle-right"></i> Get Started</a></li>
+                        <li class="active"><a href="layout.html"><i class="icofont-angle-right"></i> Layout</a></li>
+                        <li><a href="general.html"><i class="icofont-angle-right"></i> General Style</a></li>
+                        <li><a href="helper.html"><i class="icofont-angle-right"></i> Helper Style</a></li>
+                        <li><a href="plugin.html"><i class="icofont-angle-right"></i> Plugin</a></li>
+                        <li><a href="example.html"><i class="icofont-angle-right"></i> Example</a></li>
+                    </ul><!--/.sidebar -->
+                </div><!--/.span3 -->
+
+                <div class="span9">
+                    <div class="doc-content-box">
+                        <!--Layout-->
+                        <!--Header-->
+                        <div class="page-header">
+                            <h1>Header</h1>
+                        </div>
+                        <p>For the header component I think there will be no problem.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!--header section--&gt;
+&lt;header class=&quot;header&quot;&gt;
+    &lt;!--nav bar helper--&gt;
+    &lt;div class=&quot;navbar-helper&quot;&gt;
+        &lt;!--we still recommend using a row-fluid to split the grid--&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
+            &lt;!--grid site-name--&gt;
+            &lt;div class=&quot;span2&quot;&gt;
+                &lt;div class=&quot;panel-sitename&quot;&gt;
+                    &lt;h2&gt;&lt;a href=&quot;index.html&quot;&gt;&lt;span class=&quot;color-teal&quot;&gt;Sti&lt;/span&gt;learn&lt;/a&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;&lt;!--/grid site-name--&gt;
+
+            &lt;!--grid form search--&gt;
+            &lt;div class=&quot;span6&quot;&gt;
+                &lt;!--panel search--&gt;
+                &lt;div class=&quot;panel-search&quot;&gt;
+                    &lt;form class=&quot;form-search&quot;&gt;
+                        &lt;div class=&quot;input-icon-append&quot;&gt;
+                            &lt;button type=&quot;submit&quot; rel=&quot;tooltip-bottom&quot; title=&quot;search&quot; class=&quot;icon&quot;&gt;
+                                &lt;i class=&quot;icofont-search&quot;&gt;&lt;/i&gt;
+                            &lt;/button&gt;
+                            &lt;input class=&quot;input-large search-query grd-white&quot; maxlength=&quot;23&quot; placeholder=&quot;Search here...&quot; type=&quot;text&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;&lt;!--/panel search--&gt;
+            &lt;/div&gt;&lt;!--/grid form search--&gt;
+            
+            &lt;!--grid button navigation--&gt;
+            &lt;div class=&quot;span4&quot;&gt;
+                &lt;!--panel button ext--&gt;
+                &lt;div class=&quot;panel-ext&quot;&gt;
+                    &lt;div class=&quot;btn-group&quot;&gt;
+                        &lt;!--button--&gt;
+                        &lt;a class=&quot;btn btn-inverse btn-small&quot; href=&quot;#&quot; title=&quot;lorem ipsum&quot;&gt;Action&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;&lt;!--/panel button ext--&gt;
+            &lt;/div&gt;&lt;!--/grid button navigation--&gt;
+
+            &lt;!--you don't have to split the display as seen above--&gt; 
+            &lt;!--it would be more fun if adjusted to your taste--&gt;
+        &lt;/div&gt; &lt;!--/row-fluid--&gt; 
+    &lt;/div&gt; &lt;!--/nav bar helper--&gt; 
+&lt;/header&gt; &lt;!--/header--&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!--section content-->
+                        <div class="page-header">
+                            <h1>Section Content</h1>
+                        </div>
+                        <p>I use grid system to divide the fluid column layout. Without changing any code in the bootstrap. Making it easy and simple to customize.</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!-- section content --&gt;
+&lt;section class=&quot;section&quot;&gt;
+    &lt;!--row-fluid--&gt;
+    &lt;div class=&quot;row-fluid&quot;&gt;
+        &lt;!-- span side-left --&gt;
+        &lt;div class=&quot;span1&quot;&gt;
+        ...
+        &lt;/div&gt;&lt;!-- span side-left --&gt;
+
+        &lt;!-- span content --&gt;
+        &lt;div class=&quot;span9&quot;&gt;
+        ...
+        &lt;/div&gt;&lt;!-- /span content --&gt;
+
+        &lt;!-- span side-right --&gt;
+        &lt;div class=&quot;span2&quot;&gt;
+        ...
+        &lt;/div&gt;&lt;!-- /span side-right --&gt;
+
+    &lt;/div&gt;&lt;!--/row-fluid --&gt;
+&lt;/section&gt;&lt;!--/section content --&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        <p>If you want to use only two columns, just need to remove the right side. Don't forget to change the span content (span9) to (span11).</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!-- section content --&gt;
+&lt;section class=&quot;section&quot;&gt;
+    &lt;!--row-fluid--&gt;
+    &lt;div class=&quot;row-fluid&quot;&gt;
+        &lt;!-- span side-left --&gt;
+        &lt;div class=&quot;span1&quot;&gt;
+        ...
+        &lt;/div&gt;&lt;!-- span side-left --&gt;
+
+        &lt;!-- span content --&gt;
+        &lt;div class=&quot;span11&quot;&gt;
+        ...
+        &lt;/div&gt;&lt;!-- /span content --&gt;
+
+    &lt;/div&gt;&lt;!--/row-fluid --&gt;
+&lt;/section&gt;&lt;!--/section content --&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!-- side left -->
+                        <h2>Side Left</h2>
+                        <p>I use the side left to the menu, you just need to call class side-left <code>&lt;aside class=&quot;side-left&quot;&gt;</code>. It's a feature of stilearn, I have a calculation to determine the width, etc. It's the same calculation for class content and side-right. If you want to know how I did the calculations, please contact me via <a href="mailto:bent10@stilearning.com?Subject=Need%20Layout%20Calculation">email</a>.</p>
+                        <p>Now you just add the template menu. Just like this :</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!-- span side-left --&gt;
+&lt;div class=&quot;span1&quot;&gt;
+    &lt;!--side bar--&gt;
+    &lt;aside class=&quot;side-left&quot;&gt;
+        &lt;!--side menu--&gt;
+        &lt;ul class=&quot;sidebar&quot;&gt;
+            &lt;!--always define class .first for first-child of li element sidebar left--&gt;
+            &lt;li class=&quot;active first&quot;&gt; 
+                &lt;a href=&quot;#&quot; title=&quot;dashboard&quot;&gt;
+                    &lt;div class=&quot;helper-font-24&quot;&gt;
+                        &lt;i class=&quot;icofont-dashboard&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;span class=&quot;sidebar-text&quot;&gt;Dashboard&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;#&quot; title=&quot;other menus&quot;&gt;
+                    &lt;div class=&quot;helper-font-24&quot;&gt;
+                        &lt;i class=&quot;icofont-th-large&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;span class=&quot;sidebar-text&quot;&gt;Other&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+        &lt;!--/side menu--&gt;
+    &lt;/aside&gt;&lt;!--/side bar --&gt;
+&lt;/div&gt;&lt;!-- span side-left --&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!-- content -->
+                        <h2>Content</h2>
+                        <p>Inside this content is contains the application that you created. Basically Format:</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!-- span content --&gt;
+&lt;div class=&quot;span9&quot;&gt;
+    &lt;!-- content --&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;!-- content-header --&gt;
+        &lt;div class=&quot;content-header&quot;&gt;
+            
+            &lt;h2&gt;&lt;i class=&quot;icofont-home&quot;&gt;&lt;/i&gt; Dashboard &lt;small&gt;welcome to stilearn&lt;/small&gt;&lt;/h2&gt;
+            
+        &lt;/div&gt;&lt;!-- /content-header --&gt;
+
+        &lt;!-- content-breadcrumb --&gt;
+        &lt;div class=&quot;content-breadcrumb&quot;&gt;
+            
+            &lt;!--breadcrumb--&gt;
+            &lt;ul class=&quot;breadcrumb&quot;&gt;
+                &lt;li&gt;
+                    &lt;a href=&quot;index.html&quot;&gt;
+                        &lt;i class=&quot;icofont-home&quot;&gt;&lt;/i&gt; 
+                        Dashboard
+                    &lt;/a&gt; 
+                    &lt;span class=&quot;divider&quot;&gt;&amp;rsaquo;&lt;/span&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;active&quot;&gt;Data elements&lt;/li&gt;
+            &lt;/ul&gt;&lt;!--/breadcrumb--&gt;
+            
+        &lt;/div&gt;&lt;!-- /content-breadcrumb --&gt;
+
+        &lt;!-- content-body --&gt;
+        &lt;div class=&quot;content-body&quot;&gt;
+
+            //everything you want to create, write here
+        
+        &lt;/div&gt;&lt;!--/content-body --&gt;
+
+    &lt;/div&gt;&lt;!-- /content --&gt;
+&lt;/div&gt;&lt;!-- /span content --&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!-- side right -->
+                        <h2>Side Right</h2>
+                        <p>Same as the others, just need to include an existing template:</p>
+                        <!--code sample-->
+<pre class="prettyprint linenums">
+&lt;!-- span side-right --&gt;
+&lt;div class=&quot;span2&quot;&gt;
+    &lt;!-- side-right --&gt;
+    &lt;aside class=&quot;side-right&quot;&gt;
+        &lt;!-- sidebar-right --&gt;
+        &lt;div class=&quot;sidebar-right&quot;&gt;
+
+            &lt;!--sidebar-right-header--&gt;
+            &lt;div class=&quot;sidebar-right-header&quot;&gt;
+
+                &lt;div class=&quot;sr-header-left&quot;&gt;
+                    &lt;p class=&quot;bold&quot;&gt;Lorem Ipsum&lt;/p&gt;
+                    &lt;small class=&quot;muted&quot;&gt;Dec 30 2012&lt;/small&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;&lt;!--/sidebar-right-header--&gt;
+
+            &lt;!--sidebar-right-control--&gt;
+            &lt;div class=&quot;sidebar-right-control&quot;&gt;
+
+                &lt;!--we use bootstrap tab as controls, see the documentation about tab.--&gt;
+                &lt;ul class=&quot;sr-control-item&quot;&gt;
+                    &lt;li class=&quot;active&quot;&gt;
+                        &lt;a href=&quot;#alt1&quot; data-toggle=&quot;tab&quot; title=&quot;alternative 1&quot;&gt;
+                            &lt;i class=&quot;icofont-th&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href=&quot;#alt2&quot; data-toggle=&quot;tab&quot; title=&quot;alternative 2&quot;&gt;
+                            &lt;i class=&quot;icofont-th&quot;&gt;&lt;/i&gt;
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+
+            &lt;/div&gt;&lt;!-- /sidebar-right-control--&gt;
+
+            &lt;!-- sidebar-right-content --&gt;
+            &lt;div class=&quot;sidebar-right-content&quot;&gt;
+
+                &lt;!-- tab-content --&gt;
+                &lt;div class=&quot;tab-content&quot;&gt;
+                    &lt;!--alternative 1--&gt;
+                    &lt;div class=&quot;tab-pane fade active in&quot; id=&quot;alt1&quot;&gt;
+                    ...
+                    &lt;/div&gt;
+
+                    &lt;!--alternative 2--&gt;
+                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;alt2&quot;&gt;
+                    ...
+                    &lt;/div&gt;
+                &lt;/div&gt;&lt;!-- /tab-content --&gt;
+
+            &lt;/div&gt;&lt;!-- /sidebar-right-content --&gt;
+
+        &lt;/div&gt;&lt;!-- /sidebar-right --&gt;
+    &lt;/aside&gt;&lt;!-- /side-right --&gt;
+&lt;/div&gt;&lt;!-- /span side-right --&gt;
+</pre>
+                        <!--/code sample-->
+                        
+                        
+                        <!-- Page Navigation -->
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="index.html">&larr; Get started</a>
+                            </li>
+                            <li class="next">
+                                <a href="general.html">General Style &rarr;</a>
+                            </li>
+                        </ul><!-- Page Navigation -->
+                        
+                        <div class="shadow-right"> </div><!-- shadow doc-content-box -->
+                        
+                    </div><!--/.doc-content-box -->
+                    
+                </div><!--/.span9 -->
+            </div><!--/.row-fluid -->
+        </div><!-- /container -->
+        
+        
+        <!-- footer -->
+        <hr />
+        <footer class="footer">
+            <div class="row-fluid">
+                <div class="container">
+                    <p class="pull-right"><a href="#" class="scroll">back to top</a></p>
+                    <p>Copyright &copy; Stilearning 2013. All rights reserved.</p>
+                </div>
+            </div>
+        </footer><!--/.footer -->
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/prettify/prettify.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){   
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
+        
+            });
+        </script>
+</html>

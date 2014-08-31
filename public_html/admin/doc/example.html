@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Example - Stilearn Admin Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stilearn Admin Template - Documentation">
+        <meta name="author" content="Stilearning">
+
+        <!-- Le styles -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/prettify.css" rel="stylesheet">
+        <link href="css/bootstrap-doc.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body onload="prettyPrint()">
+        <!--navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="index.html">Stilearn Admin Template - Documentation</a>
+                </div>
+            </div>
+        </div><!--/.navbar -->
+
+        <!-- container -->
+        <div class="container content">
+            <div class="row-fluid">
+                <div class="span3 docs-sidebar">
+                    <!--sidebar -->
+                    <ul class="nav nav-list docs-sidenav">
+                        <li><a href="index.html"><i class="icofont-angle-right"></i> Get Started</a></li>
+                        <li><a href="layout.html"><i class="icofont-angle-right"></i> Layout</a></li>
+                        <li><a href="general.html"><i class="icofont-angle-right"></i> General Style</a></li>
+                        <li><a href="helper.html"><i class="icofont-angle-right"></i> Helper Style</a></li>
+                        <li><a href="plugin.html"><i class="icofont-angle-right"></i> Plugin</a></li>
+                        <li class="active"><a href="example.html"><i class="icofont-angle-right"></i> Example</a></li>
+                    </ul><!--/.sidebar -->
+                </div><!--/.span3 -->
+
+                <div class="span9">
+                    <div class="doc-content-box">
+                        <!-- Overview -->
+                        <div class="page-header">
+                            <h1>Example</h1>
+                        </div>
+                        <p class="lead">Just try to make some simple examples stilearn template, playing with the layout.</p>
+                        <ul class="thumbnails">
+                            <li>
+                                <div class="thumbnail">
+                                    <a target="_blank" href="3column.html">
+                                        <img src="img/demo-3column.jpg" alt="">
+                                    </a>
+                                    <h4><a target="_blank" href="3column.html">Simple 3 Columns Layout</a></h4>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumbnail">
+                                    <a target="_blank" href="2column.html">
+                                        <img src="img/demo-2column.jpg" alt="">
+                                    </a>
+                                    <h4><a target="_blank" href="2column.html">Simple 2 Columns Layout</a></h4>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <!-- Page Navigation -->
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="plugin.html">&larr; Plugin</a>
+                            </li>
+                            <li class="next">
+                                <a href="index.html">Next &rarr;</a>
+                            </li>
+                        </ul><!-- Page Navigation -->
+                        
+                        <div class="shadow-right"> </div><!-- shadow doc-content-box -->
+                        
+                    </div><!--/.doc-content-box -->
+                    
+                </div><!--/.span9 -->
+            </div><!--/.row-fluid -->
+        </div><!-- /container -->
+        
+        
+        <!-- footer -->
+        <hr />
+        <footer class="footer">
+            <div class="row-fluid">
+                <div class="container">
+                    <p class="pull-right"><a href="#" class="scroll">back to top</a></p>
+                    <p>Copyright &copy; Stilearning 2013. All rights reserved.</p>
+                </div>
+            </div>
+        </footer><!--/.footer -->
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/holder.js"></script>
+        <script src="js/prettify/prettify.js"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){   
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
+        
+            });
+        </script>
+</html>
