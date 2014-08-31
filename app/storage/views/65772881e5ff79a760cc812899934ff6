@@ -1,0 +1,146 @@
+
+<?php $__env->startSection('customstyle'); ?>
+    @parent
+        <?php echo HTML::style('admin/css/DT_bootstrap.css');; ?>
+		<?php echo HTML::style('admin/css/datepicker.css');; ?>
+		<?php echo HTML::style('admin/css/colorpicker.css');; ?>
+		<?php echo HTML::style('admin/css/select2.css');; ?>
+        <?php echo HTML::style('admin/css/bootstrap-wysihtml5.css');; ?>
+        <?php echo HTML::style('admin/css/responsive-tables.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
+	@parent
+	<div class="span11">
+                           <!-- content -->
+                    <div class="content">
+                        <!-- content-header -->
+                        <div class="content-header">
+                            <ul class="content-header-action pull-right">
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <div class="badge-circle color-white">
+                                            <div class="grd-teal">
+                                                <i class="icofont-thumbs-up"></i>
+                                            </div>
+                                        </div>
+                                        <div class="action-text color-teal"><?php echo count($departments); ?> <span class="helper-font-small color-silver-dark">Departamentos</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <h2><i class="icofont-table"></i> Departamentos</h2>
+                        </div><!-- /content-header -->
+                        
+                        <!-- content-breadcrumb -->
+                        <div class="content-breadcrumb">
+                            <!--breadcrumb-->
+                            <ul class="breadcrumb">
+                                <li><a href="<?php echo route('departments.index'); ?>"><i class="icofont-circle-arrow-right"></i> Departamentos</a> <span class="divider">&rsaquo;</span></li>
+                            </ul><!--/breadcrumb-->
+                        </div><!-- /content-breadcrumb -->
+                        
+                        <!-- content-body -->
+                        <div class="content-body">
+                                <?php if(Session::has('notifications')): ?>
+                                          <div class="alert alert-success">
+                                                 <button type="button" class="close" data-dismiss="alert">×</button>
+                                                 <?php echo Session::get('notifications'); ?>
+                                          </div>
+                                    <?php endif; ?>
+                            <div class="span9"></div>
+                            <div class="span3">
+                                <p>
+                                    <a href="<?php echo route('departments.create'); ?>" class="btn btn-block btn-primary">Nuevo departamento</a>
+                                </p>
+                            </div>
+                            <!-- tables -->
+                            <!--datatables-->
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="box corner-all">
+                                        <div class="box-header grd-teal color-white corner-top">
+                                            <span>Lista de departamentos</span>
+                                        </div>
+                                        <div class="box-body">
+                                            <table id="datatables" class="table table-bordered table-striped responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Cód</th>
+                                                        <th>Nombre</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php foreach($departments as $department): ?> 
+                                                    <tr class="odd gradeA">
+                                                        <td><?php echo $department->id; ?></td>
+                                                        <td><?php echo $department->name; ?></td>
+                                                        <td class="center"><a href="<?php echo route('departments.edit', $department->id); ?>" class="btn btn-success btn-small">Editar <i class="icofont-angle-right"></i></a> <a href="<?php echo route('departments.cities.index', $department->id); ?>" class="btn btn-success btn-small">Ciudades <i class="icofont-angle-right"></i></a></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                            
+                                        </div><!-- /box-body -->
+                                    </div><!-- /box -->
+                                </div><!-- /span -->
+                            </div><!--/datatables-->
+                            
+                            <!--/tables-->
+                        </div><!--/content-body -->
+                    </div><!-- /content -->
+
+    </div>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('customscript'); ?>
+    @parent
+        
+        <?php echo HTML::script('admin/js/peity/jquery.peity.js');; ?>
+
+        <?php echo HTML::script('admin/js/datepicker/bootstrap-datepicker.js');; ?>
+        <?php echo HTML::script('admin/js/colorpicker/bootstrap-colorpicker.js');; ?>
+        <?php echo HTML::script('admin/js/select2/select2.js');; ?>
+        <?php echo HTML::script('admin/js/wysihtml5/wysihtml5-0.3.0.js');; ?>
+        <?php echo HTML::script('admin/js/wysihtml5/bootstrap-wysihtml5.js');; ?>
+        <?php echo HTML::script('admin/js/wizard/jquery.ui.widget.js');; ?>
+        <?php echo HTML::script('admin/js/wizard/jquery.wizard.js');; ?>
+        <?php echo HTML::script('admin/js/responsive-tables/responsive-tables.js');; ?>
+
+
+        <?php echo HTML::script('admin/js/datatables/jquery.dataTables.min.js');; ?>
+        <?php echo HTML::script('admin/js/datatables/extras/ZeroClipboard.js');; ?>
+        <?php echo HTML::script('admin/js/datatables/extras/TableTools.js');; ?>
+        <?php echo HTML::script('admin/js/datatables/DT_bootstrap.js');; ?>
+        <?php echo HTML::script('admin/js/pnotify/jquery.pnotify.js');; ?>
+        <?php echo HTML::script('admin/js/pnotify/jquery.pnotify.demo.js');; ?>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $('form').validate();
+                                                        $("form").removeAttr("novalidate");
+                $('form').validate();
+                                                        $("form").removeAttr("novalidate");
+                // try your js
+
+                //Select
+                $('[data-form=select2]').select2();
+                
+                // peity chart
+                $("span[data-chart=peity-bar]").peity("bar");
+                
+                // uniform
+                $('[data-form=uniform]').uniform();
+                
+            });
+      
+        </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('template.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
