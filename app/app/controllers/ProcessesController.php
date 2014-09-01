@@ -63,11 +63,6 @@ class ProcessesController extends BaseController {
 	}
 
 
-	// return json_enconde(array("ok"=>false, "messaje"=>"pailas"));
-	// var data = JSON.parse(data);
-	// if (data.ok)
-	// 	true
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
