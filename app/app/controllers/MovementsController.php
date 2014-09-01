@@ -135,7 +135,8 @@ class MovementsController extends BaseController {
 		$movements = array();
 		foreach ($process->movements as $movement)
 		{
-			$movements[] = $movement;
+			if($movement->id == $id)
+				$movements[] = $movement;
 		}
 
 		return View::make('admin.gallery.all')->with(compact('client', 'process', 'movements'));

@@ -38,6 +38,12 @@ class ProcessesController extends BaseController {
 	{
 		$client = $this->clients->find($client_id);
 		$process = new Process(Input::all());
+		
+		//echo "<pre>"; print_r($process->claimant); exit;
+
+		//$data['claimant'] = array_filter($data['claimant']);
+		//$data['defendant'] = array_filter($data['defendant']);
+
 		$client->processes()->save($process);
 		return Redirect::route('clients.show', $client_id)->with('notifications', "Proceso creado con éxito!");
 	}
@@ -57,6 +63,10 @@ class ProcessesController extends BaseController {
 	}
 
 
+	// return json_enconde(array("ok"=>false, "messaje"=>"pailas"));
+	// var data = JSON.parse(data);
+	// if (data.ok)
+	// 	true
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -87,8 +97,11 @@ class ProcessesController extends BaseController {
 	{
 		$data = Input::except('_method');
 
-        $client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
+		$data['claimant'] = array_filter($data['claimant']);
+		$data['defendant'] = array_filter($data['defendant']);
+
+    $client = $this->clients->find($client_id);
+    $process = $this->processes->find($client_id, $id);
 		
 		$process->fill($data);
 		$process->save();

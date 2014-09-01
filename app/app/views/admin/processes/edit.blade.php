@@ -36,7 +36,7 @@
       <!--breadcrumb-->
       <ul class="breadcrumb">
         <li><a href="{{ route('clients.index') }}"><i class="icofont-circle-arrow-right"></i> Clientes</a> <span class="divider">&rsaquo;</span></li>
-        <li><a href="{{ route('clients.processes.show', array($client->id, $process->id)) }}"><i class="icofont-circle-arrow-right"></i> Información del cliente</a> <span class="divider">&rsaquo;</span></li>
+        <li><a href="{{ route('clients.processes.show', array($client->id, $process->id)) }}"><i class="icofont-circle-arrow-right"></i> Información del proceso</a> <span class="divider">&rsaquo;</span></li>
         <li class="active">Editar proceso</li>
       </ul><!--/breadcrumb-->
     </div><!-- /content-breadcrumb -->

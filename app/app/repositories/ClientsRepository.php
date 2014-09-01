@@ -22,7 +22,8 @@ class ClientsRepository {
         }
         else 
         {
-        	$clients = $this->assistant->clients;
+        	//$clients = $this->assistant->clients;
+            $clients = Client::all();
         }
         return $clients;
 	}

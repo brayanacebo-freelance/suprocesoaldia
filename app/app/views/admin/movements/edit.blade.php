@@ -163,7 +163,7 @@
         {{HTML::script('admin/js/wysihtml5/bootstrap-wysihtml5.js');}}
         {{HTML::script('admin/js/wizard/jquery.ui.widget.js');}}
         {{HTML::script('admin/js/wizard/jquery.wizard.js');}}
-        {{HTML::script('admin/js/stilearn-base.js');}}
+        <!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
         {{HTML::script('admin/js/pnotify/jquery.pnotify.js');}}
         {{HTML::script('admin/js/pnotify/jquery.pnotify.demo.js');}}
 
