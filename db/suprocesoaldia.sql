@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Aug 31, 2014 at 01:10 PM
--- Server version: 5.5.37
--- PHP Version: 5.4.23
+-- Servidor: localhost
+-- Tiempo de generación: 02-09-2014 a las 00:40:26
+-- Versión del servidor: 5.6.14
+-- Versión de PHP: 5.5.6
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `suproces_seguimiento`
+-- Base de datos: `suprocesoaldia`
 --
--- CREATE DATABASE `suproces_seguimiento` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
--- USE `suproces_seguimiento`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actions`
+-- Estructura de tabla para la tabla `actions`
 --
 
 CREATE TABLE IF NOT EXISTS `actions` (
@@ -37,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `actions` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `actions`
+-- Volcado de datos para la tabla `actions`
 --
 
 INSERT INTO `actions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -48,7 +46,7 @@ INSERT INTO `actions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assistants`
+-- Estructura de tabla para la tabla `assistants`
 --
 
 CREATE TABLE IF NOT EXISTS `assistants` (
@@ -63,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `assistants` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `assistants`
+-- Volcado de datos para la tabla `assistants`
 --
 
 INSERT INTO `assistants` (`id`, `name`, `nit`, `phone`, `document_type`, `created_at`, `updated_at`) VALUES
@@ -74,7 +72,7 @@ INSERT INTO `assistants` (`id`, `name`, `nit`, `phone`, `document_type`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cities`
+-- Estructura de tabla para la tabla `cities`
 --
 
 CREATE TABLE IF NOT EXISTS `cities` (
@@ -87,12 +85,11 @@ CREATE TABLE IF NOT EXISTS `cities` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `cities`
+-- Volcado de datos para la tabla `cities`
 --
 
 INSERT INTO `cities` (`id`, `department_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Bogota', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 0, 'Medellin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 2, 'Medellin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 1, 'Bogotá', '2014-03-03 12:46:18', '2014-03-03 12:46:18'),
 (4, 1, 'Soacha', '2014-06-27 13:37:08', '2014-06-27 13:37:08'),
 (5, 1, 'caqueza', '2014-08-12 16:56:24', '2014-08-12 16:56:24');
@@ -100,7 +97,7 @@ INSERT INTO `cities` (`id`, `department_id`, `name`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Estructura de tabla para la tabla `clients`
 --
 
 CREATE TABLE IF NOT EXISTS `clients` (
@@ -117,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
 
 --
--- Dumping data for table `clients`
+-- Volcado de datos para la tabla `clients`
 --
 
 INSERT INTO `clients` (`id`, `assistant_id`, `enterprise`, `in_charge`, `phone`, `last_seen_on`, `last_mail_sent_on`, `created_at`, `updated_at`) VALUES
@@ -134,7 +131,7 @@ INSERT INTO `clients` (`id`, `assistant_id`, `enterprise`, `in_charge`, `phone`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departments`
+-- Estructura de tabla para la tabla `departments`
 --
 
 CREATE TABLE IF NOT EXISTS `departments` (
@@ -146,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `departments`
+-- Volcado de datos para la tabla `departments`
 --
 
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -156,7 +153,7 @@ INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -165,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -184,7 +181,7 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movements`
+-- Estructura de tabla para la tabla `movements`
 --
 
 CREATE TABLE IF NOT EXISTS `movements` (
@@ -202,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `movements` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `movements`
+-- Volcado de datos para la tabla `movements`
 --
 
 INSERT INTO `movements` (`id`, `process_id`, `action_type`, `notification_type`, `notification_date`, `auto_date`, `comments`, `dir`, `created_at`, `updated_at`) VALUES
@@ -228,7 +225,7 @@ INSERT INTO `movements` (`id`, `process_id`, `action_type`, `notification_type`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notification_types`
+-- Estructura de tabla para la tabla `notification_types`
 --
 
 CREATE TABLE IF NOT EXISTS `notification_types` (
@@ -240,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `notification_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `notification_types`
+-- Volcado de datos para la tabla `notification_types`
 --
 
 INSERT INTO `notification_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -257,7 +254,7 @@ INSERT INTO `notification_types` (`id`, `name`, `created_at`, `updated_at`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `offices`
+-- Estructura de tabla para la tabla `offices`
 --
 
 CREATE TABLE IF NOT EXISTS `offices` (
@@ -270,132 +267,91 @@ CREATE TABLE IF NOT EXISTS `offices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=79 ;
 
 --
--- Dumping data for table `offices`
+-- Volcado de datos para la tabla `offices`
 --
 
 INSERT INTO `offices` (`id`, `city_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Despacho 1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 0, 'Despacho 2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 1, '1 EJECUCION', '2014-03-03 12:50:34', '2014-08-13 20:01:01'),
-(4, 1, '4 EJECUCION', '2014-03-03 12:53:09', '2014-08-13 20:01:22'),
-(5, 1, '5 EJECUCION', '2014-08-12 16:45:18', '2014-08-13 20:01:40'),
-(6, 1, '8 EJECUCION', '2014-08-12 16:56:45', '2014-08-13 20:01:59'),
-(7, 1, '9 EJECUCION', '2014-08-12 16:59:27', '2014-08-13 20:02:14'),
-(8, 1, '11 EJECUCION', '2014-08-12 16:59:47', '2014-08-13 20:02:32'),
-(9, 1, '13 EJECUCION', '2014-08-12 17:02:34', '2014-08-13 20:02:48'),
-(10, 1, '14 EJECUCION', '2014-08-12 17:03:05', '2014-08-13 20:03:04'),
-(11, 1, '15 EJECUCION', '2014-08-12 17:03:12', '2014-08-13 20:03:19'),
-(12, 1, '3 EJECUCION', '2014-08-12 17:07:58', '2014-08-13 20:03:39'),
-(13, 1, '10 EJECUCION', '2014-08-12 17:09:32', '2014-08-13 20:04:04'),
-(14, 1, '6 EJECUCION', '2014-08-12 17:10:00', '2014-08-13 20:04:20'),
-(15, 1, '9 CMD', '2014-08-12 17:19:52', '2014-08-13 20:04:51'),
-(16, 1, '19 CMD', '2014-08-12 18:08:42', '2014-08-13 20:05:04'),
-(17, 1, '20 CMD', '2014-08-13 20:05:15', '2014-08-13 20:05:15'),
-(18, 1, 'JUZ 15 CMD MINIMA', '2014-08-13 20:05:25', '2014-08-13 20:05:25'),
-(19, 1, '32 CMD ', '2014-08-13 20:05:35', '2014-08-13 20:05:35'),
-(20, 1, '8 CMD', '2014-08-13 20:05:45', '2014-08-13 20:05:45'),
-(21, 1, '2 DESCON', '2014-08-13 20:05:54', '2014-08-13 20:05:54'),
-(22, 1, '6  DESCON', '2014-08-13 20:06:58', '2014-08-13 20:06:58'),
-(23, 1, '5 DESCON', '2014-08-13 20:07:08', '2014-08-13 20:07:08'),
-(24, 1, '2 EJECUCION', '2014-08-13 20:07:35', '2014-08-13 20:07:35'),
-(25, 1, '12 CMD MINIMA ', '2014-08-13 20:07:45', '2014-08-13 20:07:45'),
-(26, 1, 'JUZ 13 CMD MINIMA', '2014-08-13 20:07:54', '2014-08-13 20:07:54'),
-(27, 1, '31 LABORAL', '2014-08-13 20:08:13', '2014-08-13 20:08:13'),
-(28, 1, '1 FAMILIA', '2014-08-13 20:08:22', '2014-08-13 20:08:22'),
-(29, 1, '6 FAMILIA', '2014-08-13 20:09:01', '2014-08-13 20:09:01'),
-(30, 1, '9 FAMILIA', '2014-08-13 20:09:14', '2014-08-13 20:09:14'),
-(31, 1, '12 FAMILIA', '2014-08-13 20:09:23', '2014-08-13 20:09:23'),
-(32, 1, '13 FAMILIA', '2014-08-13 20:10:17', '2014-08-13 20:10:17'),
-(33, 1, '21 FAMILIA', '2014-08-13 20:11:00', '2014-08-13 20:11:00'),
-(34, 1, '15 CM', '2014-08-13 20:11:10', '2014-08-13 20:11:10'),
-(35, 1, '26 CM', '2014-08-13 20:11:21', '2014-08-13 20:11:21'),
-(36, 1, '50 CM', '2014-08-13 20:11:31', '2014-08-13 20:11:31'),
-(37, 1, '35 CDM', '2014-08-13 20:11:45', '2014-08-13 20:11:45'),
-(38, 1, '57 CM', '2014-08-13 20:12:00', '2014-08-13 20:12:00'),
-(39, 1, '30 CIVIL MUNICIPAL DESCONGESTION', '2014-08-13 20:12:20', '2014-08-13 20:12:20'),
-(40, 1, '11 FAMILIA', '2014-08-13 20:12:33', '2014-08-13 20:12:33'),
-(41, 1, '3 ADM DESCONGETION', '2014-08-13 20:13:26', '2014-08-13 20:13:26'),
-(42, 1, 'JUZ 16 ADM DE DESCONGESTION', '2014-08-13 20:13:37', '2014-08-13 20:13:37'),
-(43, 1, '35 ADM', '2014-08-13 20:13:50', '2014-08-13 20:13:50'),
-(44, 1, '33 ADM', '2014-08-13 20:13:59', '2014-08-13 20:13:59'),
-(45, 1, '32 ADM', '2014-08-13 20:21:28', '2014-08-13 20:21:28'),
-(46, 1, 'TRIBUNAL ADM DE PASTO', '2014-08-13 20:21:40', '2014-08-13 20:21:40'),
-(47, 1, 'TRIBUNAL ADM DE quindio', '2014-08-13 20:21:49', '2014-08-13 20:21:49'),
-(48, 1, '29 AMD ARAUCA', '2014-08-13 20:22:02', '2014-08-13 20:22:02'),
-(49, 1, '2 ADM ARAUCA', '2014-08-13 20:22:13', '2014-08-13 20:22:13'),
-(50, 1, 'ARAUCA', '2014-08-13 20:22:23', '2014-08-13 20:22:23'),
-(51, 1, '3 ADM VALLEDUPAR', '2014-08-13 20:22:32', '2014-08-13 20:22:32'),
-(52, 1, 'JUZ CIVIL CIRCUITO CAQUEZA', '2014-08-13 20:22:43', '2014-08-13 20:22:43'),
-(53, 1, 'PROMISCUO FAMILIA CAQUEZA', '2014-08-13 20:23:00', '2014-08-13 20:23:00'),
-(54, 1, 'PROMISCUO FAMILIA CAQUEZA', '2014-08-13 20:23:01', '2014-08-13 20:23:01'),
-(55, 1, 'JUZ CIVIL PROMISCUO DE UNE', '2014-08-13 20:23:10', '2014-08-13 20:23:10'),
-(56, 1, 'JUZ FAMILIA SOACHA', '2014-08-13 20:23:19', '2014-08-13 20:23:19'),
-(57, 1, 'JUZGADO DE DESCONGESTION SOACHA', '2014-08-13 20:23:30', '2014-08-13 20:23:30'),
-(58, 1, 'JUZ 4 CM SOACHA', '2014-08-13 20:24:56', '2014-08-13 20:24:56'),
-(59, 1, 'JUZ 2 CCTO SOACHA', '2014-08-13 20:25:09', '2014-08-13 20:25:09'),
-(60, 1, 'PROMISCUO CIVIL DE FACA', '2014-08-13 20:25:19', '2014-08-13 20:25:19'),
-(61, 1, 'JUZ CM SILVANIA', '2014-08-13 20:25:35', '2014-08-13 20:25:35'),
-(62, 1, 'JUZ 2 CM FUSA', '2014-08-13 20:25:45', '2014-08-13 20:25:45'),
-(63, 1, 'JUZ PROMISCUO FAMILIA FUSA', '2014-08-13 20:25:56', '2014-08-13 20:25:56'),
-(64, 1, '35 ccto', '2014-08-13 20:26:07', '2014-08-13 20:26:07'),
-(65, 1, '4 ccto laboral', '2014-08-13 20:26:18', '2014-08-13 20:26:18'),
-(66, 1, '16 ccto familia', '2014-08-13 20:26:29', '2014-08-13 20:26:29'),
-(67, 1, '11 ccto', '2014-08-13 20:26:37', '2014-08-13 20:26:37'),
-(68, 1, '34 CCTO', '2014-08-13 20:26:48', '2014-08-13 20:26:48'),
-(69, 1, '23 CCTO', '2014-08-13 20:26:57', '2014-08-13 20:27:11'),
-(70, 1, 'CASACION', '2014-08-13 20:27:21', '2014-08-13 20:27:21'),
-(71, 1, '31 ADM', '2014-08-13 20:27:37', '2014-08-13 20:27:37'),
-(72, 1, '11 CMD', '2014-08-13 20:28:00', '2014-08-13 20:28:00'),
-(73, 1, 'JUZ 26 ADM', '2014-08-13 20:28:19', '2014-08-13 20:28:19'),
-(74, 1, 'JUZ 21 ADM', '2014-08-13 20:28:30', '2014-08-13 20:28:30'),
-(75, 1, 'JUEZ PROMISCUO DE NILO (CUND)', '2014-08-13 20:28:40', '2014-08-13 20:28:40'),
-(76, 1, 'JUEZ CIVIL MUNICIPAL DE TUNJA', '2014-08-13 20:28:50', '2014-08-13 20:28:50'),
-(77, 1, 'JUZ 13 ADM', '2014-08-13 20:29:01', '2014-08-13 20:29:01'),
-(78, 1, 'JUZ 11 ADM', '2014-08-13 20:29:09', '2014-08-13 20:29:09');
+(3, 3, '1 EJECUCION', '2014-03-03 12:50:34', '2014-08-13 20:01:01'),
+(4, 3, '4 EJECUCION', '2014-03-03 12:53:09', '2014-08-13 20:01:22'),
+(5, 3, '5 EJECUCION', '2014-08-12 16:45:18', '2014-08-13 20:01:40'),
+(6, 3, '8 EJECUCION', '2014-08-12 16:56:45', '2014-08-13 20:01:59'),
+(7, 3, '9 EJECUCION', '2014-08-12 16:59:27', '2014-08-13 20:02:14'),
+(8, 3, '11 EJECUCION', '2014-08-12 16:59:47', '2014-08-13 20:02:32'),
+(9, 3, '13 EJECUCION', '2014-08-12 17:02:34', '2014-08-13 20:02:48'),
+(10, 3, '14 EJECUCION', '2014-08-12 17:03:05', '2014-08-13 20:03:04'),
+(11, 3, '15 EJECUCION', '2014-08-12 17:03:12', '2014-08-13 20:03:19'),
+(12, 3, '3 EJECUCION', '2014-08-12 17:07:58', '2014-08-13 20:03:39'),
+(13, 3, '10 EJECUCION', '2014-08-12 17:09:32', '2014-08-13 20:04:04'),
+(14, 3, '6 EJECUCION', '2014-08-12 17:10:00', '2014-08-13 20:04:20'),
+(15, 3, '9 CMD', '2014-08-12 17:19:52', '2014-08-13 20:04:51'),
+(16, 3, '19 CMD', '2014-08-12 18:08:42', '2014-08-13 20:05:04'),
+(17, 3, '20 CMD', '2014-08-13 20:05:15', '2014-08-13 20:05:15'),
+(18, 3, 'JUZ 15 CMD MINIMA', '2014-08-13 20:05:25', '2014-08-13 20:05:25'),
+(19, 3, '32 CMD ', '2014-08-13 20:05:35', '2014-08-13 20:05:35'),
+(20, 3, '8 CMD', '2014-08-13 20:05:45', '2014-08-13 20:05:45'),
+(21, 3, '2 DESCON', '2014-08-13 20:05:54', '2014-08-13 20:05:54'),
+(22, 3, '6  DESCON', '2014-08-13 20:06:58', '2014-08-13 20:06:58'),
+(23, 3, '5 DESCON', '2014-08-13 20:07:08', '2014-08-13 20:07:08'),
+(24, 3, '2 EJECUCION', '2014-08-13 20:07:35', '2014-08-13 20:07:35'),
+(25, 3, '12 CMD MINIMA ', '2014-08-13 20:07:45', '2014-08-13 20:07:45'),
+(26, 3, 'JUZ 13 CMD MINIMA', '2014-08-13 20:07:54', '2014-08-13 20:07:54'),
+(27, 3, '31 LABORAL', '2014-08-13 20:08:13', '2014-08-13 20:08:13'),
+(28, 3, '1 FAMILIA', '2014-08-13 20:08:22', '2014-08-13 20:08:22'),
+(29, 3, '6 FAMILIA', '2014-08-13 20:09:01', '2014-08-13 20:09:01'),
+(30, 3, '9 FAMILIA', '2014-08-13 20:09:14', '2014-08-13 20:09:14'),
+(31, 3, '12 FAMILIA', '2014-08-13 20:09:23', '2014-08-13 20:09:23'),
+(32, 3, '13 FAMILIA', '2014-08-13 20:10:17', '2014-08-13 20:10:17'),
+(33, 3, '21 FAMILIA', '2014-08-13 20:11:00', '2014-08-13 20:11:00'),
+(34, 3, '15 CM', '2014-08-13 20:11:10', '2014-08-13 20:11:10'),
+(35, 3, '26 CM', '2014-08-13 20:11:21', '2014-08-13 20:11:21'),
+(36, 3, '50 CM', '2014-08-13 20:11:31', '2014-08-13 20:11:31'),
+(37, 3, '35 CDM', '2014-08-13 20:11:45', '2014-08-13 20:11:45'),
+(38, 3, '57 CM', '2014-08-13 20:12:00', '2014-08-13 20:12:00'),
+(39, 3, '30 CIVIL MUNICIPAL DESCONGESTION', '2014-08-13 20:12:20', '2014-08-13 20:12:20'),
+(40, 3, '11 FAMILIA', '2014-08-13 20:12:33', '2014-08-13 20:12:33'),
+(41, 3, '3 ADM DESCONGETION', '2014-08-13 20:13:26', '2014-08-13 20:13:26'),
+(42, 3, 'JUZ 16 ADM DE DESCONGESTION', '2014-08-13 20:13:37', '2014-08-13 20:13:37'),
+(43, 3, '35 ADM', '2014-08-13 20:13:50', '2014-08-13 20:13:50'),
+(44, 3, '33 ADM', '2014-08-13 20:13:59', '2014-08-13 20:13:59'),
+(45, 3, '32 ADM', '2014-08-13 20:21:28', '2014-08-13 20:21:28'),
+(46, 3, 'TRIBUNAL ADM DE PASTO', '2014-08-13 20:21:40', '2014-08-13 20:21:40'),
+(47, 3, 'TRIBUNAL ADM DE quindio', '2014-08-13 20:21:49', '2014-08-13 20:21:49'),
+(48, 3, '29 AMD ARAUCA', '2014-08-13 20:22:02', '2014-08-13 20:22:02'),
+(49, 3, '2 ADM ARAUCA', '2014-08-13 20:22:13', '2014-08-13 20:22:13'),
+(50, 3, 'ARAUCA', '2014-08-13 20:22:23', '2014-08-13 20:22:23'),
+(51, 3, '3 ADM VALLEDUPAR', '2014-08-13 20:22:32', '2014-08-13 20:22:32'),
+(52, 3, 'JUZ CIVIL CIRCUITO CAQUEZA', '2014-08-13 20:22:43', '2014-08-13 20:22:43'),
+(53, 3, 'PROMISCUO FAMILIA CAQUEZA', '2014-08-13 20:23:00', '2014-08-13 20:23:00'),
+(54, 3, 'PROMISCUO FAMILIA CAQUEZA', '2014-08-13 20:23:01', '2014-08-13 20:23:01'),
+(55, 3, 'JUZ CIVIL PROMISCUO DE UNE', '2014-08-13 20:23:10', '2014-08-13 20:23:10'),
+(56, 3, 'JUZ FAMILIA SOACHA', '2014-08-13 20:23:19', '2014-08-13 20:23:19'),
+(57, 3, 'JUZGADO DE DESCONGESTION SOACHA', '2014-08-13 20:23:30', '2014-08-13 20:23:30'),
+(58, 3, 'JUZ 4 CM SOACHA', '2014-08-13 20:24:56', '2014-08-13 20:24:56'),
+(59, 3, 'JUZ 2 CCTO SOACHA', '2014-08-13 20:25:09', '2014-08-13 20:25:09'),
+(60, 3, 'PROMISCUO CIVIL DE FACA', '2014-08-13 20:25:19', '2014-08-13 20:25:19'),
+(61, 3, 'JUZ CM SILVANIA', '2014-08-13 20:25:35', '2014-08-13 20:25:35'),
+(62, 3, 'JUZ 2 CM FUSA', '2014-08-13 20:25:45', '2014-08-13 20:25:45'),
+(63, 3, 'JUZ PROMISCUO FAMILIA FUSA', '2014-08-13 20:25:56', '2014-08-13 20:25:56'),
+(64, 3, '35 ccto', '2014-08-13 20:26:07', '2014-08-13 20:26:07'),
+(65, 3, '4 ccto laboral', '2014-08-13 20:26:18', '2014-08-13 20:26:18'),
+(66, 3, '16 ccto familia', '2014-08-13 20:26:29', '2014-08-13 20:26:29'),
+(67, 3, '11 ccto', '2014-08-13 20:26:37', '2014-08-13 20:26:37'),
+(68, 3, '34 CCTO', '2014-08-13 20:26:48', '2014-08-13 20:26:48'),
+(69, 3, '23 CCTO', '2014-08-13 20:26:57', '2014-08-13 20:27:11'),
+(70, 3, 'CASACION', '2014-08-13 20:27:21', '2014-08-13 20:27:21'),
+(71, 3, '31 ADM', '2014-08-13 20:27:37', '2014-08-13 20:27:37'),
+(72, 3, '11 CMD', '2014-08-13 20:28:00', '2014-08-13 20:28:00'),
+(73, 3, 'JUZ 26 ADM', '2014-08-13 20:28:19', '2014-08-13 20:28:19'),
+(74, 3, 'JUZ 21 ADM', '2014-08-13 20:28:30', '2014-08-13 20:28:30'),
+(75, 3, 'JUEZ PROMISCUO DE NILO (CUND)', '2014-08-13 20:28:40', '2014-08-13 20:28:40'),
+(76, 3, 'JUEZ CIVIL MUNICIPAL DE TUNJA', '2014-08-13 20:28:50', '2014-08-13 20:28:50'),
+(77, 3, 'JUZ 13 ADM', '2014-08-13 20:29:01', '2014-08-13 20:29:01'),
+(78, 3, 'JUZ 11 ADM', '2014-08-13 20:29:09', '2014-08-13 20:29:09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `process_types`
---
-
-CREATE TABLE IF NOT EXISTS `process_types` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
-
---
--- Dumping data for table `process_types`
---
-
-INSERT INTO `process_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'EJECUTIVO SINGULAR', '0000-00-00 00:00:00', '2014-08-13 20:31:57'),
-(2, 'EJECUTIVO HIPOTECARIO', '0000-00-00 00:00:00', '2014-08-13 20:32:10'),
-(3, 'ALIMENTOS', '2014-03-02 21:25:07', '2014-08-13 20:32:26'),
-(4, 'INTERDICCION', '2014-07-04 15:25:57', '2014-08-13 20:32:42'),
-(5, 'ORDINARIO LABORAL', '2014-08-12 18:10:50', '2014-08-13 20:33:02'),
-(6, 'IMPUGANACION DE PATERNIDAD', '2014-08-12 18:11:02', '2014-08-13 20:33:31'),
-(7, 'SUCESIÓN', '2014-08-12 18:11:18', '2014-08-13 20:33:47'),
-(8, 'DIVORCIO', '2014-08-12 18:11:25', '2014-08-13 20:34:11'),
-(9, 'LIQ SOCIEDAD CONYUGAL', '2014-08-12 18:11:54', '2014-08-13 20:34:25'),
-(10, 'FILIACION EXTRAMATRIMONIAL', '2014-08-12 18:12:19', '2014-08-13 20:34:50'),
-(11, 'NULIDAD Y RESTABLECIMIENTO DEL DERECHO', '2014-08-12 18:14:41', '2014-08-13 20:35:08'),
-(12, 'REPARACION DIRECTA', '2014-08-12 18:15:37', '2014-08-13 20:35:33'),
-(13, 'ADOPCION', '2014-08-12 18:15:55', '2014-08-13 20:36:33'),
-(14, 'VERBAL-PERTENENCIA DE MINIMA CUANTIA', '2014-08-12 18:18:01', '2014-08-13 20:36:59'),
-(15, 'REMOSION DE GUARDA', '2014-08-12 18:18:24', '2014-08-13 20:37:15'),
-(16, 'RENDICION DE CUENTAS', '2014-08-12 18:18:38', '2014-08-13 20:38:02'),
-(17, 'RESPONSABILIDAD CIVIL', '2014-08-13 20:37:50', '2014-08-13 20:37:50'),
-(18, 'DISOLUCION Y LIQUIDACION DE SOCIEDAD COMERCIAL DE HECHO', '2014-08-13 20:38:20', '2014-08-13 20:38:20'),
-(19, 'PENSION DE SOBREVIVIENTE', '2014-08-13 20:38:29', '2014-08-13 20:38:29');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `processes`
+-- Estructura de tabla para la tabla `processes`
 --
 
 CREATE TABLE IF NOT EXISTS `processes` (
@@ -415,7 +371,7 @@ CREATE TABLE IF NOT EXISTS `processes` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `processes`
+-- Volcado de datos para la tabla `processes`
 --
 
 INSERT INTO `processes` (`id`, `client_id`, `folder_number`, `creation_number`, `department_id`, `city_id`, `office_id`, `process_type`, `claimant`, `defendant`, `created_at`, `updated_at`) VALUES
@@ -444,7 +400,46 @@ INSERT INTO `processes` (`id`, `client_id`, `folder_number`, `creation_number`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `process_types`
+--
+
+CREATE TABLE IF NOT EXISTS `process_types` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
+
+--
+-- Volcado de datos para la tabla `process_types`
+--
+
+INSERT INTO `process_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'EJECUTIVO SINGULAR', '0000-00-00 00:00:00', '2014-08-13 20:31:57'),
+(2, 'EJECUTIVO HIPOTECARIO', '0000-00-00 00:00:00', '2014-08-13 20:32:10'),
+(3, 'ALIMENTOS', '2014-03-02 21:25:07', '2014-08-13 20:32:26'),
+(4, 'INTERDICCION', '2014-07-04 15:25:57', '2014-08-13 20:32:42'),
+(5, 'ORDINARIO LABORAL', '2014-08-12 18:10:50', '2014-08-13 20:33:02'),
+(6, 'IMPUGANACION DE PATERNIDAD', '2014-08-12 18:11:02', '2014-08-13 20:33:31'),
+(7, 'SUCESIÓN', '2014-08-12 18:11:18', '2014-08-13 20:33:47'),
+(8, 'DIVORCIO', '2014-08-12 18:11:25', '2014-08-13 20:34:11'),
+(9, 'LIQ SOCIEDAD CONYUGAL', '2014-08-12 18:11:54', '2014-08-13 20:34:25'),
+(10, 'FILIACION EXTRAMATRIMONIAL', '2014-08-12 18:12:19', '2014-08-13 20:34:50'),
+(11, 'NULIDAD Y RESTABLECIMIENTO DEL DERECHO', '2014-08-12 18:14:41', '2014-08-13 20:35:08'),
+(12, 'REPARACION DIRECTA', '2014-08-12 18:15:37', '2014-08-13 20:35:33'),
+(13, 'ADOPCION', '2014-08-12 18:15:55', '2014-08-13 20:36:33'),
+(14, 'VERBAL-PERTENENCIA DE MINIMA CUANTIA', '2014-08-12 18:18:01', '2014-08-13 20:36:59'),
+(15, 'REMOSION DE GUARDA', '2014-08-12 18:18:24', '2014-08-13 20:37:15'),
+(16, 'RENDICION DE CUENTAS', '2014-08-12 18:18:38', '2014-08-13 20:38:02'),
+(17, 'RESPONSABILIDAD CIVIL', '2014-08-13 20:37:50', '2014-08-13 20:37:50'),
+(18, 'DISOLUCION Y LIQUIDACION DE SOCIEDAD COMERCIAL DE HECHO', '2014-08-13 20:38:20', '2014-08-13 20:38:20'),
+(19, 'PENSION DE SOBREVIVIENTE', '2014-08-13 20:38:29', '2014-08-13 20:38:29');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -460,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=46 ;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `loggeable_id`, `loggeable_type`, `created_at`, `updated_at`) VALUES
