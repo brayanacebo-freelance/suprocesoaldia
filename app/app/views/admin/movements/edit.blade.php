@@ -176,7 +176,7 @@
 
 
         {{HTML::script('admin/js/holder.js');}}
-        {{HTML::script('admin/js/stilearn-base.js');}}
+        <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
         {{HTML::script('admin/js/dropzone.js');}}
 
         <script type="text/javascript">

@@ -168,7 +168,7 @@
 
 
         {{HTML::script('admin/js/holder.js');}}
-        {{HTML::script('admin/js/stilearn-base.js');}}
+        <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
         <script type="text/javascript">
             $(document).ready(function() {

@@ -4,7 +4,6 @@
 @parent
 {{HTML::style('admin/css/DT_bootstrap.css');}}
 {{HTML::style('admin/css/responsive-tables.css');}}
-
 @stop
 
 
@@ -29,7 +28,7 @@
           </a>
         </li>
       </ul>
-      <h2><i class="icofont-table"></i> Auxiliares</h2>
+      <h2><i class="icofont-table"></i> Auxiliares </h2>
     </div><!-- /content-header -->
 
     <!-- content-breadcrumb -->
@@ -111,7 +110,7 @@
   {{HTML::script('admin/js/peity/jquery.peity.js');}}
   {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
   {{HTML::script('admin/js/holder.js');}}
-  {{HTML::script('admin/js/stilearn-base.js');}}
+  <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
   <script type="text/javascript">
     $(document).ready(function() {

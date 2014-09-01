@@ -164,7 +164,7 @@
 {{HTML::script('admin/js/pnotify/jquery.pnotify.demo.js');}}
 
 {{HTML::script('admin/js/holder.js');}}
-{{HTML::script('admin/js/stilearn-base.js');}}
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 {{HTML::script('admin/js/select2/select2.js');}}
 <script type="text/javascript">
 $(document).ready(function() {
