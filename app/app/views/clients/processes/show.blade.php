@@ -151,7 +151,7 @@
                             @foreach($process->movements as $key => $movement)
                               <div class="accordion-heading">
                                 <a class="accordion-toggle {{$key === 0 ? "bg-orange color-white" : "bg-silver color-black"}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $movement->id }}">
-                                  Código: {{ $movement->id }}
+                                  Fecha de notificación: {{ $movement->id }}
                                 </a>
                               </div>
                               <div id="collapse{{ $movement->id }}" class="accordion-body {{$key === 0 ? "in" : "collapse"}}">

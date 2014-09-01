@@ -163,7 +163,7 @@
                             @foreach($process->movements as $key => $movement)
                               <div class="accordion-heading">
                                 <a class="accordion-toggle {{$key === 0 ? "bg-orange color-white" : "bg-silver color-black"}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $movement->id }}">
-                                  Código: {{ $movement->notification_date }}
+                                  Fecha de notificación: {{ $movement->notification_date }}
                                 </a>
                               </div>
                               <div id="collapse{{ $movement->id }}" class="accordion-body {{$key === 0 ? "in" : "collapse"}}">
@@ -195,7 +195,7 @@
                                         <td>{{ $movement->comments }}</td>
                                       </tr>
                                       <tr>
-                                        <td><span class="color-teal">Acctiones</span></td>
+                                        <td><span class="color-teal">Acciones</span></td>
                                         <td>
                                           <a href="{{ route('clients.processes.movements.gallery', array($client->id, $process->id, $movement->id)) }}" class="btn btn-success btn-mini"><i class="icofont-camera"></i> Ver</a>
                                           @if( !Auth::user()->isClient() )
