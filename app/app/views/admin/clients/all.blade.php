@@ -49,14 +49,17 @@
                                  {{Session::get('notifications')}}
                           </div>
                     @endif
-                <div class="span9"></div>
-                <div class="span3">
-                    <p>
-                        <a href="{{ route('clients.create') }}" class="btn btn-block btn-primary">
-                            Nuevo cliente
-                        </a>
-                    </p>
-                </div>
+                    @if (!Auth::user()->isAssistant())
+                        <div class="span9"></div>
+                        <div class="span3">
+                            <p>
+                                <a href="{{ route('clients.create') }}" class="btn btn-block btn-primary">
+                                    Nuevo cliente
+                                </a>
+                            </p>
+                        </div>
+                    @endif
+                
                 <!-- tables -->
                 <!--datatables-->
                 <div class="row-fluid">

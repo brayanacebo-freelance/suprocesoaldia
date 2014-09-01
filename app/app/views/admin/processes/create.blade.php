@@ -29,7 +29,15 @@
  <!--breadcrumb-->
  <ul class="breadcrumb">
   <li><a href="{{ route('clients.index') }}"><i class="icofont-circle-arrow-right"></i> Clientes</a> <span class="divider">&rsaquo;</span></li>
-  <li><a href="{{ route('clients.processes.index',$client->id) }}"><i class="icofont-circle-arrow-right"></i> Información del proceso</a> <span class="divider">&rsaquo;</span></li>
+
+  <li>
+    <!-- {{ route('clients.processes.index',$client->id) }} -->
+    <a href="javascript:void(0)">
+      <i class="icofont-circle-arrow-right"></i> Procesos
+    </a> 
+    <span class="divider">&rsaquo;</span>
+  </li>
+  
   <li class="active">Nuevo proceso</li>
 </ul><!--/breadcrumb-->
 </div><!-- /content-breadcrumb -->

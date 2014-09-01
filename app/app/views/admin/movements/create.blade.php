@@ -4,9 +4,9 @@
     @parent
 
         {{HTML::style('admin/css/DT_bootstrap.css');}}
-    {{HTML::style('admin/css/datepicker.css');}}
-    {{HTML::style('admin/css/colorpicker.css');}}
-    {{HTML::style('admin/css/select2.css');}}
+        {{HTML::style('admin/css/datepicker.css');}}
+        {{HTML::style('admin/css/colorpicker.css');}}
+        {{HTML::style('admin/css/select2.css');}}
         {{HTML::style('admin/css/bootstrap-wysihtml5.css');}}
         {{HTML::style('admin/css/responsive-tables.css');}}
 
@@ -155,7 +155,7 @@
         {{HTML::script('admin/js/wysihtml5/bootstrap-wysihtml5.js');}}
         {{HTML::script('admin/js/wizard/jquery.ui.widget.js');}}
         {{HTML::script('admin/js/wizard/jquery.wizard.js');}}
-        {{HTML::script('admin/js/stilearn-base.js');}}
+        <!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
         {{HTML::script('admin/js/pnotify/jquery.pnotify.js');}}
         {{HTML::script('admin/js/pnotify/jquery.pnotify.demo.js');}}
 
@@ -185,6 +185,15 @@
 
                 // datepicker
                 $('[data-form=datepicker]').datepicker();
+                //$('[data-form=datepicker2]').datepicker();
+
+                // $('[data-form=datepicker]').on('change', function() {
+                //   $('[data-form=datepicker2]').datepicker({
+                //     minDate: $('[data-form=datepicker]').val()
+                //   });
+                // });
+
+                
 
                 // peity chart
                 $("span[data-chart=peity-bar]").peity("bar");

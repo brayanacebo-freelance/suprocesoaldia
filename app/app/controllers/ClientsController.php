@@ -20,6 +20,9 @@ class ClientsController extends BaseController {
 	{
         if (Auth::user()->isClient()) return Redirect::route('clients.show', 1);
         $clients = $this->clients->get();
+        // echo "<pre>";
+        // print_r($clients);
+        // exit;
         return View::make('admin.clients.all')->with(compact('clients'));
 	}
 
