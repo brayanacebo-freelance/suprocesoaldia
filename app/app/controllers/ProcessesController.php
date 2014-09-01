@@ -23,13 +23,10 @@ class ProcessesController extends BaseController {
 	public function create($client_id)
 	{
         $client = $this->clients->find($client_id);
-
 		$departments = $this->departments->getSelectList();
-		$cities = $this->cities->getSelectList();
 		$types = $this->types->getSelectList();
-		$offices = $this->offices->getSelectList();
- 
-        return View::make('admin.processes.create')->with(compact('client', 'cities', 'departments', 'types', 'offices'));
+
+        return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'));
 	}
 
 	/**
@@ -109,10 +106,34 @@ class ProcessesController extends BaseController {
 	{
 		$client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $id);
-
         $process->delete();
-
 		return Response::json(array());
+	}
+
+	/**
+	 * Filtros de selects
+	 *
+	 * @param  int  $id
+	 * @return Obj para armar el select con js
+	 */
+	public function getCities($departamentId)
+	{
+		if($departamentId > 0){
+			$departamen = $this->departments->find($departamentId);
+			return $departamen->cities;
+		}else{
+			return 0;
+		}
+	}
+
+	public function getOffices($cityId)
+	{
+		if($cityId > 0){
+			$city = $this->cities->find($cityId);
+			return $city->offices;
+		}else{
+			return 0;
+		}
 	}
 
 }

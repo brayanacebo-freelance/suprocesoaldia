@@ -71,77 +71,77 @@
                                     <div class="control-group">
                                      <label class="control-label" for="inputSelect">Departamento</label>
                                      <div class="controls">
-                                     {{ Form::select('department_id', $departments, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un departamento")) }}
+                                       {{ Form::select('department_id', $departments, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un departamento")) }}
+                                     </div>
                                    </div>
-                                 </div>
-                                 <div class="control-group">
-                                   <label class="control-label" for="inputSelect">Ciudad</label>
+                                   <div class="control-group">
+                                     <label class="control-label" for="inputSelect">Ciudad</label>
+                                     <div class="controls">
+                                      {{ Form::select('city_id', $cities, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione una ciudad")) }}
+                                    </div>
+                                  </div>
+                                  <div class="control-group">
+                                   <label class="control-label" for="inputAuto">Despacho</label>
                                    <div class="controls">
-                                    {{ Form::select('city_id', $cities, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione una ciudad")) }}
-                                 </div>
-                               </div>
-                               <div class="control-group">
-                                 <label class="control-label" for="inputAuto">Despacho</label>
-                                 <div class="controls">
                                      {{ Form::select('office_id', $offices, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un depacho")) }}
                                    </div>
+                                 </div>
+                               </div>
+                               <div class="span6">
+                                <div class="control-group">
+                                 <label class="control-label" for="inputSelect">Tipo de proceso</label>
+                                 <div class="controls">
+                                  {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
+                                </div>
+                              </div>
+                              <div class="control-group">
+                               <label class="control-label" for="required">Demandante</label>
+                               <div class="controls">
+                                <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant" id="required" />
                               </div>
                             </div>
-                            <div class="span6">
-                              <div class="control-group">
-                               <label class="control-label" for="inputSelect">Tipo de proceso</label>
-                               <div class="controls">
-                                {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
-                             </div>
-                           </div>
-                           <div class="control-group">
-                             <label class="control-label" for="required">Demandante</label>
+                            <div class="control-group">
+                             <label class="control-label" for="required">Demandando</label>
                              <div class="controls">
-                              <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant" id="required" />
+                              <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant" id="required" />
                             </div>
-                          </div>
-                          <div class="control-group">
-                           <label class="control-label" for="required">Demandando</label>
-                           <div class="controls">
-                            <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant" id="required" />
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-actions">
-                     <button type="submit" class="btn btn-primary">Crear proceso</button>
+                      <div class="form-actions">
+                       <button type="submit" class="btn btn-primary">Crear proceso</button>
+                     </div>
                    </div>
-                 </div>
-               </fieldset>
-               {{ Form::close() }}<!--/validation-->
-             </div>
-           </div><!--/box body-->
-         </div><!--/box-->
-       </div><!--/span--> 
-     </div><!--/validation-->
-   </div><!--/content-body -->
- </div><!-- /content -->
-</div>
-               @stop
+                 </fieldset>
+                 {{ Form::close() }}<!--/validation-->
+               </div>
+             </div><!--/box body-->
+           </div><!--/box-->
+         </div><!--/span--> 
+       </div><!--/validation-->
+     </div><!--/content-body -->
+   </div><!-- /content -->
+ </div>
+ @stop
 
-               @section('customscript')
-               @parent
+ @section('customscript')
+ @parent
 
-               {{HTML::script('admin/js/peity/jquery.peity.js');}}
-               {{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
-               {{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
-               {{HTML::script('admin/js/datatables/extras/TableTools.js');}}
-               {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
-               {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
-               {{HTML::script('admin/js/holder.js');}}
-               {{HTML::script('admin/js/stilearn-base.js');}}
+ {{HTML::script('admin/js/peity/jquery.peity.js');}}
+ {{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
+ {{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
+ {{HTML::script('admin/js/datatables/extras/TableTools.js');}}
+ {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
+ {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
+ {{HTML::script('admin/js/holder.js');}}
+ {{HTML::script('admin/js/stilearn-base.js');}}
 
-               <script type="text/javascript">
-                 $(document).ready(function() {
+ <script type="text/javascript">
+ $(document).ready(function() {
                 // try your js
                 
                 // peity chart
-                  $('#form-validate').validate();
+                $('#form-validate').validate();
 
                 $("span[data-chart=peity-bar]").peity("bar");
                 

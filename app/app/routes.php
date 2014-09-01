@@ -40,4 +40,8 @@ Route::group(array('before' => 'auth'), function ()
 	Route::get('mails', 'MailController@getShow');
 	Route::post('notify/{client}', array('uses' => 'MailController@notify', 'as' => 'clients.notify'));
 
+	Route::get('selectToCities/{departamentId}', 'ProcessesController@getCities');
+	Route::get('selectToOffices/{cityId}', 'ProcessesController@getOffices');
 });
+
+

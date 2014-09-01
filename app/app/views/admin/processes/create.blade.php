@@ -68,58 +68,58 @@
                                         <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="folder_number" id="required" />
                                       </div>
                                     </div>                                    <div class="control-group">
-                                       <label class="control-label" for="required">Radicación</label>
-                                       <div class="controls">
-                                        <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="creation_number" id="required" />
-                                      </div>
+                                    <label class="control-label" for="required">Radicación</label>
+                                    <div class="controls">
+                                      <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="creation_number" id="required" />
                                     </div>
-                                    <div class="control-group">
-                                     <label class="control-label" for="inputSelect">Departamento</label>
-                                     <div class="controls">
-                                     {{ Form::select('department_id', $departments, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un departamento")) }}
+                                  </div>
+                                  <div class="control-group">
+                                   <label class="control-label" for="inputSelect">Departamento</label>
+                                   <div class="controls">
+                                    {{ Form::select('department_id', $departments, null, array('id'=>"departamentId", 'onchange'=>"filterDepartament(this.value)")); }}
                                    </div>
                                  </div>
                                  <div class="control-group">
                                    <label class="control-label" for="inputSelect">Ciudad</label>
                                    <div class="controls">
-                                    {{ Form::select('city_id', $cities, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione una ciudad")) }}
-                                 </div>
-                               </div>
-                               <div class="control-group">
+                                    <select id="cityId" name="city_id" class="valid" onchange="filterOffices(this.value)"></select>
+                                  </div>
+                                </div>
+                                <div class="control-group">
                                  <label class="control-label" for="inputAuto">Despacho</label>
                                  <div class="controls">
-                                     {{ Form::select('office_id', $offices, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un depacho")) }}
-                                   </div>
-                              </div>
-                            </div>
-                            <div class="span6">
+                                  <select id="officeId" name="office_id" class="valid"></select>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="span6">
                               <div class="control-group">
                                <label class="control-label" for="inputSelect">Tipo de proceso</label>
                                <div class="controls">
                                 {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
-                             </div>
-                           </div>
-                           <div id="content_demand">
+                              </div>
+                            </div>
+                            <div id="content_demand">
 
-                                <div class="control-group">
-                                   <label class="control-label" for="required">Demandante - Numero de documento</label>
-                                   <div class="controls">
-                                    <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" />
-                                  </div>
-                                </div>
-                                <div class="control-group">
-                                 <label class="control-label" for="required">Demandando - Numero de documento</label>
-                                 <div class="controls">
-                                  <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required" />
-                                </div>
+                              <div class="control-group">
+                               <label class="control-label" for="required">Demandante - Numero de documento</label>
+                               <div class="controls">
+                                <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" />
+                              </div>
+                            </div>
+                            <div class="control-group">
+                             <label class="control-label" for="required">Demandando - Numero de documento</label>
+                             <div class="controls">
+                              <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required" />
+                            </div>
 
-                           </div>
-                         
+                          </div>
+
                         </div>
-                          <div class="span6">
-                            <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
-                            <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
-                           </div>
+                        <div class="span6">
+                          <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
+                          <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
+                        </div>
                       </div>
                     </div>
                     <div class="form-actions">
@@ -136,32 +136,74 @@
    </div><!--/content-body -->
  </div><!-- /content -->
 </div>
-               @stop
+@stop
 
-               @section('customscript')
-               @parent
+@section('customscript')
+@parent
 
-               {{HTML::script('admin/js/peity/jquery.peity.js');}}
-               {{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
-               {{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
-               {{HTML::script('admin/js/datatables/extras/TableTools.js');}}
-               {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
-               {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
-               {{HTML::script('admin/js/holder.js');}}
-               <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
+{{HTML::script('admin/js/peity/jquery.peity.js');}}
+{{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
+{{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
+{{HTML::script('admin/js/datatables/extras/TableTools.js');}}
+{{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
+{{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
+{{HTML::script('admin/js/holder.js');}}
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
-               <script type="text/javascript">
-                 $(document).ready(function() {
+<script type="text/javascript">
 
-                    $('#add_new_demant').click(function(){
-                              $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandante - Numero de documento</label><div class="controls"><input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="claimant[]" id="required" /></div> </div>');
-                    });
-                    $('#add_new_de').click(function(){
-                              $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandando - Numero de documento</label> <div class="controls"> <input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="defendant[]" id="required" /> </div>');
-                    });
+/* Filtrar las ciudades por departamentos */
+function filterDepartament(departamentId){
+    $.ajax({
+      type: "GET",
+      url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToCities/"+departamentId
+    }).done(function( data ) {
+
+      if(data !== 0){
+        $("#cityId").html("");
+        $("<option value='0'> Selecciona una ciudad </option>").appendTo("#cityId");
+        $.each( data, function( key, $item ) {
+          $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#cityId");
+        });
+      }
+      
+    });
+}
+
+/* Filtrar las oficinas por ciudades */
+function filterOffices(cityId){
+    $.ajax({
+      type: "GET",
+      url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToOffices/"+cityId
+    }).done(function( data ) {
+
+      console.log(data);
+
+      if(data !== 0){
+        $("#officeId").html("");
+        $("<option value='0'> Selecciona un despacho </option>").appendTo("#officeId");
+        $.each( data, function( key, $item ) {
+          $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#officeId");
+        });
+      }
+      
+    });
+}
+
+
+$(document).ready(function() {
+
+$( "#departamentId" ).prepend( "<option value='0' selected>Seleccione un departamento</option>" );
+
+  $('#add_new_demant').click(function(){
+    $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandante - Numero de documento</label><div class="controls"><input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="claimant[]" id="required" /></div> </div>');
+  });
+  $('#add_new_de').click(function(){
+    $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandando - Numero de documento</label> <div class="controls"> <input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="defendant[]" id="required" /> </div>');
+  });
 
                 // try your js
-                  $('#form-validate').validate();
+                $('#form-validate').validate();
 
                 // peity chart
                 $("span[data-chart=peity-bar]").peity("bar");
