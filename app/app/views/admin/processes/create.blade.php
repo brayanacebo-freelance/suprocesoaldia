@@ -169,6 +169,7 @@ function filterDepartament(departamentId){
 
       if(data !== 0){
         $("#cityId").html("");
+        $("#officeId").html("");
         $("<option value='0'> Selecciona una ciudad </option>").appendTo("#cityId");
         $.each( data, function( key, $item ) {
           $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#cityId");

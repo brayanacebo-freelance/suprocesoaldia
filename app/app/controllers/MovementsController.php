@@ -18,6 +18,7 @@ class MovementsController extends BaseController {
 	 */
 	public function create($client_id, $process_id)
 	{
+		
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $process_id);
 
@@ -33,6 +34,13 @@ class MovementsController extends BaseController {
 	 */
 	public function store($client_id, $process_id)
 	{
+		$notification_date = new DateTime(Input::get('notification_date'));
+		$auto_date = new DateTime(Input::get('auto_date'));
+		if($notification_date >= $auto_date){
+			Session::put('notifications', 'La fecha de auto debe ser mayor a la fecha de notificación');
+			return Redirect::to('clients/'.$client_id.'/processes/'.$process_id.'/movements/create');
+		}
+
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $process_id);
 
