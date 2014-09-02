@@ -194,8 +194,8 @@
                     @if (Auth::user()->isClient())
                     <li>
                       <a href="{{ route('client.movements.all') }}" title="movimientos">
-                        @if(Auth::user()->client()->unseenMovementsCount() !== 0) 
-                          <div class="badge badge-important">{{ Auth::user()->client()->unseenMovementsCount() }}</div>
+                        @if($movementsCounts !== 0) 
+                          <div class="badge badge-important">{{ $movementsCounts }}</div>
                         @endif
                         <div class="helper-font-24">
                           <i class="icofont-bullhorn"></i>

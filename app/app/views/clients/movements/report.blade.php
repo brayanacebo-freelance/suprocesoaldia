@@ -123,7 +123,7 @@
 {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
 {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
 {{HTML::script('admin/js/holder.js');}}
-{{HTML::script('admin/js/stilearn-base.js');}}
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
 {{HTML::script('admin/js/datepicker/bootstrap-datepicker.js');}}
 

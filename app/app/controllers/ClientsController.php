@@ -5,10 +5,11 @@ class ClientsController extends BaseController {
 	protected $clients;
 	protected $users;
 
-	function __construct(ClientsRepository $clients) 
+	function __construct(ClientsRepository $clients, ProcessesRepository $movements) 
 	{
 		parent::__construct();
 		$this->clients = $clients;
+		$this->movements = $movements;
 	}
 
 	/**
@@ -89,9 +90,12 @@ class ClientsController extends BaseController {
 	 */
 	public function show($id)
 	{
+
         $client = $this->clients->find($id);
 
-        return View::make('admin.clients.show')->with(compact('client'));
+		$movementsCounts = count($client->movements);
+
+        return View::make('admin.clients.show')->with(compact('client','movementsCounts'));
 	}
 
 	/**

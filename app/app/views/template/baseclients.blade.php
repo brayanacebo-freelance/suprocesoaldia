@@ -118,8 +118,8 @@
                         <ul class="sidebar">
                     <li>
                       <a href="{{ route('client.movements.all') }}" title="movimientos">
-                        @if($unseen_movements_count !== 0)
-                          <div class="badge badge-important">{{ $unseen_movements_count }}</div>
+                        @if($movements !== 0)
+                          <div class="badge badge-important">{{ count($movements) }}</div>
                         @endif
                         <div class="helper-font-24">
                           <i class="icofont-bullhorn"></i>

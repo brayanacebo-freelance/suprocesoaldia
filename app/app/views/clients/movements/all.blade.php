@@ -58,7 +58,7 @@
                           <div class="header-control">
                               <a data-box="collapse"><i class="icofont-caret-up"></i></a>
                           </div>
-                          <span>Lista de movimientos</span>
+                          <span>Lista de movimientos </span>
                       </div>
                       <div class="box-body">
                           <table id="datatables" class="table table-bordered table-striped responsive">
@@ -110,7 +110,7 @@
 {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
 {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
 {{HTML::script('admin/js/holder.js');}}
-{{HTML::script('admin/js/stilearn-base.js');}}
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
 <script type="text/javascript">
 $(document).ready(function() {
