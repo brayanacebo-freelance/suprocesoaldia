@@ -85,64 +85,76 @@
                                    <label class="control-label" for="inputSelect">Departamento</label>
                                    <div class="controls">
                                     {{ Form::select('department_id', $departments, null, array('id'=>"departamentId", 'onchange'=>"filterDepartament(this.value)")); }}
-                                   </div>
-                                 </div>
-                                 <div class="control-group">
-                                   <label class="control-label" for="inputSelect">Ciudad</label>
-                                   <div class="controls">
-                                    <select id="cityId" name="city_id" class="valid" onchange="filterOffices(this.value)"></select>
                                   </div>
                                 </div>
                                 <div class="control-group">
-                                 <label class="control-label" for="inputAuto">Despacho</label>
+                                 <label class="control-label" for="inputSelect">Ciudad</label>
                                  <div class="controls">
-                                  <select id="officeId" name="office_id" class="valid"></select>
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="span6">
-                              <div class="control-group">
-                               <label class="control-label" for="inputSelect">Tipo de proceso</label>
-                               <div class="controls">
-                                {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
+                                  <select id="cityId" name="city_id" class="valid" onchange="filterOffices(this.value)"></select>
+                                </div>
                               </div>
-                            </div>
-                            <div id="content_demand">
-
                               <div class="control-group">
-                               <label class="control-label" for="required">Demandante - Numero de documento</label>
+                               <label class="control-label" for="inputAuto">Despacho</label>
                                <div class="controls">
-                                <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" />
+                                <select id="officeId" name="office_id" class="valid"></select>
                               </div>
                             </div>
                             <div class="control-group">
-                             <label class="control-label" for="required">Demandando - Numero de documento</label>
+                             <label class="control-label" for="inputAuto">Obligación</label>
                              <div class="controls">
-                              <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required" />
+                              <input type="text" class="grd-white" name="obligation"/>
+                             </div>
                             </div>
-
+                          <div class="control-group">
+                           <label class="control-label" for="inputAuto">Datos adicionales</label>
+                           <div class="controls">
+                            <textarea type="text" class="grd-white" name="data" rows="4"></textarea>
                           </div>
-
                         </div>
-                        <div class="span6">
-                          <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
-                          <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
+
+                      </div>
+                      <div class="span6">
+                        <div class="control-group">
+                         <label class="control-label" for="inputSelect">Tipo de proceso</label>
+                         <div class="controls">
+                          {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
                         </div>
                       </div>
+                      <div id="content_demand">
+                        <div class="control-group">
+                         <label class="control-label" for="required">Demandante - Numero de documento</label>
+                         <div class="controls">
+                          <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                       <label class="control-label" for="required">Demandando - Numero de documento</label>
+                       <div class="controls">
+                        <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required" />
+                      </div>
+
                     </div>
-                    <div class="form-actions">
-                     <button type="submit" class="btn btn-primary">Crear proceso</button>
-                   </div>
-                 </div>
-               </fieldset>
-               {{ Form::close() }}<!--/validation-->
+
+                  </div>
+                  <div class="span6">
+                    <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
+                    <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
+                  </div>
+                </div>
+              </div>
+              <div class="form-actions">
+               <button type="submit" class="btn btn-primary">Crear proceso</button>
              </div>
-           </div><!--/box body-->
-         </div><!--/box-->
-       </div><!--/span--> 
-     </div><!--/validation-->
-   </div><!--/content-body -->
- </div><!-- /content -->
+           </div>
+         </fieldset>
+         {{ Form::close() }}<!--/validation-->
+       </div>
+     </div><!--/box body-->
+   </div><!--/box-->
+ </div><!--/span--> 
+</div><!--/validation-->
+</div><!--/content-body -->
+</div><!-- /content -->
 </div>
 @stop
 
@@ -162,47 +174,47 @@
 
 /* Filtrar las ciudades por departamentos */
 function filterDepartament(departamentId){
-    $.ajax({
-      type: "GET",
-      url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToCities/"+departamentId
-    }).done(function( data ) {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToCities/"+departamentId
+  }).done(function( data ) {
 
-      if(data !== 0){
-        $("#cityId").html("");
-        $("#officeId").html("");
-        $("<option value='0'> Selecciona una ciudad </option>").appendTo("#cityId");
-        $.each( data, function( key, $item ) {
-          $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#cityId");
-        });
-      }
-      
-    });
+    if(data !== 0){
+      $("#cityId").html("");
+      $("#officeId").html("");
+      $("<option value='0'> Selecciona una ciudad </option>").appendTo("#cityId");
+      $.each( data, function( key, $item ) {
+        $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#cityId");
+      });
+    }
+
+  });
 }
 
 /* Filtrar las oficinas por ciudades */
 function filterOffices(cityId){
-    $.ajax({
-      type: "GET",
-      url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToOffices/"+cityId
-    }).done(function( data ) {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToOffices/"+cityId
+  }).done(function( data ) {
 
-      console.log(data);
+    console.log(data);
 
-      if(data !== 0){
-        $("#officeId").html("");
-        $("<option value='0'> Selecciona un despacho </option>").appendTo("#officeId");
-        $.each( data, function( key, $item ) {
-          $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#officeId");
-        });
-      }
-      
-    });
+    if(data !== 0){
+      $("#officeId").html("");
+      $("<option value='0'> Selecciona un despacho </option>").appendTo("#officeId");
+      $.each( data, function( key, $item ) {
+        $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#officeId");
+      });
+    }
+
+  });
 }
 
 
 $(document).ready(function() {
 
-$( "#departamentId" ).prepend( "<option value='0' selected>Seleccione un departamento</option>" );
+  $( "#departamentId" ).prepend( "<option value='0' selected>Seleccione un departamento</option>" );
 
   $('#add_new_demant').click(function(){
     $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandante - Numero de documento</label><div class="controls"><input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="claimant[]" id="required" /></div> </div>');

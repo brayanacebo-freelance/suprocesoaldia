@@ -61,7 +61,14 @@
               </div>
         @endif
 
-      <div class="span6"><h3>{{ $client->enterprise }}</h3></div>
+      <!--<div class="span6"><h3>{{ $client->enterprise }}</h3></div>-->
+      <div class="span6">
+        @if( !Auth::user()->isClient() )
+          <p>
+            <a href="{{ route('clients.processes.create', $client->id) }}" class="btn btn-block btn-success">Generar informe</a>
+          </p>
+        @endif
+      </div>
       <div class="span6">
         @if( !Auth::user()->isClient() )
           <p>

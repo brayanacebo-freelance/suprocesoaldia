@@ -63,94 +63,102 @@
 
         <!-- content-body -->
         <div class="content-body">
-                    @if(Session::has('notifications'))
-                          <div class="alert alert-success">
-                                 <button type="button" class="close" data-dismiss="alert">×</button>
-                                 {{Session::get('notifications')}}
-                          </div>
-                    @endif
-          <!-- span12-->
-          <div class="row-fluid">
-            <div class="span12">
-              <div class="box corner-all">
-                <div class="box-header grd-teal color-white corner-top">
-                  <div class="header-control">
-                    <a data-box="collapse"><i class="icofont-caret-up"></i></a>
-                  </div>
-                  <span>Datos del proceso</span>
+          @if(Session::has('notifications'))
+          <div class="alert alert-success">
+           <button type="button" class="close" data-dismiss="alert">×</button>
+           {{Session::get('notifications')}}
+         </div>
+         @endif
+         <!-- span12-->
+         <div class="row-fluid">
+          <div class="span12">
+            <div class="box corner-all">
+              <div class="box-header grd-teal color-white corner-top">
+                <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
                 </div>
-                <div class="box-body">
-                  <div class="row-fluid">
-                    <div class="span6">
-                      <p>
-                        <span class="color-teal">Número carpeta</span><br><span class="label label-info">{{ $process->folder_number }}</span>
-                      </p>
-                      <p>
-                        <span class="color-teal">Número radicación</span><br><span class="label label-info">{{ $process->creation_number }}</span>
-                      </p>
-                      <div class="divider-content2"></div>
-                      <p>
-                        <span class="color-teal">Departamento</span><br>{{ $process->department->name }}
-                      </p>
-                      <div class="divider-content2"></div>
-                      <p>
-                        <span class="color-teal">Ciudad</span><br>{{ $process->city->name }}
-                      </p>
-                      <div class="divider-content2"></div>
-                      <p>
-                        <span class="color-teal">Despacho</span><br>{{ $process->office->name }}
-                      </p>
-                      <div class="divider-content2"></div>
-                    </div>
-                    <div class="span6">
-                      <p>
-                        <span class="color-teal">Tipo de proceso</span><br>{{ $process->type->name }}
-                      </p>
-                      <div class="divider-content2"></div>
-                      <p>
-                        <span class="color-teal">Demandante (s)</span><br>{{ $process->claimant }}
-                      </p>
-                      <div class="divider-content2"></div>
-                      <p>
-                        <span class="color-teal">Demandando(s)</span><br>{{ $process->defendant }}
-                      </p>
-                      <div class="divider-content2"></div>
-                    </div>
-                  </div>
-                  @if( !Auth::user()->isClient() )
-                  <div class="form-actions">
-                    <a href="{{ route('clients.processes.edit', array($client->id, $process->id)) }}" class="btn btn-success"><i class="icofont-pencil"></i> Editar</a>
-                  </div>
-                  @endif
-
-                </div>
+                <span>Datos del proceso</span>
               </div>
-            </div>
-          </div><!-- span12-->
-          <!-- span12-->
-          <div class="row-fluid">
-            <div class="span12">
-              <div class="span9"></div>
-              <div class="span3">
-              @if( !Auth::user()->isClient() )
-                <p>
-                  <a href="{{ route('clients.processes.movements.create', array($client->id, $process->id)) }}" class="btn btn-block btn-primary">Nuevo movimiento</a>
-                </p>
+              <div class="box-body">
+                <div class="row-fluid">
+                  <div class="span6">
+                    <p>
+                      <span class="color-teal">Número carpeta</span><br><span class="label label-info">{{ $process->folder_number }}</span>
+                    </p>
+                    <p>
+                      <span class="color-teal">Número radicación</span><br><span class="label label-info">{{ $process->creation_number }}</span>
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Departamento</span><br>{{ $process->department->name }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Ciudad</span><br>{{ $process->city->name }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Despacho</span><br>{{ $process->office->name }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Obligación</span><br>{{ $process->obligation }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Datos adicionales</span><br>{{ $process->data }}
+                    </p>
+                    <div class="divider-content2"></div>
+                  </div>
+                  <div class="span6">
+                    <p>
+                      <span class="color-teal">Tipo de proceso</span><br>{{ $process->type->name }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Demandante (s)</span><br>{{ $process->claimant }}
+                    </p>
+                    <div class="divider-content2"></div>
+                    <p>
+                      <span class="color-teal">Demandando(s)</span><br>{{ $process->defendant }}
+                    </p>
+                    <div class="divider-content2"></div>
+                  </div>
+                </div>
+                @if( !Auth::user()->isClient() )
+                <div class="form-actions">
+                  <a href="{{ route('clients.processes.edit', array($client->id, $process->id)) }}" class="btn btn-success"><i class="icofont-pencil"></i> Editar</a>
+                </div>
                 @endif
+
               </div>
             </div>
           </div>
-          <div class="row-fluid">
+        </div><!-- span12-->
+        <!-- span12-->
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="span9"></div>
+            <div class="span3">
+              @if( !Auth::user()->isClient() )
+              <p>
+                <a href="{{ route('clients.processes.movements.create', array($client->id, $process->id)) }}" class="btn btn-block btn-primary">Nuevo movimiento</a>
+              </p>
+              @endif
+            </div>
+          </div>
+        </div>
+        <div class="row-fluid">
 
-            <div class="span12">
-              <div class="box corner-all">
-                <div class="box-header grd-teal color-white corner-top">
-                  <div class="header-control">
-                    <a data-box="collapse"><i class="icofont-caret-up"></i></a>
-                  </div>
-                  <span>Movimientos</span>
+          <div class="span12">
+            <div class="box corner-all">
+              <div class="box-header grd-teal color-white corner-top">
+                <div class="header-control">
+                  <a data-box="collapse"><i class="icofont-caret-up"></i></a>
                 </div>
-                <div class="box-body">
+                <span>Movimientos</span>
+              </div>
+              <div class="box-body">
 
       <!-- =========================================
                       ACCORDION
@@ -160,7 +168,7 @@
                           <div class="accordion" id="accordion">
 
                             <div class="accordion-group">
-                            @foreach($process->movements as $key => $movement)
+                              @foreach($process->movements as $key => $movement)
                               <div class="accordion-heading">
                                 <a class="accordion-toggle {{$key === 0 ? "bg-orange color-white" : "bg-silver color-black"}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $movement->id }}">
                                   Fecha de notificación: {{ $movement->notification_date }}
@@ -208,7 +216,7 @@
                                   </table>
                                 </div>
                               </div>
-                            @endforeach
+                              @endforeach
                             </div>
                           </div>
                         </div>
