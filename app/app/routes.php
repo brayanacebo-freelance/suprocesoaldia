@@ -42,6 +42,8 @@ Route::group(array('before' => 'auth'), function ()
 
 	Route::get('selectToCities/{departamentId}', 'ProcessesController@getCities');
 	Route::get('selectToOffices/{cityId}', 'ProcessesController@getOffices');
+
+	Route::get('processreport', array('uses' => 'ClientsController@getProcessReport', 'as' => 'client.movements.processreport'));
 });
 
 

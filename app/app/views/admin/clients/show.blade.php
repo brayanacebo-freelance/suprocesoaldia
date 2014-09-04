@@ -65,7 +65,7 @@
       <div class="span6">
         @if( !Auth::user()->isClient() )
           <p>
-            <a href="{{ route('clients.processes.create', $client->id) }}" class="btn btn-block btn-success">Generar informe</a>
+            <a href="{{ route('client.movements.processreport') }}?id={{$client->id}}" class="btn btn-block btn-success">Generar informe</a>
           </p>
         @endif
       </div>
