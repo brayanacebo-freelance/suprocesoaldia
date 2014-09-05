@@ -110,36 +110,32 @@ class ClientsController extends BaseController {
 		$object = [];
 
 		foreach ($client->processes as $process) {
-
-			$arrayOne = [
+			if($process->archived === 0){
+				$arrayOne = [
 				"cod" => $process->id,
 				"folder_number" => $process->folder_number,
 				"creation_number" => $process->creation_number,
 				"claimant" => $process->claimant,
 				"defendant" => $process->defendant
-			];
-
-			$movement = Movement::where('process_id', $process->id)
-				->orderBy('id', 'DESC')
-				->limit(1)
-				->first();
-
-			$arrayTwo = [];
-			if($movement){
-
-				$action = Action::where('id', $movement->action_type)->first();
-				$notification = NotificationType::where('id', $movement->notification_type)->first();
-
-				$arrayTwo = [
-					"action" => $action->name,
-					"notification" => $notification->name,
-					"notification_date" => $movement->notification_date,
-					"auto_date" => $movement->auto_date,
-					"comments" => $movement->comments
 				];
-			}			
-
-			$object[] = array_merge($arrayOne, $arrayTwo);
+				$movement = Movement::where('process_id', $process->id)
+					->orderBy('id', 'DESC')
+					->limit(1)
+					->first();
+				$arrayTwo = [];
+				if($movement){
+					$action = Action::where('id', $movement->action_type)->first();
+					$notification = NotificationType::where('id', $movement->notification_type)->first();
+					$arrayTwo = [
+						"action" => $action->name,
+						"notification" => $notification->name,
+						"notification_date" => $movement->notification_date,
+						"auto_date" => $movement->auto_date,
+						"comments" => $movement->comments
+					];
+				}			
+				$object[] = array_merge($arrayOne, $arrayTwo);
+			}
 		}
 
 		return View::make('admin.clients.report')->with(compact('object'));
@@ -250,6 +246,26 @@ class ClientsController extends BaseController {
 		$affectedRows = User::where('loggeable_id', $id)->update(array('suspended' => 0));
 		if($affectedRows === 1){
 			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de los suspendidos con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
+	public function pArchive($id)
+	{
+		$affectedRows = Process::where('id', $id)->update(array('archived' => 1));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Archivado con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
+	public function pNoArchive($id)
+	{
+		$affectedRows = Process::where('id', $id)->update(array('archived' => 0));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de archivados con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
 		}

@@ -47,7 +47,7 @@
               <div class="span8"><h3>Movimientos durante la última semana</h3></div>
               <div class="span4">
                   <p>
-                      <a href="{{ route('client.movements.report') }}" class="btn btn-block btn-primary">Reporte de movimientos</a>
+                      <a href="{{ route('client.movements.report') }}?id={{$client->id}}" class="btn btn-block btn-primary">Reporte de movimientos</a>
                   </p>
               </div>
           </div>
@@ -75,7 +75,7 @@
                               <tbody>
                               @foreach($movements as $movement)
                                   <tr>
-                                      <td>21358</a></td>
+                                      <td>{{ $movement->id }}</a></td>
                                       <td>{{ $movement->date }}</td>
                                       <td>{{ $movement->process->claimant }}</td>
                                       <td>{{ $movement->process->defendant }}</td>
