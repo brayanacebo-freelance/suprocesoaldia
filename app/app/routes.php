@@ -44,6 +44,8 @@ Route::group(array('before' => 'auth'), function ()
 	Route::get('selectToOffices/{cityId}', 'ProcessesController@getOffices');
 
 	Route::get('processreport', array('uses' => 'ClientsController@getProcessReport', 'as' => 'client.movements.processreport'));
+	Route::get('clients/{id}/archive' , array('uses' => 'ClientsController@archive', 'as' =>'clients.archive'));
+	Route::get('clients/{id}/noarchive' , array('uses' => 'ClientsController@noArchive', 'as' =>'clients.noarchive'));
 });
 
 

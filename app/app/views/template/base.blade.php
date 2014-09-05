@@ -80,6 +80,11 @@
                             @elseif(Auth::user()->isAdmin())
                             <p><strong>{{Auth::user()->email}}</strong></p>
                             <p class="muted">Administrador</p>
+                            
+                            @elseif(Auth::user()->isExecutive())
+                            <p><strong>Perfil ejecutivo</strong></p>
+                            <p class="muted">Administrador</p>
+
                             @elseif(Auth::user()->isClient())
                             <p><strong>{{Auth::user()->client()->name}}</strong></p>
                             <p class="muted">Cliente</p>
@@ -120,7 +125,7 @@
                 <!--side bar-->
                 <aside class="side-left">
                   <ul class="sidebar">
-                    @if (Auth::user()->isAssistant() || Auth::user()->isAdmin())
+                    @if (Auth::user()->isAssistant() || Auth::user()->isAdmin() || Auth::user()->isExecutive())
                     <li class="active">
                     <a href="{{ route('clients.index') }}" title="clientes">
                         <div class="helper-font-24">
@@ -130,7 +135,7 @@
                       </a>
                     </li>
                     @endif
-                    @if (Auth::user()->isAdmin())
+                    @if (Auth::user()->isAdmin() || Auth::user()->isExecutive())
                     <li>
                       <a href="{{ route('assistants.index') }}" title="auxiliares">
                         <div class="helper-font-24">

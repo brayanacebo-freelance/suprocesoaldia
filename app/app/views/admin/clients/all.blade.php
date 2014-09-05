@@ -90,6 +90,18 @@
                                                         <i class="icofont-angle-right"></i>
                                                     </span> Ver 
                                                 </a>
+
+                                                @if (Auth::user()->isAdmin())
+                                                    @if ($client->user->archived === 1)
+                                                        <a href="{{ route('clients.noarchive', $client->id) }}" class='btn btn-info btn-small'>Sacar de archivados
+                                                        </a>
+                                                    @endif
+                                                    @if ($client->user->archived !== 1)
+                                                        <a href="{{ route('clients.archive', $client->id) }}" class='btn btn-warning btn-small'>Archivar 
+                                                        </a>
+                                                    @endif
+                                                @endif
+
                                                 @if($client->isDeletable())
                                                 <button  data-route="{{route('clients.destroy', $client->id)}}" class='btn btn-danger btn-small btn-delete'>
                                                     <span>

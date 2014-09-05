@@ -9,6 +9,12 @@ class ClientController extends BaseController {
 
 	public function getMovements()
 	{
+
+		if($this->client->user->archived === 1){
+			Auth::logout();
+        	return Redirect::route('get.login')->withErrors(array('message' => 'Por favor comuniquese con un asesor, gracias!'));
+		}
+
 		$movements = $this->client->movements()->with('process')->orderBy('created_at', 'DESC')->get();
 		$total_movements_count = $movements->count();
 		$unseen_movements_count = $this->client->unseenMovementsCount();

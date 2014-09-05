@@ -215,4 +215,24 @@ class ClientsController extends BaseController {
 		return Response::json(array());
 	}
 
+	public function archive($id)
+	{
+		$affectedRows = User::where('loggeable_id', $id)->update(array('archived' => 1));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Archivado con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
+	public function noArchive($id)
+	{
+		$affectedRows = User::where('loggeable_id', $id)->update(array('archived' => 0));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de archivados con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
 }

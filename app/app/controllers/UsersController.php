@@ -36,6 +36,7 @@ class UsersController extends BaseController {
 			if ($user->isClient()) return Redirect::route('client.movements.all', $user->getLoggeableResult()->id);
 			else if ($user->isAssistant()) return Redirect::route('clients.index');
 			else if ($user->isAdmin()) return Redirect::route('clients.index');
+			else if ($user->isExecutive()) return Redirect::route('clients.index');
 		}
 
 		return Redirect::route('get.login')->withErrors(array('message' => 'Usuario o contraseña incorrecta!'));
