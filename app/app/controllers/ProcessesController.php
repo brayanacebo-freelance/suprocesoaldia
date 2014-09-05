@@ -22,11 +22,11 @@ class ProcessesController extends BaseController {
 	 */
 	public function create($client_id)
 	{
-        $client = $this->clients->find($client_id);
+		$client = $this->clients->find($client_id);
 		$departments = $this->departments->getSelectList();
 		$types = $this->types->getSelectList();
 
-        return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'));
+		return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'));
 	}
 
 	/**
@@ -44,7 +44,12 @@ class ProcessesController extends BaseController {
 		//$data['claimant'] = array_filter($data['claimant']);
 		//$data['defendant'] = array_filter($data['defendant']);
 
-		$client->processes()->save($process);
+		$r = $client->processes()->save($process);
+
+		var_dump($r);die;
+
+		$this->clients->log('Creo el proceso ');
+
 		return Redirect::route('clients.show', $client_id)->with('notifications', "Proceso creado con éxito!");
 	}
 
@@ -56,10 +61,10 @@ class ProcessesController extends BaseController {
 	 */
 	public function show($client_id, $id)
 	{
-        $client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
 
-        return View::make('admin.processes.show')->with(compact('client', 'process'));
+		return View::make('admin.processes.show')->with(compact('client', 'process'));
 	}
 
 
@@ -71,15 +76,15 @@ class ProcessesController extends BaseController {
 	 */
 	public function edit($client_id, $id)
 	{
-        $client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
 
 		$departments = $this->departments->getSelectList();
 		$cities = $this->cities->getSelectList();
 		$types = $this->types->getSelectList();
 		$offices = $this->offices->getSelectList();
-       	
-        return View::make('admin.processes.edit')->with(compact('client', 'cities', 'departments', 'types' , 'process', 'offices'));
+
+		return View::make('admin.processes.edit')->with(compact('client', 'cities', 'departments', 'types' , 'process', 'offices'));
 	}
 
 	/**
@@ -95,8 +100,8 @@ class ProcessesController extends BaseController {
 		$data['claimant'] = array_filter($data['claimant']);
 		$data['defendant'] = array_filter($data['defendant']);
 
-    $client = $this->clients->find($client_id);
-    $process = $this->processes->find($client_id, $id);
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
 		
 		$process->fill($data);
 		$process->save();
@@ -113,8 +118,8 @@ class ProcessesController extends BaseController {
 	public function destroy($client_id ,$id)
 	{
 		$client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
-        $process->delete();
+		$process = $this->processes->find($client_id, $id);
+		$process->delete();
 		return Response::json(array());
 	}
 

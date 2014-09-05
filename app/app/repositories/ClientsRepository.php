@@ -86,14 +86,14 @@ class ClientsRepository {
         return $client;
     }
 
-    // public function log($description)
-    // {
-    //     $data = [
-    //         'user_id' => $this->user->id,
-    //         'description' => $description
-    //     ];
-    //     $log = Log::create($data);
-    //     return $log;
-    // }
+    public function log($description)
+    {
+
+        DB::table('log')->insert(
+            array('user_id' => $this->user->id, 'description' => $description)
+        );
+
+        return true;
+    }
 
 }

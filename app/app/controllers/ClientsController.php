@@ -54,9 +54,7 @@ class ClientsController extends BaseController {
 				$user = new User;
 				$user->email = Input::get('email');
 				$user->password = Hash::make(Input::get('password'));
-				$user->save();
-
-
+				$user->save();    
 
 				$clientData = Input::only('enterprise', 'in_charge', 'phone');
 				$client = $this->clients->create($clientData);
@@ -64,10 +62,8 @@ class ClientsController extends BaseController {
 				$client->assistant()->associate(Auth::user()->getLoggeableResult());
 				$client->save();
 
-				echo 'asd';die;
-
 				$this->sendMail($user);
-				
+
 				return Redirect::route('clients.index')->with('notifications', "El cliente ha sido creado con éxito!");
 			}else{
 				return Redirect::route('clients.create')->withErrors(array('message' => 'Email invalido'));
@@ -123,19 +119,19 @@ class ClientsController extends BaseController {
 				"defendant" => $process->defendant
 				];
 				$movement = Movement::where('process_id', $process->id)
-					->orderBy('id', 'DESC')
-					->limit(1)
-					->first();
+				->orderBy('id', 'DESC')
+				->limit(1)
+				->first();
 				$arrayTwo = [];
 				if($movement){
 					$action = Action::where('id', $movement->action_type)->first();
 					$notification = NotificationType::where('id', $movement->notification_type)->first();
 					$arrayTwo = [
-						"action" => $action->name,
-						"notification" => $notification->name,
-						"notification_date" => $movement->notification_date,
-						"auto_date" => $movement->auto_date,
-						"comments" => $movement->comments
+					"action" => $action->name,
+					"notification" => $notification->name,
+					"notification_date" => $movement->notification_date,
+					"auto_date" => $movement->auto_date,
+					"comments" => $movement->comments
 					];
 				}			
 				$object[] = array_merge($arrayOne, $arrayTwo);
@@ -209,9 +205,8 @@ class ClientsController extends BaseController {
 	public function destroy($id)
 	{
 		$client = $this->clients->find($id);
-
+		$this->clients->log('Elimino el usuario '.$client->in_charge);
 		$client->delete();
-
 		return Response::json(array());
 	}
 
@@ -219,6 +214,8 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = User::where('loggeable_id', $id)->update(array('archived' => 1));
 		if($affectedRows === 1){
+			$u = User::where('loggeable_id', $id)->first();
+			$this->clients->log('Archivo el usuario '.$u->email);
 			return Redirect::route('clients.index')->with('notifications', "Archivado con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
@@ -229,6 +226,8 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = User::where('loggeable_id', $id)->update(array('archived' => 0));
 		if($affectedRows === 1){
+			$u = User::where('loggeable_id', $id)->first();
+			$this->clients->log('Desarchivo el usuario '.$u->email);
 			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de archivados con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
@@ -239,6 +238,8 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = User::where('loggeable_id', $id)->update(array('suspended' => 1));
 		if($affectedRows === 1){
+			$u = User::where('loggeable_id', $id)->first();
+			$this->clients->log('Suspendio el usuario '.$u->email);
 			return Redirect::route('clients.index')->with('notifications', "Suspendido con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
@@ -249,6 +250,8 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = User::where('loggeable_id', $id)->update(array('suspended' => 0));
 		if($affectedRows === 1){
+			$u = User::where('loggeable_id', $id)->first();
+			$this->clients->log('Retiro el usuario '.$u->email. ' de los suspendidos');
 			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de los suspendidos con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
@@ -259,6 +262,7 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = Process::where('id', $id)->update(array('archived' => 1));
 		if($affectedRows === 1){
+			$this->clients->log('Archivo el proceso de código '.$id);
 			return Redirect::route('clients.index')->with('notifications', "Archivado con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
@@ -269,6 +273,7 @@ class ClientsController extends BaseController {
 	{
 		$affectedRows = Process::where('id', $id)->update(array('archived' => 0));
 		if($affectedRows === 1){
+			$this->clients->log('Desarchivo el proceso de código '.$id);
 			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de archivados con éxito!");
 		}else{
 			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
