@@ -46,9 +46,7 @@ class ProcessesController extends BaseController {
 
 		$r = $client->processes()->save($process);
 
-		var_dump($r);die;
-
-		$this->clients->log('Creo el proceso ');
+		$this->clients->log('Creo el proceso de código '.$r->id);
 
 		return Redirect::route('clients.show', $client_id)->with('notifications', "Proceso creado con éxito!");
 	}
@@ -106,6 +104,8 @@ class ProcessesController extends BaseController {
 		$process->fill($data);
 		$process->save();
 
+		$this->clients->log('Actualizo el proceso de código '.$id);
+
 		return Redirect::route('clients.processes.show', array($client->id, $process->id))->with('notifications', "Proceso editado con éxito!");
 	}
 
@@ -119,6 +119,7 @@ class ProcessesController extends BaseController {
 	{
 		$client = $this->clients->find($client_id);
 		$process = $this->processes->find($client_id, $id);
+		$this->clients->log('Elimino el proceso de código '.$id);
 		$process->delete();
 		return Response::json(array());
 	}
