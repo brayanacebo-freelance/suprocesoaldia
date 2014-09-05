@@ -56,11 +56,15 @@ class ClientsController extends BaseController {
 				$user->password = Hash::make(Input::get('password'));
 				$user->save();
 
+
+
 				$clientData = Input::only('enterprise', 'in_charge', 'phone');
 				$client = $this->clients->create($clientData);
 				$client->user()->save($user);
 				$client->assistant()->associate(Auth::user()->getLoggeableResult());
 				$client->save();
+
+				echo 'asd';die;
 
 				$this->sendMail($user);
 				

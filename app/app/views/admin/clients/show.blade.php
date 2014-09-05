@@ -61,7 +61,6 @@
      </div>
      @endif
 
-     <!--<div class="span6"><h3>{{ $client->enterprise }}</h3></div>-->
      <div class="span6">
       @if( !Auth::user()->isClient() )
       <p>

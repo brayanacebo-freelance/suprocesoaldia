@@ -86,4 +86,14 @@ class ClientsRepository {
         return $client;
     }
 
+    // public function log($description)
+    // {
+    //     $data = [
+    //         'user_id' => $this->user->id,
+    //         'description' => $description
+    //     ];
+    //     $log = Log::create($data);
+    //     return $log;
+    // }
+
 }
