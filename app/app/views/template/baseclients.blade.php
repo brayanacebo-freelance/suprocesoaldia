@@ -116,6 +116,8 @@
                 <!--side bar-->
                            <aside class="side-left">
                         <ul class="sidebar">
+                    
+
                     <li>
                       <a href="{{ route('client.movements.all') }}" title="movimientos">
                         @if($movements !== 0)
@@ -126,7 +128,25 @@
                         </div>
                         <span class="sidebar-text">Movimientos</span>
                       </a>
+
+                      <ul class="sub-sidebar-form corner-top shadow-white">
+                        <li>
+                          <a href="{{ route('client.movements.all') }}" title="Movimientos semanales" class="corner-all">
+                            <i class="icofont-caret-right"></i>
+                            <span class="sidebar-text">Semanal</span>
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a href="{{ route('client.movements.daily') }}" title="Movimientos diarios" class="corner-all">
+                            <i class="icofont-caret-right"></i>
+                            <span class="sidebar-text">Diario</span>
+                          </a>
+                        </li>
+                      </ul>
                     </li>
+
+
                     <li>
                       <a href="{{ route('clients.show', Auth::user()->client()->id) }}" title="procesos">
                         <div class="helper-font-24">

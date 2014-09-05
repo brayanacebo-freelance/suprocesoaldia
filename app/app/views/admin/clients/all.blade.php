@@ -102,6 +102,17 @@
                                                     @endif
                                                 @endif
 
+                                                @if (Auth::user()->isAdmin())
+                                                    @if ($client->user->suspended === 1)
+                                                        <a href="{{ route('clients.nosuspended', $client->id) }}" class='btn btn-info btn-small'>Sacar de suspendidos
+                                                        </a>
+                                                    @endif
+                                                    @if ($client->user->suspended !== 1)
+                                                        <a href="{{ route('clients.suspended', $client->id) }}" class='btn btn-warning btn-small'>Suspender 
+                                                        </a>
+                                                    @endif
+                                                @endif
+
                                                 @if($client->isDeletable())
                                                 <button  data-route="{{route('clients.destroy', $client->id)}}" class='btn btn-danger btn-small btn-delete'>
                                                     <span>

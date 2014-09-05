@@ -145,16 +145,16 @@
                       </a>
                     </li>
                     @endif
-                    <!--@if (Auth::user()->isAssistant() || Auth::user()->isAdmin())
+                    @if (Auth::user()->isAdmin())
                     <li>
-                      <a href="http://app.suprocesoaldia.com/index.php/mails" title="enviar correo">
+                      <a href="http://localhost/FREELANCE/suprocesoaldia/app/public_html/mails" title="enviar correo">
                         <div class="helper-font-24">
                           <i class="icofont-envelope-alt"></i>
                         </div>
                         <span class="sidebar-text">Enviar correo</span>
                       </a>
                     </li>
-                    @endif-->
+                    @endif
                     @if (Auth::user()->isAdmin())
                     <li>
                       <a href="{{ route('departments.index') }}" title="configuración">

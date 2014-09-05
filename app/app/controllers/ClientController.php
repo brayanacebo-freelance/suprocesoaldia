@@ -57,4 +57,20 @@ class ClientController extends BaseController {
 		return Response::json($movements);
 	}
 
+	public function getMovementsDaily()
+	{
+		if($this->client->user->archived === 1){
+			Auth::logout();
+        	return Redirect::route('get.login')->withErrors(array('message' => 'Por favor comuniquese con un asesor, gracias!'));
+		}
+		$date = date('Y-m-d');
+		$movements = $this->client->movements()->with('process')->orderBy('created_at', 'DESC')->get();
+		$total_movements_count = $movements->count();
+		$unseen_movements_count = $this->client->unseenMovementsCount();
+		$client = $this->client;
+		$this->client->last_seen_on = DB::raw('NOW()');
+		$this->client->save();
+		return View::make('clients.movements.daily')->with(compact('date', 'movements', 'client', 'unseen_movements_count'));
+	}
+
 }

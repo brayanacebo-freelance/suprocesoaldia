@@ -235,4 +235,24 @@ class ClientsController extends BaseController {
 		}
 	}
 
+	public function suspended($id)
+	{
+		$affectedRows = User::where('loggeable_id', $id)->update(array('suspended' => 1));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Suspendido con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
+	public function noSuspended($id)
+	{
+		$affectedRows = User::where('loggeable_id', $id)->update(array('suspended' => 0));
+		if($affectedRows === 1){
+			return Redirect::route('clients.index')->with('notifications', "Cliente retirado de los suspendidos con éxito!");
+		}else{
+			return Redirect::route('clients.index')->withErrors(array('message' => 'A ocurrido un error, vuelva a intentarlo o comuniquese con su proveedor'));
+		}
+	}
+
 }

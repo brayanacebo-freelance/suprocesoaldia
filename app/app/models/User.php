@@ -85,8 +85,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
     	return $this->loggeable_type === 'Executive';
     }
-    
     public function isArchived()
+	{
+		return $this->archived;
+	}
+	public function isSuspended()
 	{
 		return $this->archived;
 	}

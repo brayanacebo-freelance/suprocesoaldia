@@ -46,6 +46,11 @@ Route::group(array('before' => 'auth'), function ()
 	Route::get('processreport', array('uses' => 'ClientsController@getProcessReport', 'as' => 'client.movements.processreport'));
 	Route::get('clients/{id}/archive' , array('uses' => 'ClientsController@archive', 'as' =>'clients.archive'));
 	Route::get('clients/{id}/noarchive' , array('uses' => 'ClientsController@noArchive', 'as' =>'clients.noarchive'));
+	Route::get('clients/{id}/suspended' , array('uses' => 'ClientsController@suspended', 'as' =>'clients.suspended'));
+	Route::get('clients/{id}/nosuspended' , array('uses' => 'ClientsController@noSuspended', 'as' =>'clients.nosuspended'));
+
+
+	Route::get('movimientosd', array('uses' => 'ClientController@getMovementsDaily', 'as' => 'client.movements.daily'));
 });
 
 
