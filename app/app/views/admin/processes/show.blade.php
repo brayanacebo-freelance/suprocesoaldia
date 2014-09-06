@@ -163,7 +163,7 @@
                             @foreach($process->movements as $key => $movement)
                               <div class="accordion-heading">
                                 <a class="accordion-toggle {{$key === 0 ? "bg-orange color-white" : "bg-silver color-black"}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $movement->id }}">
-                                  Fecha de notificación: {{ $movement->notification_date }}
+                                  Fecha de notificación: {{ with(new DateTime($movement->notification_date))->format('d-m-Y') }}
                                 </a>
                               </div>
                               <div id="collapse{{ $movement->id }}" class="accordion-body {{$key === 0 ? "in" : "collapse"}}">
@@ -172,7 +172,8 @@
                                     <tbody>
                                       <tr>
                                         <td><span class="color-teal">Fecha creación</span></td>
-                                        <td>{{ $movement->created_at->format('Y-m-d-H:i:s') }}</td>
+                                        <td>{{ $movement->created_at->format('d-m-Y H:i:s') }}</td>
+                                        <!-- Y-m-d-H:i:s -->
                                       </tr>
                                       <tr>
                                         <td><span class="color-teal">Actuación</span></td>

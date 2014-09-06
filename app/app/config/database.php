@@ -49,7 +49,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'suproces_seguimiento',
+			'database'  => 'suprocesoaldia',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

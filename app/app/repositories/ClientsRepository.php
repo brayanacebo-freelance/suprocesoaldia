@@ -25,6 +25,7 @@ class ClientsRepository {
         	//$clients = $this->assistant->clients;
             $clients = Client::all();
         }
+
         return $clients;
 	}
 
@@ -41,8 +42,9 @@ class ClientsRepository {
         }
         else 
         {
-        	$client = $this->assistant->clients()->with('processes', 'user')->find($id);
-        	if (!$client) throw new ModelNotFoundException;
+        	//$client = $this->assistant->clients()->with('processes', 'user')->find($id);
+        	$client = Client::with('processes', 'user')->findOrFail($id);
+            if (!$client) throw new ModelNotFoundException;
         }
         return $client;
 	}

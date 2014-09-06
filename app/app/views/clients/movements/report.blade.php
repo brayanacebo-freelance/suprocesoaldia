@@ -62,8 +62,8 @@
                 <div class="control-group">
                   <label class="control-label" for="inputDate">Desde</label>
                   <div class="controls">
-                    <div class="input-append date" data-form="datepicker" data-date="{{ date('d-m-Y') }}" data-date-format="dd-mm-yyyy">
-                      <input id="from" class="grd-white" data-form="datepicker" size="16" type="text" value="">
+                    <div class="input-append date" data-form="datepicker" data-date="{{ date('d-m-Y') }}" data-date-format="dd/mm/yyyy">
+                      <input id="from" class="grd-white" readonly data-form="datepicker" size="16" type="text" value="">
                       <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                   </div>
@@ -71,8 +71,8 @@
                 <div class="control-group">
                   <label class="control-label" for="inputDate">Hasta</label>
                   <div class="controls">
-                    <div class="input-append date" data-form="datepicker" data-date="{{ date('d-m-Y') }}" data-date-format="dd-mm-yyyy">
-                      <input id="until" class="grd-white" data-form="datepicker" size="16" type="text" value="">
+                    <div class="input-append date" data-form="datepicker" data-date="{{ date('d-m-Y') }}" data-date-format="dd/mm/yyyy">
+                      <input id="until" class="grd-white" readonly data-form="datepicker" size="16" type="text" value="">
                       <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                   </div>
@@ -123,7 +123,7 @@
 {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
 {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
 {{HTML::script('admin/js/holder.js');}}
-{{HTML::script('admin/js/stilearn-base.js');}}
+<!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
 
 {{HTML::script('admin/js/datepicker/bootstrap-datepicker.js');}}
 

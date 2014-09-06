@@ -56,6 +56,7 @@ class ProcessesController extends BaseController {
 	 */
 	public function show($client_id, $id)
 	{
+
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $id);
 
