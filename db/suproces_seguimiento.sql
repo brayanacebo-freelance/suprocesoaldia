@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 3.4.11.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-09-2014 a las 00:40:26
--- Versión del servidor: 5.6.14
--- Versión de PHP: 5.5.6
+-- Tiempo de generación: 06-09-2014 a las 15:39:25
+-- Versión del servidor: 5.5.37
+-- Versión de PHP: 5.4.23
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `suprocesoaldia`
+-- Base de datos: `suproces_seguimiento`
 --
 
 -- --------------------------------------------------------
@@ -111,14 +111,14 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
 
 --
 -- Volcado de datos para la tabla `clients`
 --
 
 INSERT INTO `clients` (`id`, `assistant_id`, `enterprise`, `in_charge`, `phone`, `last_seen_on`, `last_mail_sent_on`, `created_at`, `updated_at`) VALUES
-(13, 4, 'eliminar', 'eliminar', '222927', '2014-08-30 18:10:54', '2014-06-27 19:19:13', '2014-06-27 19:05:13', '2014-08-30 18:10:54'),
+(13, 4, 'eliminar', 'eliminar', '222927', '2014-09-03 16:46:35', '2014-06-27 19:19:13', '2014-06-27 19:05:13', '2014-09-03 16:46:35'),
 (16, 5, 'empresa 1', 'juan perez', '123', '2014-08-09 22:53:07', '2014-08-09 22:11:05', '2014-07-20 18:09:43', '2014-08-09 22:53:07'),
 (17, 0, 'empresa 2', 'juan perez', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-07-20 18:34:47', '2014-07-20 18:34:47'),
 (25, 9, 'asd', 'asd', 'asd', '2014-07-23 23:59:37', '0000-00-00 00:00:00', '2014-07-23 23:58:42', '2014-07-23 23:59:37'),
@@ -126,7 +126,9 @@ INSERT INTO `clients` (`id`, `assistant_id`, `enterprise`, `in_charge`, `phone`,
 (27, 5, 'a', 'a', 'a', '0000-00-00 00:00:00', '2014-08-09 22:00:00', '2014-07-27 01:02:30', '2014-08-09 22:00:00'),
 (30, 5, 'USUARIO@ESTEBAN.com', '123', '123', '2014-08-05 02:24:20', '2014-08-09 22:00:04', '2014-07-28 01:57:58', '2014-08-14 12:29:47'),
 (31, 0, 'COOPSOLIDAR', 'JOSE VICENTE ARCINIEGAS', '222927', '2014-08-12 16:52:34', '0000-00-00 00:00:00', '2014-08-11 15:20:21', '2014-08-13 21:16:26'),
-(32, 11, 'wachu', 'wachu', '99817212', '0000-00-00 00:00:00', '2014-08-30 17:38:40', '2014-08-30 17:32:13', '2014-08-30 17:38:40');
+(32, 11, 'wachu', 'wachu', '99817212', '0000-00-00 00:00:00', '2014-08-30 17:38:40', '2014-08-30 17:32:13', '2014-08-30 17:38:40'),
+(33, 0, 'aja', 'bra', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-09-05 21:42:55', '2014-09-05 21:42:55'),
+(34, 0, 'aaa', 'aaa', '123123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-09-06 20:11:07', '2014-09-06 20:11:07');
 
 -- --------------------------------------------------------
 
@@ -149,6 +151,29 @@ CREATE TABLE IF NOT EXISTS `departments` (
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Cundinamarca', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 'Antioquia', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `log`
+--
+
+INSERT INTO `log` (`id`, `user_id`, `description`, `date`) VALUES
+(1, 1, 'Creo el usuario aaa', '2014-09-06 20:11:08'),
+(2, 1, 'Creo el movimiento de código 22', '2014-09-06 20:25:28'),
+(3, 1, 'Actualizo el movimiento de código 22', '2014-09-06 20:25:37');
 
 -- --------------------------------------------------------
 
@@ -196,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `movements` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Volcado de datos para la tabla `movements`
@@ -220,7 +245,8 @@ INSERT INTO `movements` (`id`, `process_id`, `action_type`, `notification_type`,
 (18, 6, 1, 6, '2014-08-09', '0000-00-00', 'hjkhjkhkj', '$2y$10$BtqoU70yjVdn9BgI27X1.nF0rBZfnxizHO0eRj4uXMDUVzh7BHC', '2014-08-09 22:02:32', '2014-08-09 22:02:43'),
 (19, 5, 2, 5, '2014-08-30', '2014-08-27', 'sofdaqknbczzjhhfgh', '$2y$10$aYUzvuVVywWtN4ZY59o5Eu1ZrMqeah3cJ6OHdemTKAFrOO1e7HGy', '2014-08-30 17:17:00', '2014-08-30 17:20:46'),
 (20, 5, 1, 5, '0000-00-00', '2014-08-22', ' jepjqfpew', '$2y$10$7pzhiwWtBuc71DVeWK6xu1q4AwZ43E.z0hYQ1c6kGtoBM017NfC', '2014-08-30 17:17:04', '2014-08-30 17:24:52'),
-(21, 27, 3, 7, '2014-08-30', '0000-00-00', 'zXSD', '$2y$10$ashUpfdew70CL05meQhVt.nc4qyyEgbwM48FIncGJQb2xpfsHhfS', '2014-08-30 17:34:05', '2014-08-30 17:34:16');
+(21, 27, 3, 7, '2014-08-30', '0000-00-00', 'zXSD', '$2y$10$ashUpfdew70CL05meQhVt.nc4qyyEgbwM48FIncGJQb2xpfsHhfS', '2014-08-30 17:34:05', '2014-08-30 17:34:16'),
+(22, 5, 1, 6, '2014-09-05', '2014-09-06', 'prueba de comentario', '$2y$10$m4M.9uCn0Rhuu3E7oa2v.hVbcu0E5wce.fOvjQBzlHNOF9e.mwB.', '2014-09-06 20:25:28', '2014-09-06 20:25:36');
 
 -- --------------------------------------------------------
 
@@ -271,6 +297,8 @@ CREATE TABLE IF NOT EXISTS `offices` (
 --
 
 INSERT INTO `offices` (`id`, `city_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 3, 'Despacho 1', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 3, 'Despacho 2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 3, '1 EJECUCION', '2014-03-03 12:50:34', '2014-08-13 20:01:01'),
 (4, 3, '4 EJECUCION', '2014-03-03 12:53:09', '2014-08-13 20:01:22'),
 (5, 3, '5 EJECUCION', '2014-08-12 16:45:18', '2014-08-13 20:01:40'),
@@ -365,6 +393,9 @@ CREATE TABLE IF NOT EXISTS `processes` (
   `process_type` int(10) unsigned NOT NULL,
   `claimant` text COLLATE utf8_unicode_ci NOT NULL,
   `defendant` text COLLATE utf8_unicode_ci NOT NULL,
+  `obligation` text COLLATE utf8_unicode_ci NOT NULL,
+  `data` text COLLATE utf8_unicode_ci NOT NULL,
+  `archived` int(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
@@ -374,28 +405,28 @@ CREATE TABLE IF NOT EXISTS `processes` (
 -- Volcado de datos para la tabla `processes`
 --
 
-INSERT INTO `processes` (`id`, `client_id`, `folder_number`, `creation_number`, `department_id`, `city_id`, `office_id`, `process_type`, `claimant`, `defendant`, `created_at`, `updated_at`) VALUES
-(5, 13, '1234', '1234', 1, 3, 3, 2, '["demandante1 - 1234","demandado2 - 1234567"]', '["demandado1 - 12345"]', '2014-06-27 19:14:37', '2014-08-30 17:20:18'),
-(6, 16, '234', '1234', 1, 3, 3, 4, '["demandante 1","demandante 2"]', '["demandado 1","demandado 2"]', '2014-07-20 18:51:37', '2014-08-09 22:02:43'),
-(7, 16, '123', '123', 1, 1, 4, 1, '["prueba "]', '["test"]', '2014-07-20 19:04:04', '2014-08-09 22:01:05'),
-(8, 25, 'asdf', 'asdf', 1, 1, 1, 1, '["asdf"]', '["asdf"]', '2014-07-23 23:59:08', '2014-07-24 00:00:57'),
-(9, 26, 'sdfg', 'asdf', 1, 1, 1, 1, '["asd"]', '["asd"]', '2014-07-24 02:12:31', '2014-07-24 02:12:46'),
-(10, 16, 'uno', 'dos', 1, 1, 1, 1, '["asd"]', '["asd"]', '2014-07-27 01:27:06', '2014-08-09 21:58:22'),
-(11, 27, 'iuytre', 'qwertyuio', 1, 1, 1, 1, '["132"]', '["123123"]', '2014-07-28 01:57:13', '2014-07-28 01:57:13'),
-(12, 30, '098765', '98765', 2, 2, 3, 1, '["98765","demandante 1","demandatante 2"]', '["65432","damanddodododo 1","demandododod 2"]', '2014-07-28 01:58:28', '2014-08-05 02:58:54'),
-(13, 17, '3452', '45454', 1, 2, 3, 1, '["nombre dte - 98765","segundo dte - 640173"]', '["nombre ddo - 123467"]', '2014-08-02 14:31:36', '2014-08-02 14:33:23'),
-(16, 31, '001', '2012-588', 1, 1, 3, 1, '["BANCO SANTANDER "]', '["ARISMEL DE JESUS PEREZ"]', '2014-08-13 20:41:13', '2014-08-13 20:41:13'),
-(17, 31, '002', '2010-1671', 1, 1, 3, 1, '["CONSERVIR"]', '["CARLOS DAVID ERAZO SALAZAR"]', '2014-08-13 20:42:13', '2014-08-13 20:42:13'),
-(18, 31, '003', '2010-1444', 1, 1, 4, 1, '["CONSERVIR"]', '["JHON FREDY HUERTAS VARGAS"]', '2014-08-13 20:43:09', '2014-08-13 20:43:09'),
-(19, 31, '004', '2012-753', 1, 1, 4, 1, '["CONALSUMI"]', '["ROBINSON FARID BONILLA"]', '2014-08-13 20:44:13', '2014-08-13 20:44:13'),
-(20, 31, '006', '2010-1399', 1, 1, 5, 1, '["CONSERVIR"]', '["EUGENIO JOSE SIERRA CARE"]', '2014-08-13 20:45:03', '2014-08-13 20:46:15'),
-(21, 31, '007', '2011-632', 1, 1, 6, 1, '["LUIS ALEJANDRO RIVEROS REINA"]', '["MARIA ELVIRA MURILLO"]', '2014-08-13 20:45:51', '2014-08-13 20:45:51'),
-(22, 31, '008', '2010-1417', 1, 1, 7, 1, '["CONSERVIR"]', '["EDGAR GIOVANNY FRANCO"]', '2014-08-13 20:48:48', '2014-08-13 20:48:48'),
-(23, 31, '009', '2006-142', 1, 1, 8, 2, '["EFRAIN ANGEL CAMACHO"]', '["MARIA ANGELICA MARTINEZ"]', '2014-08-13 20:49:49', '2014-08-13 20:49:49'),
-(24, 31, '010', '2010-1332', 1, 1, 9, 1, '["CONSERVIR"]', '["DANY ALEXANDER URRIETA "]', '2014-08-13 20:50:46', '2014-08-13 20:50:46'),
-(25, 27, '123A', '123B', 1, 1, 1, 1, '["asdadsa1-12312313","asdadsa3-12312313"]', '["asdadsa2-12312313"]', '2014-08-30 17:05:13', '2014-08-30 17:05:13'),
-(26, 27, 'asd', 'asd', 1, 1, 1, 1, '["asdad112312-44444",""]', '["rree-5555"]', '2014-08-30 17:10:31', '2014-08-30 17:10:31'),
-(27, 32, 'wachufolder', 'wachureaction', 2, 2, 1, 3, '["asd-123"]', '["asdasd-123123"]', '2014-08-30 17:33:16', '2014-08-30 17:34:14');
+INSERT INTO `processes` (`id`, `client_id`, `folder_number`, `creation_number`, `department_id`, `city_id`, `office_id`, `process_type`, `claimant`, `defendant`, `obligation`, `data`, `archived`, `created_at`, `updated_at`) VALUES
+(5, 13, '1234', '1234', 1, 3, 3, 2, '["demandante1 - 1234","demandado2 - 1234567"]', '["demandado1 - 12345"]', '', '', 0, '2014-06-27 19:14:37', '2014-09-06 20:25:29'),
+(6, 16, '234', '1234', 1, 3, 3, 4, '["demandante 1","demandante 2"]', '["demandado 1","demandado 2"]', '', '', 0, '2014-07-20 18:51:37', '2014-08-09 22:02:43'),
+(7, 16, '123', '123', 1, 1, 4, 1, '["prueba "]', '["test"]', '', '', 0, '2014-07-20 19:04:04', '2014-08-09 22:01:05'),
+(8, 25, 'asdf', 'asdf', 1, 1, 1, 1, '["asdf"]', '["asdf"]', '', '', 0, '2014-07-23 23:59:08', '2014-07-24 00:00:57'),
+(9, 26, 'sdfg', 'asdf', 1, 1, 1, 1, '["asd"]', '["asd"]', '', '', 0, '2014-07-24 02:12:31', '2014-07-24 02:12:46'),
+(10, 16, 'uno', 'dos', 1, 1, 1, 1, '["asd"]', '["asd"]', '', '', 0, '2014-07-27 01:27:06', '2014-08-09 21:58:22'),
+(11, 27, 'iuytre', 'qwertyuio', 1, 1, 1, 1, '["132"]', '["123123"]', '', '', 0, '2014-07-28 01:57:13', '2014-07-28 01:57:13'),
+(12, 30, '098765', '98765', 2, 2, 3, 1, '["98765","demandante 1","demandatante 2"]', '["65432","damanddodododo 1","demandododod 2"]', '', '', 0, '2014-07-28 01:58:28', '2014-08-05 02:58:54'),
+(13, 17, '3452', '45454', 1, 2, 3, 1, '["nombre dte - 98765","segundo dte - 640173"]', '["nombre ddo - 123467"]', '', '', 0, '2014-08-02 14:31:36', '2014-08-02 14:33:23'),
+(16, 31, '001', '2012-588', 1, 1, 3, 1, '["BANCO SANTANDER "]', '["ARISMEL DE JESUS PEREZ"]', '', '', 0, '2014-08-13 20:41:13', '2014-08-13 20:41:13'),
+(17, 31, '002', '2010-1671', 1, 1, 3, 1, '["CONSERVIR"]', '["CARLOS DAVID ERAZO SALAZAR"]', '', '', 0, '2014-08-13 20:42:13', '2014-08-13 20:42:13'),
+(18, 31, '003', '2010-1444', 1, 1, 4, 1, '["CONSERVIR"]', '["JHON FREDY HUERTAS VARGAS"]', '', '', 0, '2014-08-13 20:43:09', '2014-08-13 20:43:09'),
+(19, 31, '004', '2012-753', 1, 1, 4, 1, '["CONALSUMI"]', '["ROBINSON FARID BONILLA"]', '', '', 0, '2014-08-13 20:44:13', '2014-08-13 20:44:13'),
+(20, 31, '006', '2010-1399', 1, 1, 5, 1, '["CONSERVIR"]', '["EUGENIO JOSE SIERRA CARE"]', '', '', 0, '2014-08-13 20:45:03', '2014-08-13 20:46:15'),
+(21, 31, '007', '2011-632', 1, 1, 6, 1, '["LUIS ALEJANDRO RIVEROS REINA"]', '["MARIA ELVIRA MURILLO"]', '', '', 0, '2014-08-13 20:45:51', '2014-08-13 20:45:51'),
+(22, 31, '008', '2010-1417', 1, 1, 7, 1, '["CONSERVIR"]', '["EDGAR GIOVANNY FRANCO"]', '', '', 0, '2014-08-13 20:48:48', '2014-08-13 20:48:48'),
+(23, 31, '009', '2006-142', 1, 1, 8, 2, '["EFRAIN ANGEL CAMACHO"]', '["MARIA ANGELICA MARTINEZ"]', '', '', 0, '2014-08-13 20:49:49', '2014-08-13 20:49:49'),
+(24, 31, '010', '2010-1332', 1, 1, 9, 1, '["CONSERVIR"]', '["DANY ALEXANDER URRIETA "]', '', '', 0, '2014-08-13 20:50:46', '2014-08-13 20:50:46'),
+(25, 27, '123A', '123B', 1, 1, 1, 1, '["asdadsa1-12312313","asdadsa3-12312313"]', '["asdadsa2-12312313"]', '', '', 0, '2014-08-30 17:05:13', '2014-08-30 17:05:13'),
+(26, 27, 'asd', 'asd', 1, 1, 1, 1, '["asdad112312-44444",""]', '["rree-5555"]', '', '', 0, '2014-08-30 17:10:31', '2014-08-30 17:10:31'),
+(27, 32, 'wachufolder', 'wachureaction', 2, 2, 1, 3, '["asd-123"]', '["asdasd-123123"]', '', '', 0, '2014-08-30 17:33:16', '2014-08-30 17:34:14');
 
 -- --------------------------------------------------------
 
@@ -448,32 +479,36 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `loggeable_id` int(11) NOT NULL,
   `loggeable_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `archived` int(1) NOT NULL,
+  `suspended` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48 ;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `loggeable_id`, `loggeable_type`, `created_at`, `updated_at`) VALUES
-(1, 'seguimiento-judicial-admin', '$2y$10$BvLNFV/yz8qKxA6VKzzUbO25Ryz/ECGlthLwdxxMDI3S570WC/cwe', 0, 'SuperAdmin', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(18, 'djimsomnia@gmail.com', '$2y$10$1lBjAmkXh4H3TgphJHr/yevHTAZMAtADWJQSsXNmhqHn3fGGQsHZu', 4, 'Assistant', '2014-06-27 19:02:07', '2014-08-11 15:21:55'),
-(19, 'javiervaron1@gmail.com', '$2y$10$7Je8imgCDmxIShIw.NbF1.A6nA4hiHRb.mifiBfkV4tt0s8e/97yu', 13, 'Client', '2014-06-27 19:05:13', '2014-08-30 17:42:14'),
-(20, 'COOPSOLIDAR@HOTMAILd.COM', '$2y$10$xJhXVHyvuqeliJr7Paz/Iu0UcyDJVOpaxBsbx55lHk.jGoboOOIj6', 14, 'Client', '2014-07-04 15:23:51', '2014-07-04 15:23:51'),
-(23, 'javarsa1@yahoo.es', '$2y$10$v/AxfyO8O/3goSmMSaTjHemxg9bBI6DXpDEeaQNPXWL8grL1M9VD2', 16, 'Client', '2014-07-20 18:09:43', '2014-07-20 19:03:23'),
-(25, 'empresa2@javiervaron.co', '$2y$10$8VYwYJCVhMYe1S6G81HS5eSFQPSVfTgc8VupGILbPBFsdOqs4Fac2', 17, 'Client', '2014-07-20 18:34:47', '2014-07-20 18:34:47'),
-(31, 'asdf@asdf.com', '$2y$10$7.n6tKjt29aHsFP668QmW.zLP0nXs7QaKOm9jLN1ujuL1hHO0w4C6', 21, 'Client', '2014-07-23 23:30:47', '2014-07-23 23:30:47'),
-(36, 'tete@tete.com', '$2y$10$oYWPZeCA1i6epZX.UqYoHePmOjA1fR5RulrMykghegL0XuJ9tR2h.', 25, 'Client', '2014-07-23 23:58:42', '2014-07-23 23:58:42'),
-(37, 'prueba@esteban.com.co', '$2y$10$cpB28l2ziRWeAS/AMp8B3.nCNW1MpwUimXTpqK9LMoQlEBucLQOfO', 26, 'Client', '2014-07-24 02:12:10', '2014-08-14 12:38:11'),
-(38, 'a@a.com', '$2y$10$tOvZXN2ayOWvGI2AUYs.GuivxDkMunrpg0k9fVG29L4zLVVTye706', 27, 'Client', '2014-07-27 01:02:30', '2014-07-27 01:02:30'),
-(41, '123@123.com', '$2y$10$nAny3LuFdmbM6f9XSpnpoOzAXZYVsCYbzqg5GVANTjMCxBrTdkcGm', 30, 'Client', '2014-07-28 01:57:58', '2014-08-14 12:37:40'),
-(42, 'JOZEUZ1987@HOTMAIL.COM', '$2y$10$.sIMjUg37xsXDQzdTex0ReNud.rmk4SItsBYJ4e.18GPjtF3IJuHq', 10, 'Assistant', '2014-08-11 15:15:35', '2014-08-14 17:52:46'),
-(43, 'coopsolidar@hotmail.com', '$2y$10$XOqILNNW2yFh9gRIr6Lag.XbhbUln9ZLMf01O8bkVdvjrQpypt72i', 31, 'Client', '2014-08-11 15:20:21', '2014-08-14 12:28:36'),
-(44, 'javier@javiervaron.co', '$2y$10$0OGBhbAPRAmOF7H7CK0J2eD1BO4V1rCbyhTbPptCNrF/pp3jGhZG2', 11, 'Assistant', '2014-08-11 22:35:20', '2014-08-11 22:35:20'),
-(45, 'aa@aa.com', '$2y$10$ht/I11gx9tPjXnkFjz2Bh.OQZ8FP7iGAaFZZgNK/NrNoN0b2OnEIC', 32, 'Client', '2014-08-30 17:32:13', '2014-08-30 17:32:13');
+INSERT INTO `users` (`id`, `email`, `password`, `loggeable_id`, `loggeable_type`, `archived`, `suspended`, `created_at`, `updated_at`) VALUES
+(1, 'seguimiento-judicial-admin', '$2y$10$BvLNFV/yz8qKxA6VKzzUbO25Ryz/ECGlthLwdxxMDI3S570WC/cwe', 0, 'SuperAdmin', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(18, 'djimsomnia@gmail.com', '$2y$10$1lBjAmkXh4H3TgphJHr/yevHTAZMAtADWJQSsXNmhqHn3fGGQsHZu', 4, 'Assistant', 0, 0, '2014-06-27 19:02:07', '2014-08-11 15:21:55'),
+(19, 'javiervaron1@gmail.com', '$2y$10$7Je8imgCDmxIShIw.NbF1.A6nA4hiHRb.mifiBfkV4tt0s8e/97yu', 13, 'Client', 0, 0, '2014-06-27 19:05:13', '2014-08-30 17:42:14'),
+(20, 'COOPSOLIDAR@HOTMAILd.COM', '$2y$10$xJhXVHyvuqeliJr7Paz/Iu0UcyDJVOpaxBsbx55lHk.jGoboOOIj6', 14, 'Client', 0, 0, '2014-07-04 15:23:51', '2014-07-04 15:23:51'),
+(23, 'javarsa1@yahoo.es', '$2y$10$v/AxfyO8O/3goSmMSaTjHemxg9bBI6DXpDEeaQNPXWL8grL1M9VD2', 16, 'Client', 0, 0, '2014-07-20 18:09:43', '2014-07-20 19:03:23'),
+(25, 'empresa2@javiervaron.co', '$2y$10$8VYwYJCVhMYe1S6G81HS5eSFQPSVfTgc8VupGILbPBFsdOqs4Fac2', 17, 'Client', 0, 0, '2014-07-20 18:34:47', '2014-07-20 18:34:47'),
+(31, 'asdf@asdf.com', '$2y$10$7.n6tKjt29aHsFP668QmW.zLP0nXs7QaKOm9jLN1ujuL1hHO0w4C6', 21, 'Client', 0, 0, '2014-07-23 23:30:47', '2014-07-23 23:30:47'),
+(36, 'tete@tete.com', '$2y$10$oYWPZeCA1i6epZX.UqYoHePmOjA1fR5RulrMykghegL0XuJ9tR2h.', 25, 'Client', 0, 0, '2014-07-23 23:58:42', '2014-07-23 23:58:42'),
+(37, 'prueba@esteban.com.co', '$2y$10$cpB28l2ziRWeAS/AMp8B3.nCNW1MpwUimXTpqK9LMoQlEBucLQOfO', 26, 'Client', 0, 0, '2014-07-24 02:12:10', '2014-08-14 12:38:11'),
+(38, 'a@a.com', '$2y$10$tOvZXN2ayOWvGI2AUYs.GuivxDkMunrpg0k9fVG29L4zLVVTye706', 27, 'Client', 0, 0, '2014-07-27 01:02:30', '2014-07-27 01:02:30'),
+(41, '123@123.com', '$2y$10$nAny3LuFdmbM6f9XSpnpoOzAXZYVsCYbzqg5GVANTjMCxBrTdkcGm', 30, 'Client', 0, 0, '2014-07-28 01:57:58', '2014-08-14 12:37:40'),
+(42, 'JOZEUZ1987@HOTMAIL.COM', '$2y$10$.sIMjUg37xsXDQzdTex0ReNud.rmk4SItsBYJ4e.18GPjtF3IJuHq', 10, 'Assistant', 0, 0, '2014-08-11 15:15:35', '2014-08-14 17:52:46'),
+(43, 'coopsolidar@hotmail.com', '$2y$10$XOqILNNW2yFh9gRIr6Lag.XbhbUln9ZLMf01O8bkVdvjrQpypt72i', 31, 'Client', 0, 0, '2014-08-11 15:20:21', '2014-08-14 12:28:36'),
+(44, 'javier@javiervaron.co', '$2y$10$0OGBhbAPRAmOF7H7CK0J2eD1BO4V1rCbyhTbPptCNrF/pp3jGhZG2', 11, 'Assistant', 0, 0, '2014-08-11 22:35:20', '2014-08-11 22:35:20'),
+(45, 'aa@aa.com', '$2y$10$ht/I11gx9tPjXnkFjz2Bh.OQZ8FP7iGAaFZZgNK/NrNoN0b2OnEIC', 32, 'Client', 0, 0, '2014-08-30 17:32:13', '2014-08-30 17:32:13'),
+(46, 'brayanacebo@gmail.com', '$2y$10$rXam1MJaKgZ5DgrN0ZFaxebujGxkn80sUuSOAWoOevdprkMX0/gIi', 33, 'Client', 0, 0, '2014-09-05 21:42:55', '2014-09-05 21:42:55'),
+(47, 'aaa@aaa.co', '$2y$10$LMNClOz2aC5m93sz81dpceqquIJ0XM6MmlDYCa3r5h/hwW4fJz79u', 34, 'Client', 0, 0, '2014-09-06 20:11:07', '2014-09-06 20:11:07');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

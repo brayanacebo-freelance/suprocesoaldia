@@ -176,7 +176,7 @@
 function filterDepartament(departamentId){
   $.ajax({
     type: "GET",
-    url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToCities/"+departamentId
+    url: "http://app.suprocesoaldia.com/selectToCities/"+departamentId
   }).done(function( data ) {
 
     if(data !== 0){
@@ -195,7 +195,7 @@ function filterDepartament(departamentId){
 function filterOffices(cityId){
   $.ajax({
     type: "GET",
-    url: "http://localhost/FREELANCE/suprocesoaldia/app/public_html/selectToOffices/"+cityId
+    url: "http://app.suprocesoaldia.com/selectToOffices/"+cityId
   }).done(function( data ) {
 
     console.log(data);
