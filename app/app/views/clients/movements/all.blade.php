@@ -73,6 +73,7 @@
                                   </tr>
                               </thead>
                               <tbody>
+
                               @foreach($movements as $movement)
                                   <tr>
                                       <td>{{ $movement->id }}</a></td>
@@ -80,13 +81,12 @@
                                       <td>{{ $movement->process->claimant }}</td>
                                       <td>{{ $movement->process->defendant }}</td>
                                       <td>{{ $movement->comments }}</td>
-                                      <td class="center"><a href="{{ route('clients.processes.show', $client->id,
-                                      $movement->process) }}" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
+                                      <td class="center"><a href="{{ route('clients.processes.show', array($client->id, $movement->process->id)) }}" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a></td>
                                   </tr>
                               @endforeach
                               </tbody>
                           </table>
-                          
+                          <!--{{ route('clients.processes.show', $client->id, $movement->process->id) }}-->
                       </div><!-- /box-body -->
                   </div><!-- /box -->
               </div><!-- /span -->
@@ -110,7 +110,11 @@
 {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
 {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
 {{HTML::script('admin/js/holder.js');}}
+<<<<<<< HEAD
 <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
+=======
+<!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
+>>>>>>> 6e7171efea4d696b109a3d9321cc2f97aaa9b84a
 
 <script type="text/javascript">
 $(document).ready(function() {
