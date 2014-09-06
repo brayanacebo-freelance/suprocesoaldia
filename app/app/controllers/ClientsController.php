@@ -64,6 +64,8 @@ class ClientsController extends BaseController {
 
 				$this->sendMail($user);
 
+				$this->clients->log('Creo el usuario '.$client->in_charge);
+
 				return Redirect::route('clients.index')->with('notifications', "El cliente ha sido creado con éxito!");
 			}else{
 				return Redirect::route('clients.create')->withErrors(array('message' => 'Email invalido'));
@@ -168,6 +170,7 @@ class ClientsController extends BaseController {
 			$client = $this->clients->find($id);
 			$client->fill($data);
 			$client->save();
+			$this->clients->log('Actualizo el usuario '.$client->in_charge);
 		}catch(Exception $e){
 			return Redirect::route('clients.create')->withErrors(array('message' => 'Este '.Input::get('email').' cliente ya existe'));
 		}
