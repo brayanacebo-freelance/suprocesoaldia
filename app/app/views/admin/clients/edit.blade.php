@@ -87,7 +87,7 @@
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="number">Teléfono</label>
                                                                     <div class="controls">
-                                                                        <input type="text" class="grd-white" data-validate="{required: true, maxlength: 6, messages:{required:'Please enter field max length', maxlength:'Please enter a maximum of 6 characters.'}}" name="phone" id="maxlength" value="{{$client->phone}}" />
+                                                                        <input type="text" class="grd-white" data-validate="{required: true, maxlength: 13, messages:{required:'Please enter field max length', maxlength:'Please enter a maximum of 6 characters.'}}" name="phone" id="maxlength" value="{{$client->phone}}" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-actions">
