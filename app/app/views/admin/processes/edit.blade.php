@@ -73,36 +73,35 @@ VALIDATION
               <div class="row-fluid">
                 <div class="span6">
                   <div class="control-group">
-                    <label class="control-label" for="required">Carpeta</label>
+                    <label class="control-label req" for="required">Carpeta</label>
                     <div class="controls">
                       <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="creation_number" id="required" value="{{$process->folder_number}}" />
                     </div>
                   </div>
                   <div class="control-group">
-                    <label class="control-label" for="required">Radicación</label>
+                    <label class="control-label req" for="required">Radicación</label>
                     <div class="controls">
                       <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="creation_number" id="required" value="{{$process->creation_number}}" />
                     </div>
                   </div>
                   <div class="control-group">
-                    <label class="control-label" for="inputSelect">Departamento</label>
+                    <label class="control-label req" for="inputSelect">Departamento</label>
                     <div class="controls">
                      {{ Form::select('department_id', $departments, $process->department_id, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un departamento")) }}
                    </div>
                  </div>
                  <div class="control-group">
-                  <label class="control-label" for="inputSelect">Ciudad</label>
+                  <label class="control-label req" for="inputSelect">Ciudad</label>
                   <div class="controls">
                     {{ Form::select('city_id', $cities, $process->city_id ,array('style'=>"width:200px", 'data-placeholder'=>"Seleccione una ciudad")) }}
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label" for="inputAuto">Despacho</label>
+                  <label class="control-label req" for="inputAuto">Despacho</label>
                   <div class="controls">
-                      {{ Form::select('office_id', $offices, $process->office_id ,array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un depacho")) }}
-                    </div>
+                    {{ Form::select('office_id', $offices, $process->office_id ,array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un depacho")) }}
+                  </div>
                 </div>
-
                 <div class="control-group">
                   <label class="control-label" for="inputAuto">Obligación</label>
                   <div class="controls">
@@ -119,48 +118,48 @@ VALIDATION
               </div>
               <div class="span6">
                 <div class="control-group">
-                  <label class="control-label" for="inputSelect">Tipo de proceso</label>
+                  <label class="control-label req" for="inputSelect">Tipo de proceso</label>
                   <div class="controls">
                     {{ Form::select('process_type', $types, $process->process_type,  array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
                   </div>
                 </div>
-                     <div id="content_demand">
+                <div id="content_demand">
 
-                                @foreach(explode('<br>', $process->claimant) as $key => $claimant)
-                                  <div id="claimant-{{ $key }}" class="control-group control-claimant">
-                                     <label class="control-label" for="required">Demandante - Numero de documento</label>
-                                     <div class="controls">
-                                      <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" value="{{ $claimant }}"/>
-                                      <a type="button" class="btn btn-danger delete-claimant" data-claimant="{{ $key }}" >Eliminar</a>
-                                    </div>
-                                  </div>
-                                @endforeach
+                  @foreach(explode('<br>', $process->claimant) as $key => $claimant)
+                  <div id="claimant-{{ $key }}" class="control-group control-claimant">
+                   <label class="control-label" for="required">Demandante - Numero de documento</label>
+                   <div class="controls">
+                    <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="claimant[]" id="required" value="{{ $claimant }}"/>
+                    <a type="button" class="btn btn-danger delete-claimant" data-claimant="{{ $key }}" >Eliminar</a>
+                  </div>
+                </div>
+                @endforeach
 
-                                @foreach(explode('<br>', $process->defendant) as $key => $defendant)
-                                <div id="defendant-{{ $key }}" class="control-group control-defendant">
-                                 <label class="control-label" for="required">Demandando - Numero de documento</label>
-                                 <div class="controls">
-                                  <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required"  value="{{ $defendant }}"  />
-                                  <a type="button" class="btn btn-danger delete-defendant" data-defendant="{{ $key }}" >Eliminar</a>
-                                </div>
-                                </div>
-                                @endforeach
-
-                      </div>
-                          <div class="span6">
-                            <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
-                            <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
-                           </div>
+                @foreach(explode('<br>', $process->defendant) as $key => $defendant)
+                <div id="defendant-{{ $key }}" class="control-group control-defendant">
+                 <label class="control-label" for="required">Demandando - Numero de documento</label>
+                 <div class="controls">
+                  <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="defendant[]" id="required"  value="{{ $defendant }}"  />
+                  <a type="button" class="btn btn-danger delete-defendant" data-defendant="{{ $key }}" >Eliminar</a>
+                </div>
               </div>
+              @endforeach
+
             </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Editar proceso</button>
+            <div class="span6">
+              <a href="#" class="btn" id="add_new_demant">Agregar Demandante</a> <br/>
+              <a href="#" class="btn" id="add_new_de">Agregar Demandado</a>
             </div>
           </div>
-        </fieldset>
-      </form><!--/validation-->
-    </div>
-  </div><!--/box body-->
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Editar proceso</button>
+        </div>
+      </div>
+    </fieldset>
+  </form><!--/validation-->
+</div>
+</div><!--/box body-->
 </div><!--/box-->
 </div><!--/span-->
 </div><!--/validation-->
@@ -169,51 +168,73 @@ VALIDATION
 </div>
 @stop
 
-                                      @section('customscript')
-                                      @parent
+@section('customscript')
+@parent
 
-                                      {{HTML::script('admin/js/peity/jquery.peity.js');}}
-                                      {{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
-                                      {{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
-                                      {{HTML::script('admin/js/datatables/extras/TableTools.js');}}
-                                      {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
-                                      {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
-                                      {{HTML::script('admin/js/holder.js');}}
-                                      <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
+{{HTML::script('admin/js/peity/jquery.peity.js');}}
+{{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
+{{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
+{{HTML::script('admin/js/datatables/extras/TableTools.js');}}
+{{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
+{{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
+{{HTML::script('admin/js/holder.js');}}
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
-                                      <script type="text/javascript">
-                                        $(document).ready(function() {
+<script type="text/javascript">
 
-                                                              $('#add_new_demant').click(function(){
-                              $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandante - Numero de documento</label><div class="controls"><input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="claimant[]" id="required" /></div> </div>');
-                    });
-                    $('#add_new_de').click(function(){
-                              $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandando - Numero de documento</label> <div class="controls"> <input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="defendant[]" id="required" /> </div>');
-                    });
-                    $('.delete-claimant').on('click', function () {
-                        var $this = $(this);
 
-                        if ($('.control-claimant').size() === 1) {
-                          alert('Al menos un demandante es necesario');
-                          return;
-                        }
+/* Filtrar las oficinas por ciudades */
+function filterOffices(cityId){
+  $.ajax({
+    type: "GET",
+    url: "http://app.suprocesoaldia.com/selectToOffices/"+cityId
+  }).done(function( data ) {
 
-                        var claimant = $this.data('claimant');
-                        $('#claimant-' + claimant).remove();
-                    });
-                    $('.delete-defendant').on('click', function () {
-                        var $this = $(this);
+    console.log(data);
 
-                        if ($('.control-defendant').size() === 1) {
-                          alert('Al menos un demandado es necesario');
-                          return;
-                        }
+    if(data !== 0){
+      $("#officeId").html("");
+      $("<option value='0'> Selecciona un despacho </option>").appendTo("#officeId");
+      $.each( data, function( key, $item ) {
+        $("<option value='"+$item.id+"'>"+$item.name+"</option>").appendTo("#officeId");
+      });
+    }
 
-                        var defendant = $this.data('defendant');
-                        $('#defendant-' + defendant).remove();
-                    });
+  });
+}
+
+$(document).ready(function() {
+
+  $('#add_new_demant').click(function(){
+    $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandante - Numero de documento</label><div class="controls"><input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="claimant[]" id="required" /></div> </div>');
+  });
+  $('#add_new_de').click(function(){
+    $('#content_demand').append('<div class="control-group"><label class="control-label" for="required">Demandando - Numero de documento</label> <div class="controls"> <input type="text" class="grd-white" data-validate="{required: true, messages:{required:\'Campo obligatorio\'}}" name="defendant[]" id="required" /> </div>');
+  });
+  $('.delete-claimant').on('click', function () {
+    var $this = $(this);
+
+    if ($('.control-claimant').size() === 1) {
+      alert('Al menos un demandante es necesario');
+      return;
+    }
+
+    var claimant = $this.data('claimant');
+    $('#claimant-' + claimant).remove();
+  });
+  $('.delete-defendant').on('click', function () {
+    var $this = $(this);
+
+    if ($('.control-defendant').size() === 1) {
+      alert('Al menos un demandado es necesario');
+      return;
+    }
+
+    var defendant = $this.data('defendant');
+    $('#defendant-' + defendant).remove();
+  });
                 // try your js
-                  $('#form-validate').validate();
+                $('#form-validate').validate();
 
                 // peity chart
                 $("span[data-chart=peity-bar]").peity("bar");

@@ -25,6 +25,9 @@
   {{HTML::style('admin/css/font-awesome.css');}}
   {{HTML::style('admin/css/animate.css');}}
   {{HTML::style('admin/css/uniform.default.css');}}
+
+  <style type="text/css">.req:after{content: ' *';color: red;}</style>
+
   @section('customstyle')
   <!--This is the master header.-->
   @show

@@ -71,30 +71,30 @@
                                     <div class="row-fluid">
                                      <div class="span6">
                                       <div class="control-group">
-                                       <label class="control-label" for="required">Carpeta</label>
+                                       <label class="control-label req" for="required">Carpeta</label>
                                        <div class="controls">
                                         <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="folder_number" id="required" />
                                       </div>
                                     </div>                                    <div class="control-group">
-                                    <label class="control-label" for="required">Radicación</label>
+                                    <label class="control-label req" for="required">Radicación</label>
                                     <div class="controls">
                                       <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="creation_number" id="required" />
                                     </div>
                                   </div>
                                   <div class="control-group">
-                                   <label class="control-label" for="inputSelect">Departamento</label>
+                                   <label class="control-label req" for="inputSelect">Departamento</label>
                                    <div class="controls">
                                     {{ Form::select('department_id', $departments, null, array('id'=>"departamentId", 'onchange'=>"filterDepartament(this.value)")); }}
                                   </div>
                                 </div>
                                 <div class="control-group">
-                                 <label class="control-label" for="inputSelect">Ciudad</label>
+                                 <label class="control-label req" for="inputSelect">Ciudad</label>
                                  <div class="controls">
                                   <select id="cityId" name="city_id" class="valid" onchange="filterOffices(this.value)"></select>
                                 </div>
                               </div>
                               <div class="control-group">
-                               <label class="control-label" for="inputAuto">Despacho</label>
+                               <label class="control-label req" for="inputAuto">Despacho</label>
                                <div class="controls">
                                 <select id="officeId" name="office_id" class="valid"></select>
                               </div>
@@ -115,7 +115,7 @@
                       </div>
                       <div class="span6">
                         <div class="control-group">
-                         <label class="control-label" for="inputSelect">Tipo de proceso</label>
+                         <label class="control-label req" for="inputSelect">Tipo de proceso</label>
                          <div class="controls">
                           {{ Form::select('process_type', $types, array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un tipo de proceso")) }}
                         </div>

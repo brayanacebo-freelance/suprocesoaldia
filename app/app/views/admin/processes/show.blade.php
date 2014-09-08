@@ -7,7 +7,6 @@
 
 @stop
 
-
 @section('content')
 @parent
 <div class="span9">
@@ -90,15 +89,15 @@
                     </p>
                     <div class="divider-content2"></div>
                     <p>
-                      <span class="color-teal">Departamento</span><br>{{ $process->department->name }}
+                      <span class="color-teal">Departamento</span><br>{{ @$process->department->name }}
                     </p>
                     <div class="divider-content2"></div>
                     <p>
-                      <span class="color-teal">Ciudad</span><br>{{ $process->city->name }}
+                      <span class="color-teal">Ciudad</span><br>{{ @$process->city->name }}
                     </p>
                     <div class="divider-content2"></div>
                     <p>
-                      <span class="color-teal">Despacho</span><br>{{ $process->office->name }}
+                      <span class="color-teal">Despacho</span><br>{{ @$process->office->name }}
                     </p>
                     <div class="divider-content2"></div>
                     <p>

@@ -36,13 +36,18 @@ class ProcessesController extends BaseController {
 	 */
 	public function store($client_id)
 	{
+
+		$post = Input::all();
+		
+		if(!$post['department_id'] || !$post['city_id'] || !$post['office_id']){
+			$client = $this->clients->find($client_id);
+			$departments = $this->departments->getSelectList();
+			$types = $this->types->getSelectList();
+			return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'))->withErrors(array('message' => 'Recuerde que los campos marcados con (*) son obligatorios'));
+		}
+
 		$client = $this->clients->find($client_id);
 		$process = new Process(Input::all());
-		
-		//echo "<pre>"; print_r($process->claimant); exit;
-
-		//$data['claimant'] = array_filter($data['claimant']);
-		//$data['defendant'] = array_filter($data['defendant']);
 
 		$r = $client->processes()->save($process);
 
