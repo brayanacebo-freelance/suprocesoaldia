@@ -3,6 +3,7 @@
 @parent
 {{HTML::style('admin/css/DT_bootstrap.css');}}
 {{HTML::style('admin/css/responsive-tables.css');}}
+{{HTML::style('admin/css/prettyPhoto.css');}}
 
 @stop
 
@@ -153,4 +154,17 @@
 </div><!-- /span side-right -->
 @parent
 
+@stop
+
+@section('customscript')
+    @parent
+        {{HTML::script('admin/js/prettyPhoto/jquery.prettyPhoto.js');}}
+        {{HTML::script('admin/js/filterable/filterable.js');}}
+        {{HTML::script('admin/js/filterable/jquery.easing.1.3.js');}}
+        <script type="text/javascript">
+          $(document).ready(function(){
+            // prettyPhoto
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+          });
+        </script>
 @stop
