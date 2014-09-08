@@ -150,7 +150,7 @@
                     @endif
                     @if (Auth::user()->isAdmin())
                     <li>
-                      <a href="http://localhost/FREELANCE/suprocesoaldia/app/public_html/mails" title="enviar correo">
+                      <a href="http://app.suprocesoaldia.com/mails" title="enviar correo">
                         <div class="helper-font-24">
                           <i class="icofont-envelope-alt"></i>
                         </div>
