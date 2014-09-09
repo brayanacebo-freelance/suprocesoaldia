@@ -3,6 +3,7 @@
 @parent
 {{HTML::style('admin/css/DT_bootstrap.css');}}
 {{HTML::style('admin/css/responsive-tables.css');}}
+{{HTML::style('admin/css/prettyPhoto.css');}}
 
 @stop
 
@@ -153,4 +154,105 @@
 </div><!-- /span side-right -->
 @parent
 
+@stop
+
+@section('customscript')
+    @parent
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+        {{HTML::script('admin/js/pricing-table/prefixfree.js');}}
+        {{HTML::script('admin/js/prettyPhoto/jquery.prettyPhoto.js');}}
+        {{HTML::script('admin/js/filterable/filterable.js');}}
+        {{HTML::script('admin/js/filterable/jquery.easing.1.3.js');}}
+        <script type="text/javascript">
+          $(document).ready(function(){
+            // gallery setup
+            $('.gallery-selector').change(function(){
+                checked = $(this).attr('checked');
+                checked = (checked == undefined) ? false : true ;
+                
+                $('input.selecter, .gallery-selector').attr('checked', checked);
+                $.uniform.update('.gallery-selector');
+                
+                // toggle class for thumbnail
+                thumbnail = $('input.selecter').attr('checked', checked).next();
+                if(checked == true){
+                    thumbnail.addClass('active');
+                }
+                else{
+                    thumbnail.removeClass('active')
+                }
+            });
+            
+            $('.thumbnail-control .controls').click(function(e){
+                selecter = $(this).parent().parent().prev();
+                checked  = selecter.attr('checked');
+                if(checked == undefined){
+                    checked = true;
+                }
+                else{
+                    checked = false;
+                    $('.gallery-selector').attr('checked', checked);
+                    $.uniform.update('.gallery-selector');
+                }
+                
+                $(selecter).attr('checked', checked);
+                thumbnail = $(selecter).next();
+                if(e.target.nodeName == 'DIV'){
+                    thumbnail.toggleClass('active');
+                }
+            });
+            // prettyPhoto
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+              social_tools: '',
+              markup: '<div class="pp_pic_holder"> \
+                        <div class="ppt">&nbsp;</div> \
+                        <div class="pp_top"> \
+                          <div class="pp_left"></div> \
+                          <div class="pp_middle"></div> \
+                          <div class="pp_right"></div> \
+                        </div> \
+                        <div class="pp_content_container"> \
+                          <div class="pp_left"> \
+                          <div class="pp_right"> \
+                            <div class="pp_content"> \
+                              <div class="pp_loaderIcon"></div> \
+                              <div class="pp_fade"> \
+                                <a href="#" class="pp_expand" title="Expand the image">Expand</a> \
+                                <div class="pp_hoverContainer"> \
+                                  <a class="pp_next" href="#">next</a> \
+                                  <a class="pp_previous" href="#">previous</a> \
+                                </div> \
+                                <div id="pp_full_res"></div> \
+                                <div class="pp_details"> \
+                                  <div class="pp_nav"> \
+                                    <a href="#" class="pp_arrow_previous">Previous</a> \
+                                    <p class="currentTextHolder">0/0</p> \
+                                    <a href="#" class="pp_arrow_next">Next</a> \
+                                  </div> \
+                                  <div class="pp_social">{pp_social}</div> \
+                                  <a class="pp_close" href="#">Close</a> \
+                                </div> \
+                              </div> \
+                            </div> \
+                          </div> \
+                          </div> \
+                        </div> \
+                        <div class="pp_bottom"> \
+                          <div class="pp_left"></div> \
+                          <div class="pp_middle"></div> \
+                          <div class="pp_right"></div> \
+                        </div> \
+                      </div> \
+                      <div class="pp_overlay"></div>'
+            });
+            // filterable
+            $('#portfolio-list').filterable({
+                tagSelector : '.portfolio-filter a.filterable'
+            });
+            $('.portfolio-filter a').click(function(){
+                return false;
+            });
+          });
+        </script>
 @stop
