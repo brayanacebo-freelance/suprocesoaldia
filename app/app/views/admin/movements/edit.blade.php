@@ -91,53 +91,64 @@
                           <label class="control-label" for="inputSelect">Actuación</label>
                             <div class="select2-container" id="s2id_inputSelect" style="width: 200px">
                             {{ Form::select('action_type', $actions, $movement->action_type, array('style'=>"width: 200px; display: none;", 'data-placeholder'=>"Seleccione un tipo de acción", 'data-form'=>"select2")) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label" for="inputSelect">Tipo de notificación</label>
+                          <div class="controls">
+                            <div class="select2-container" id="s2id_inputSelect" style="width: 200px">
+                            {{ Form::select('notification_type', $notifications, $movement->notification_type, array('style'=>"width: 200px; display: none;", 'data-placeholder'=>"Seleccione un tipo de notificación", 'data-form'=>"select2")) }}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label" for="inputDate">Fecha de notificación</label>
+                          <div class="controls">
+                            <div class="input-append date" data-form="datepicker" data-date="{{ with(new DateTime($movement->notification_date))->format('d-m-Y') }}" data-date-format="dd-mm-yyyy">
+                              <input data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="notification_date" class="grd-white" data-form="datepicker" size="16" type="text" value="{{ with(new DateTime($movement->notification_date))->format('d-m-Y') }}">
+                              <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label" for="inputDate">Fecha de auto</label>
+                          <div class="controls">
+                            <div class="input-append date" data-form="datepicker" data-date="{{ with(new DateTime($movement->auto_date))->format('d-m-Y') }}" data-date-format="dd-mm-yyyy">
+                              <input data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="auto_date" class="grd-white" data-form="datepicker" size="16" type="text" value="{{ with(new DateTime($movement->auto_date))->format('d-m-Y') }}">
+                              <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label" for="inputSelect">Comentario</label>
+                          <div class="controls">
+                            <textarea type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="comments"rows="4">{{ $movement->comments }}</textarea>
+                          </div>
                         </div>
                       </div>
-                      <div class="control-group">
-                        <label class="control-label" for="inputSelect">Tipo de notificación</label>
-                        <div class="controls">
-                          <div class="select2-container" id="s2id_inputSelect" style="width: 200px">
-                          {{ Form::select('notification_type', $notifications, $movement->notification_type, array('style'=>"width: 200px; display: none;", 'data-placeholder'=>"Seleccione un tipo de notificación", 'data-form'=>"select2")) }}
-                      </div>
-                    </div>
-                    <div class="control-group">
-                      <label class="control-label" for="inputDate">Fecha de notificación</label>
-                      <div class="controls">
-                        <div class="input-append date" data-form="datepicker" data-date="{{ with(new DateTime($movement->notification_date))->format('d-m-Y') }}" data-date-format="dd-mm-yyyy">
-                          <input data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="notification_date" class="grd-white" data-form="datepicker" size="16" type="text" value="{{ with(new DateTime($movement->notification_date))->format('d-m-Y') }}">
-                          <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="control-group">
-                      <label class="control-label" for="inputDate">Fecha de auto</label>
-                      <div class="controls">
-                        <div class="input-append date" data-form="datepicker" data-date="{{ with(new DateTime($movement->auto_date))->format('d-m-Y') }}" data-date-format="dd-mm-yyyy">
-                          <input data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="auto_date" class="grd-white" data-form="datepicker" size="16" type="text" value="{{ with(new DateTime($movement->auto_date))->format('d-m-Y') }}">
-                          <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="span6">
-                    <div class="control-group">
-                      <label class="control-label" for="inputSelect">Comentario</label>
-                      <div class="controls">
-                        <textarea type="text" class="grd-white" data-validate="{required: true, messages:{required:'Campo obligatorio'}}" name="comments"rows="4">{{ $movement->comments }}</textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="form-actions">
-                  @foreach ($movement->images as $image)
-                    <img src="{{ $image }}" width="120" height="184" alt=""/>
-                  @endforeach
-                </div>
-                <div class="form-actions">
-                  <div id="dropzone-id" class="dropzone"></div>
-                  <button type="submit" class="btn btn-primary">Guardar movimiento</button>
-                </div>
+                      <div class="span6">
+                        <div class="control-group">
+                          <ul class="fotos">
+                            @foreach ($movement->images as $image)
+                            <li>
+                              <div class="foto">
+                                <img src="{{ $image }}" width="120" height="120" alt=""/>
+                              </div>
+                              <a href="#" class="btn btn-danger btn-mini btn-block">Eliminar</a>
+                            </li>
+                            @endforeach
+                          </ul>
+                        </div>
+                        <div class="control-group">
+                          <div id="dropzone-id" class="dropzone"></div>
+                        </div>
+                      </div>
+                    
+                    </div>
+                    <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Guardar movimiento</button>
+                    </div>
               </fieldset>
 
               {{ Form::close() }}
@@ -200,7 +211,7 @@
                 var myDropzone = new Dropzone("#dropzone-id",
                     {
                       url: "{{ route('clients.processes.movements.upload', array($client->id, $process->id, $movement->id)) }}",
-                      dictDefaultMessage: 'Arrastra archivos o has click.',
+                      dictDefaultMessage: 'Arrastra las fotos o has click aquí!',
                       acceptedFiles : 'image/*',
                     });
 
