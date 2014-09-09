@@ -36,8 +36,8 @@ class MovementsController extends BaseController {
 	{
 		$notification_date = new DateTime(Input::get('notification_date'));
 		$auto_date = new DateTime(Input::get('auto_date'));
-		if($notification_date >= $auto_date){
-			Session::put('notifications', 'La fecha de auto debe ser mayor a la fecha de notificación');
+		if($auto_date > $notification_date){
+			Session::put('notifications', 'La fecha de notificación debe ser mayor a la fecha de auto');
 			return Redirect::to('clients/'.$client_id.'/processes/'.$process_id.'/movements/create');
 		}
 
