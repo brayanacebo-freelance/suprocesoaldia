@@ -19,8 +19,8 @@
 <table style="width:100%;">
     <tr>
         <td style="padding: 10px 0px;">
-            <span style="font-size: 16px; font-family: 'Arial', serif; color: #00A0B1;">Hola: {{ $name }}</span><br>
-            <span style="font-size: 16px; font-family: 'Arial', serif; color: #000;">Si desea ver los procesos del dia haga clic <a href="{{ route('client.movements.daily') }}?{{ id }}">aquí</></span>
+            <span style="font-size: 16px; font-family: 'Arial', serif; color: #00A0B1;">Hola {{ $name }}</span><br>
+            <span style="font-size: 16px; font-family: 'Arial', serif; color: #000;">Si desea ver los procesos del dia haga clic <a href="{{ route('client.movements.daily') }}?{{ $id }}">aquí</></span>
         </td>
     </tr>
 </table> 

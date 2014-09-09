@@ -16,14 +16,16 @@ class MailController extends BaseController {
 		$users = $this->user->where('archived', 0)->where('suspended', 0)->where('loggeable_type','Client')->get();
 		foreach ($users as $user) {
 			$client = Client::where('id', $user->loggeable_id)->first();
-			$data = [
-				'id' => $user->id,
-				'name' => $client->in_charge
-			];
-			Mail::send('emails.newsletter', $data, function($message) use ($user,$client)
-			{
-			    $message->to($user->email, $client->in_charge)->subject('Notificación de procesos diarios');
-			});
+			if($client){
+				$data = [
+					'id' => $user->id,
+					'name' => ($client->in_charge) ? $client->in_charge : null
+				];
+				Mail::send('emails.newsletter', $data, function($message) use ($user,$client)
+				{
+				    $message->to($user->email, $client->in_charge)->subject('Notificación de procesos diarios');
+				});
+			}
 		}
 		return Redirect::route('clients.index')->with('notifications', "Notificaciones enviados con éxito!");
 		
