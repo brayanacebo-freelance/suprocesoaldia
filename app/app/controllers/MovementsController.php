@@ -117,9 +117,18 @@ class MovementsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($clientId, $processId, $movementId, $key)
 	{
-		//
+		$process = $this->processes->find($clientId, $processId);
+		$movement = $process->movements->find($movementId);		
+		$path = public_path('movements/'. $movement->dir);
+        $files = File::files($path);
+
+        if(@unlink($files[$key])){
+        	return Redirect::route('clients.processes.movements.edit', array($clientId, $processId, $movementId));
+        }else{
+        	return 'nonas';
+        }
 	}
 
 	public function upload($client_id, $process_id, $id)

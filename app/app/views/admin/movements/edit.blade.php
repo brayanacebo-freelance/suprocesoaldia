@@ -130,12 +130,12 @@
                       <div class="span6">
                         <div class="control-group">
                           <ul class="fotos">
-                            @foreach ($movement->images as $image)
+                            @foreach ($movement->images as $key => $image)
                             <li>
                               <div class="foto">
                                 <img src="{{ $image }}" width="120" height="120" alt=""/>
                               </div>
-                              <a href="#" class="btn btn-danger btn-mini btn-block">Eliminar</a>
+                              <a href="{{ route('clients.processes.movements.destroy', array($client->id, $process->id, $movement->id, $key)) }}" class="btn btn-danger btn-mini btn-block">Eliminar</a>
                             </li>
                             @endforeach
                           </ul>

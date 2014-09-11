@@ -22,6 +22,9 @@ Route::group(array('before' => 'auth'), function ()
 	Route::resource('clients.processes.movements', 'MovementsController');
 	Route::post('clients/{clients}/processes/{processes}/movements/{movements}/upload', array('as' => 'clients.processes.movements.upload', 'uses' => 'MovementsController@upload'));
 	Route::get('clients/{clients}/processes/{processes}/movements/{movements}/gallery', array('as' => 'clients.processes.movements.gallery', 'uses' => 'MovementsController@getGallery'));
+
+	Route::get('clients/{clients}/processes/{processes}/movements/{movements}/delete/{key}', array('as' => 'clients.processes.movements.destroy', 'uses' => 'MovementsController@destroy'));
+
 	Route::resource('process-types', 'ProcessTypeController');
 	Route::resource('notification-types', 'NotificationTypeController');
 	Route::resource('actions', 'ActionsController');
@@ -34,10 +37,8 @@ Route::group(array('before' => 'auth'), function ()
 	Route::post('notify/{client}', array('uses' => 'MailController@notify', 'as' => 'clients.notify'));
 	Route::get('selectToCities/{departamentId}', 'ProcessesController@getCities');
 	Route::get('selectToOffices/{cityId}', 'ProcessesController@getOffices');
-
 	Route::get('processreport', array('uses' => 'ClientsController@getProcessReport', 'as' => 'client.movements.processreport'));
 	Route::get('reportes', array('uses' => 'ClientController@getReports', 'as' => 'client.movements.report'));
-
 	Route::get('clients/{id}/archive' , array('uses' => 'ClientsController@archive', 'as' =>'clients.archive'));
 	Route::get('clients/{id}/noarchive' , array('uses' => 'ClientsController@noArchive', 'as' =>'clients.noarchive'));
 	Route::get('clients/{id}/suspended' , array('uses' => 'ClientsController@suspended', 'as' =>'clients.suspended'));
