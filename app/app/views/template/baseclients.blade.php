@@ -76,7 +76,7 @@
                             @elseif(Auth::user()->isAdmin())
                             <p><strong>{{Auth::user()->email}}</strong></p>
                             <p class="muted">Administrador</p>
-                            @elseid(Auth::user()->isClient())
+                            @elseif(Auth::user()->isClient())
                             <p><strong>{{Auth::user()->client()->name}}</strong></p>
                             <p class="muted">Cliente</p>
                             @endif

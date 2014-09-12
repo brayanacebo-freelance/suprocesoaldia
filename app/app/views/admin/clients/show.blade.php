@@ -99,6 +99,10 @@
               </thead>
               <tbody>
                 @foreach($client->processes as $process)
+
+                <!-- ADMIN -->
+
+                @if (Auth::user()->isAdmin())
                 <tr class="odd gradeA">
                   <td><a href="#" class="btn btn-link btn-small">{{ $process->id }}</a></td>
                   <td>{{ $process->folder_number }}</td>
@@ -129,6 +133,82 @@
                     @endif
                   </td>
                 </tr>
+                @endif
+                
+                <!-- ASISTENTE -->
+                @if (Auth::user()->isAssistant())
+                @if ($process->archived === '0')
+                <tr class="odd gradeA">
+                  <td><a href="#" class="btn btn-link btn-small">{{ $process->id }} asis</a></td>
+                  <td>{{ $process->folder_number }}</td>
+                  <td>{{ $process->creation_number }}</td>
+                  <td>{{ $process->claimant }}</td>
+                  <td>{{ $process->defendant }}</td>
+                  <td class="center">
+                    <a href="{{ route('clients.processes.show', array($client->id, $process->id)) }}" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a>
+
+                    @if (Auth::user()->isAdmin())
+                      @if ($process->archived === '1')
+                      <a href="{{ route('clients.pnoarchive', $process->id) }}" class='btn btn-info btn-small'>Sacar de archivados
+                      </a>
+                      @endif
+                      @if ($process->archived !== '1')
+                      <a href="{{ route('clients.parchive', $process->id) }}" class='btn btn-warning btn-small'>Archivar 
+                      </a>
+                      @endif
+                    @endif
+
+
+                    @if($process->isDeletable())
+                    <button data-route="{{ route('clients.processes.destroy', array($client->id, $process->id))}}" class='btn btn-danger btn-small btn-delete'>
+                      <span>
+                        <i class="icofont-angle-right"></i>
+                      </span> Eliminar
+                    </button>
+                    @endif
+                  </td>
+                </tr>
+                @endif
+                @endif
+
+
+                <!-- EJECUTIVO -->
+                @if (Auth::user()->isExecutive())
+                @if ($process->archived === '0')
+                <tr class="odd gradeA">
+                  <td><a href="#" class="btn btn-link btn-small">{{ $process->id }} asis</a></td>
+                  <td>{{ $process->folder_number }}</td>
+                  <td>{{ $process->creation_number }}</td>
+                  <td>{{ $process->claimant }}</td>
+                  <td>{{ $process->defendant }}</td>
+                  <td class="center">
+                    <a href="{{ route('clients.processes.show', array($client->id, $process->id)) }}" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a>
+
+                    @if (Auth::user()->isAdmin())
+                      @if ($process->archived === '1')
+                      <a href="{{ route('clients.pnoarchive', $process->id) }}" class='btn btn-info btn-small'>Sacar de archivados
+                      </a>
+                      @endif
+                      @if ($process->archived !== '1')
+                      <a href="{{ route('clients.parchive', $process->id) }}" class='btn btn-warning btn-small'>Archivar 
+                      </a>
+                      @endif
+                    @endif
+
+
+                    @if($process->isDeletable())
+                    <button data-route="{{ route('clients.processes.destroy', array($client->id, $process->id))}}" class='btn btn-danger btn-small btn-delete'>
+                      <span>
+                        <i class="icofont-angle-right"></i>
+                      </span> Eliminar
+                    </button>
+                    @endif
+                  </td>
+                </tr>
+                @endif
+                @endif
+
+
                 @endforeach
               </tbody>
             </table>
