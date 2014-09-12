@@ -111,10 +111,17 @@
 {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
 {{HTML::script('admin/js/holder.js');}}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 =======
 <!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
 >>>>>>> 6e7171efea4d696b109a3d9321cc2f97aaa9b84a
+=======
+<!-- {{HTML::script('admin/js/stilearn-base.js');}} -->
+=======
+<!--{{HTML::script('admin/js/stilearn-base.js');}}-->
+>>>>>>> 21ebd01ed18e0ee611719ea883f54505b7debf59
+>>>>>>> 8f11b4525145c6aae7a8dccbd0aa393af4a453ec
 
 <script type="text/javascript">
 $(document).ready(function() {

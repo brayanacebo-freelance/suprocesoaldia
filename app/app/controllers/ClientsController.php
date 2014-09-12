@@ -45,6 +45,7 @@ class ClientsController extends BaseController {
 	 */
 	public function store()
 	{
+
 		$userData = Input::only('email', 'password');
 
 		if(!User::where('email', '=', Input::get('email'))->first())
@@ -54,12 +55,18 @@ class ClientsController extends BaseController {
 				$user = new User;
 				$user->email = Input::get('email');
 				$user->password = Hash::make(Input::get('password'));
+
 				$user->save();    
 
 				$clientData = Input::only('enterprise', 'in_charge', 'phone');
 				$client = $this->clients->create($clientData);
 				$client->user()->save($user);
+<<<<<<< HEAD
 				// $client->assistant()->associate(Auth::user()->getLoggeableResult());
+=======
+				//$client->assistant()->associate(Auth::user()->getLoggeableResult());
+
+>>>>>>> 8f11b4525145c6aae7a8dccbd0aa393af4a453ec
 				$client->save();
 
 				$this->sendMail($user);
