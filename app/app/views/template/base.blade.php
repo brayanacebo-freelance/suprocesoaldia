@@ -80,6 +80,11 @@
                             @elseif(Auth::user()->isAdmin())
                             <p><strong>{{Auth::user()->email}}</strong></p>
                             <p class="muted">Administrador</p>
+                            
+                            @elseif(Auth::user()->isExecutive())
+                            <p><strong>Perfil ejecutivo</strong></p>
+                            <p class="muted">Administrador</p>
+
                             @elseif(Auth::user()->isClient())
                             <p><strong>{{Auth::user()->client()->name}}</strong></p>
                             <p class="muted">Cliente</p>
@@ -120,7 +125,7 @@
                 <!--side bar-->
                 <aside class="side-left">
                   <ul class="sidebar">
-                    @if (Auth::user()->isAssistant() || Auth::user()->isAdmin())
+                    @if (Auth::user()->isAssistant() || Auth::user()->isAdmin() || Auth::user()->isExecutive())
                     <li class="active">
                     <a href="{{ route('clients.index') }}" title="clientes">
                         <div class="helper-font-24">
@@ -130,7 +135,7 @@
                       </a>
                     </li>
                     @endif
-                    @if (Auth::user()->isAdmin())
+                    @if (Auth::user()->isAdmin() || Auth::user()->isExecutive())
                     <li>
                       <a href="{{ route('assistants.index') }}" title="auxiliares">
                         <div class="helper-font-24">
@@ -140,16 +145,16 @@
                       </a>
                     </li>
                     @endif
-                    <!--@if (Auth::user()->isAssistant() || Auth::user()->isAdmin())
+                    @if (Auth::user()->isAdmin())
                     <li>
-                      <a href="http://app.suprocesoaldia.com/index.php/mails" title="enviar correo">
+                      <a href="http://localhost/FREELANCE/suprocesoaldia/app/public_html/mails" title="enviar correo">
                         <div class="helper-font-24">
                           <i class="icofont-envelope-alt"></i>
                         </div>
                         <span class="sidebar-text">Enviar correo</span>
                       </a>
                     </li>
-                    @endif-->
+                    @endif
                     @if (Auth::user()->isAdmin())
                     <li>
                       <a href="{{ route('departments.index') }}" title="configuración">
@@ -194,8 +199,8 @@
                     @if (Auth::user()->isClient())
                     <li>
                       <a href="{{ route('client.movements.all') }}" title="movimientos">
-                        @if(Auth::user()->client()->unseenMovementsCount() !== 0) 
-                          <div class="badge badge-important">{{ Auth::user()->client()->unseenMovementsCount() }}</div>
+                        @if($movementsCounts !== 0) 
+                          <div class="badge badge-important">{{ $movementsCounts }}</div>
                         @endif
                         <div class="helper-font-24">
                           <i class="icofont-bullhorn"></i>

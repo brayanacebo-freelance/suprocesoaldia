@@ -77,5 +77,25 @@ class ClientsRepository {
         return $clients;
     }
 
+    public function findData($from = null, $up = null)
+    {
+        $client = null;
+        if ($this->user->isAdmin()) 
+        {
+            // $client = Client::with('processes', 'user')->findOrFail($id);
+            $client = Client::where('id', '>', 30)->get();
+        }
+        return $client;
+    }
+
+    public function log($description)
+    {
+
+        DB::table('log')->insert(
+            array('user_id' => $this->user->id, 'description' => $description)
+        );
+
+        return true;
+    }
 
 }

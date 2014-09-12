@@ -10,13 +10,13 @@
 @section('content')
 @parent
 
-                <!-- span content -->
-                <div class="span9">
-                    <!-- content -->
-                    <div class="content">
-                        <!-- content-header -->
-                        <div class="content-header">
-                            <ul class="content-header-action pull-right">
+<!-- span content -->
+<div class="span9">
+    <!-- content -->
+    <div class="content">
+        <!-- content-header -->
+        <div class="content-header">
+            <ul class="content-header-action pull-right">
                                 <!-- <li class="divider"></li>
                                 <li>
                                     <a href="#">
@@ -74,7 +74,7 @@
                                                     <p>
                                                         <span class="color-teal">Departamento</span><br>Cundinamarca
                                                     </p>
-                                                        <div class="divider-content2"></div>
+                                                    <div class="divider-content2"></div>
                                                     <p>
                                                         <span class="color-teal">Ciudad</span><br>Bogotá
                                                     </p>
@@ -118,57 +118,57 @@
                                             
                             <!-- =========================================
                                             ACCORDION
-                            =========================================== -->
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <div class="accordion" id="accordion">
-                                        <div class="accordion-group">
-                                            <div class="accordion-heading">
-                                                <a class="accordion-toggle bg-orange color-white" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                                    Código: 2154
-                                                </a>
-                                            </div>
-                                            <div id="collapse1" class="accordion-body collapse in">
-                                                <div class="accordion-inner">
-                                                    <table class="table table-bordered table-striped invoice responsive">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><span class="color-teal">Actuación</span></td>
-                                                                <td>Archiva Tutela</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="color-teal">Tipo notificación</span></td>
-                                                                <td>Estado</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="color-teal">Fecha notificación</span></td>
-                                                                <td>2013-12-20</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="color-teal">Fecha auto</span></td>
-                                                                <td>2013-12-19</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="color-teal">Comentario</span></td>
-                                                                <td>Auto que da por terminado incidente por verificar el cumplimiento se ordena el archivo de las diligencias</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><span class="color-teal">Fotos</span></td>
-                                                                <td><a href="ver-fotos.html" class="btn btn-success btn-mini"><i class="icofont-camera"></i> Ver</a></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                            =========================================== -->
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="accordion" id="accordion">
+                                                        <div class="accordion-group">
+                                                            <div class="accordion-heading">
+                                                                <a class="accordion-toggle bg-orange color-white" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                                                    Código: 2154
+                                                                </a>
+                                                            </div>
+                                                            <div id="collapse1" class="accordion-body collapse in">
+                                                                <div class="accordion-inner">
+                                                                    <table class="table table-bordered table-striped invoice responsive">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Actuación</span></td>
+                                                                                <td>Archiva Tutela</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Tipo notificación</span></td>
+                                                                                <td>Estado</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Fecha notificación</span></td>
+                                                                                <td>2013-12-20</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Fecha auto</span></td>
+                                                                                <td>2013-12-19</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Comentario</span></td>
+                                                                                <td>Auto que da por terminado incidente por verificar el cumplimiento se ordena el archivo de las diligencias</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><span class="color-teal">Fotos</span></td>
+                                                                                <td><a href="ver-fotos.html" class="btn btn-success btn-mini"><i class="icofont-camera"></i> Ver</a></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
+                                            
+                                            
                             <!-- =========================================
                                             END ACCORDION
-                            =========================================== -->                                            
+                                            =========================================== -->                                            
                                         </div>
                                     </div>
                                 </div>
@@ -231,22 +231,22 @@
                     </aside><!-- /side-right -->
                 </div><!-- /span side-right -->
                 
-@stop
+                @stop
 
-@section('customscript')
-@parent
+                @section('customscript')
+                @parent
 
-{{HTML::script('admin/js/peity/jquery.peity.js');}}
-{{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
-{{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
-{{HTML::script('admin/js/datatables/extras/TableTools.js');}}
-{{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
-{{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
-{{HTML::script('admin/js/holder.js');}}
-{{HTML::script('admin/js/stilearn-base.js');}}
+                {{HTML::script('admin/js/peity/jquery.peity.js');}}
+                {{HTML::script('admin/js/datatables/jquery.dataTables.min.js');}}
+                {{HTML::script('admin/js/datatables/extras/ZeroClipboard.js');}}
+                {{HTML::script('admin/js/datatables/extras/TableTools.js');}}
+                {{HTML::script('admin/js/datatables/DT_bootstrap.js');}}
+                {{HTML::script('admin/js/responsive-tables/responsive-tables.js');}}
+                {{HTML::script('admin/js/holder.js');}}
+                <!--{{HTML::script('admin/js/stilearn-base.js');}}-->
 
-<script type="text/javascript">
-$(document).ready(function() {
+                <script type="text/javascript">
+                $(document).ready(function() {
     // try your js
     
     // peity chart
@@ -261,8 +261,8 @@ $(document).ready(function() {
       "sPaginationType": "bootstrap",
       "oLanguage": {
         "sLengthMenu": "_MENU_ records per page"
-      }
-    });
+    }
+});
     
     // datatables table tools
     $('#datatablestools').dataTable({
@@ -281,13 +281,13 @@ $(document).ready(function() {
             "sExtends": "pdf",
             "sPdfOrientation": "landscape",
             "sPdfMessage": "Your custom message would go here."
-          }
-          ]
         }
-        ],
-        "sSwfPath": "js/datatables/swf/copy_csv_xls_pdf.swf"
-      }
-    });
-  });
+        ]
+    }
+    ],
+    "sSwfPath": "js/datatables/swf/copy_csv_xls_pdf.swf"
+}
+});
+});
 </script>
 @stop

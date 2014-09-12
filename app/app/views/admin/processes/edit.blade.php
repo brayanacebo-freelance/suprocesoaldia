@@ -102,6 +102,20 @@ VALIDATION
                       {{ Form::select('office_id', $offices, $process->office_id ,array('style'=>"width:200px", 'data-placeholder'=>"Seleccione un depacho")) }}
                     </div>
                 </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="inputAuto">Obligación</label>
+                  <div class="controls">
+                    <input type="text" class="grd-white" name="obligation" value="{{$process->obligation}}" />    
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="inputAuto">Datos adicionales</label>
+                  <div class="controls">
+                    <textarea type="text" class="grd-white" name="data" rows="4">{{$process->data}}</textarea>
+                  </div>
+                </div>
+
               </div>
               <div class="span6">
                 <div class="control-group">

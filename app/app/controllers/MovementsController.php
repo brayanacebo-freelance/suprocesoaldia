@@ -18,6 +18,7 @@ class MovementsController extends BaseController {
 	 */
 	public function create($client_id, $process_id)
 	{
+		
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $process_id);
 
@@ -33,6 +34,13 @@ class MovementsController extends BaseController {
 	 */
 	public function store($client_id, $process_id)
 	{
+		$notification_date = new DateTime(Input::get('notification_date'));
+		$auto_date = new DateTime(Input::get('auto_date'));
+		if($notification_date >= $auto_date){
+			Session::put('notifications', 'La fecha de auto debe ser mayor a la fecha de notificación');
+			return Redirect::to('clients/'.$client_id.'/processes/'.$process_id.'/movements/create');
+		}
+
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $process_id);
 
@@ -44,7 +52,8 @@ class MovementsController extends BaseController {
 			'comments'			=> Input::get('comments'),
 		));
 
-        $process->movements()->save($movement);
+        $m = $process->movements()->save($movement);
+        $this->clients->log('Creo el movimiento de código '.$m->id);
 
 		$movement->dir = str_replace('/', '', Hash::make($movement->created_at . $movement->id));
 		File::makeDirectory(public_path('movements/'. $movement->dir), 0777, true, true);
@@ -98,6 +107,7 @@ class MovementsController extends BaseController {
 		$movement->notification_date = date_create_from_format('d-m-Y', Input::get('notification_date') );
 		$movement->auto_date = date_create_from_format('d-m-Y', Input::get('auto_date') );
 		$movement->save();
+		$this->clients->log('Actualizo el movimiento de código '.$id);
 		return Redirect::route('clients.processes.show', array($client_id, $process_id));
 	}
 

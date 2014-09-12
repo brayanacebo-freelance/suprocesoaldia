@@ -22,11 +22,11 @@ class ProcessesController extends BaseController {
 	 */
 	public function create($client_id)
 	{
-        $client = $this->clients->find($client_id);
+		$client = $this->clients->find($client_id);
 		$departments = $this->departments->getSelectList();
 		$types = $this->types->getSelectList();
 
-        return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'));
+		return View::make('admin.processes.create')->with(compact('client', 'departments', 'types'));
 	}
 
 	/**
@@ -44,7 +44,10 @@ class ProcessesController extends BaseController {
 		//$data['claimant'] = array_filter($data['claimant']);
 		//$data['defendant'] = array_filter($data['defendant']);
 
-		$client->processes()->save($process);
+		$r = $client->processes()->save($process);
+
+		$this->clients->log('Creo el proceso de código '.$r->id);
+
 		return Redirect::route('clients.show', $client_id)->with('notifications', "Proceso creado con éxito!");
 	}
 
@@ -56,11 +59,16 @@ class ProcessesController extends BaseController {
 	 */
 	public function show($client_id, $id)
 	{
+<<<<<<< HEAD
 
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $id);
+=======
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
+>>>>>>> 21ebd01ed18e0ee611719ea883f54505b7debf59
 
-        return View::make('admin.processes.show')->with(compact('client', 'process'));
+		return View::make('admin.processes.show')->with(compact('client', 'process'));
 	}
 
 
@@ -72,15 +80,15 @@ class ProcessesController extends BaseController {
 	 */
 	public function edit($client_id, $id)
 	{
-        $client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
 
 		$departments = $this->departments->getSelectList();
 		$cities = $this->cities->getSelectList();
 		$types = $this->types->getSelectList();
 		$offices = $this->offices->getSelectList();
-       	
-        return View::make('admin.processes.edit')->with(compact('client', 'cities', 'departments', 'types' , 'process', 'offices'));
+
+		return View::make('admin.processes.edit')->with(compact('client', 'cities', 'departments', 'types' , 'process', 'offices'));
 	}
 
 	/**
@@ -96,11 +104,13 @@ class ProcessesController extends BaseController {
 		$data['claimant'] = array_filter($data['claimant']);
 		$data['defendant'] = array_filter($data['defendant']);
 
-    $client = $this->clients->find($client_id);
-    $process = $this->processes->find($client_id, $id);
+		$client = $this->clients->find($client_id);
+		$process = $this->processes->find($client_id, $id);
 		
 		$process->fill($data);
 		$process->save();
+
+		$this->clients->log('Actualizo el proceso de código '.$id);
 
 		return Redirect::route('clients.processes.show', array($client->id, $process->id))->with('notifications', "Proceso editado con éxito!");
 	}
@@ -114,8 +124,9 @@ class ProcessesController extends BaseController {
 	public function destroy($client_id ,$id)
 	{
 		$client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
-        $process->delete();
+		$process = $this->processes->find($client_id, $id);
+		$this->clients->log('Elimino el proceso de código '.$id);
+		$process->delete();
 		return Response::json(array());
 	}
 
