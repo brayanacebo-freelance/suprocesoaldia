@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 @section('customstyle')
 @parent
 {{HTML::style('admin/css/DT_bootstrap.css');}}
@@ -168,7 +168,7 @@ $('[data-form=datepicker]').datepicker();
 });
 </script>
 @stop
-=======
+
 <div style="text-align: center">
   <strong style="font-family: 38px">Informe de procesos - Ultimo movimiento</strong>
 </div>
@@ -206,4 +206,4 @@ $('[data-form=datepicker]').datepicker();
     @endforeach
   </tbody>
 </table>
->>>>>>> 21ebd01ed18e0ee611719ea883f54505b7debf59
+

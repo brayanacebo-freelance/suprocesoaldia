@@ -119,7 +119,7 @@
                           <label class="control-label" for="inputDate">Fecha de auto</label>
                           <div class="controls">
                             <div class="input-append date" data-form="datepicker" data-date="{{ date('d-m-Y') }}" data-date-format="dd-mm-yyyy">
-                              <input name="auto_date" class="grd-white" data-form="datepicker" size="16" type="text" value="" data-validate="{required: true, messages:{required:'Campo obligatorio'}}">
+                              <input disabled name="auto_date" class="grd-white" data-form="datepicker" size="16" type="text" value="" data-validate="{required: true, messages:{required:'Campo obligatorio'}}">
                               <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                           </div>

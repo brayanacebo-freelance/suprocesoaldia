@@ -59,14 +59,14 @@ class ProcessesController extends BaseController {
 	 */
 	public function show($client_id, $id)
 	{
-<<<<<<< HEAD
+
 
         $client = $this->clients->find($client_id);
         $process = $this->processes->find($client_id, $id);
-=======
-		$client = $this->clients->find($client_id);
-		$process = $this->processes->find($client_id, $id);
->>>>>>> 21ebd01ed18e0ee611719ea883f54505b7debf59
+
+		//$client = $this->clients->find($client_id);
+		//$process = $this->processes->find($client_id, $id);
+
 
 		return View::make('admin.processes.show')->with(compact('client', 'process'));
 	}
