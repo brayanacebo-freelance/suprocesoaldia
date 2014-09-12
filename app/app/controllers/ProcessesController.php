@@ -65,18 +65,8 @@ class ProcessesController extends BaseController {
 	public function show($client_id, $id)
 	{
 
-<<<<<<< HEAD
 		$client = $this->clients->find($client_id);
 		$process = $this->processes->find($client_id, $id);
-=======
-
-        $client = $this->clients->find($client_id);
-        $process = $this->processes->find($client_id, $id);
-
-		//$client = $this->clients->find($client_id);
-		//$process = $this->processes->find($client_id, $id);
-
->>>>>>> 8f11b4525145c6aae7a8dccbd0aa393af4a453ec
 
 		return View::make('admin.processes.show')->with(compact('client', 'process'));
 	}

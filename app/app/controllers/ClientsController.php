@@ -61,12 +61,7 @@ class ClientsController extends BaseController {
 				$clientData = Input::only('enterprise', 'in_charge', 'phone');
 				$client = $this->clients->create($clientData);
 				$client->user()->save($user);
-<<<<<<< HEAD
 				// $client->assistant()->associate(Auth::user()->getLoggeableResult());
-=======
-				//$client->assistant()->associate(Auth::user()->getLoggeableResult());
-
->>>>>>> 8f11b4525145c6aae7a8dccbd0aa393af4a453ec
 				$client->save();
 
 				$this->sendMail($user);
