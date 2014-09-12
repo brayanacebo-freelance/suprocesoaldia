@@ -80,6 +80,7 @@
                                     </thead>
                                     <tbody> 
                                     @foreach($clients as $client)
+                                    @if($client->user)
                                         <tr class="odd gradeA">
                                             <td><a href="{/seguimiento/judicial"} class="btn btn-link btn-small">{{ $client->id }}</a></td>
                                             <td>{{ $client->enterprise }}</td>
@@ -92,22 +93,22 @@
                                                 </a>
 
                                                 @if (Auth::user()->isAdmin())
-                                                    @if ($client->user->archived === 1)
+                                                    @if ($client->user->archived === '1')
                                                         <a href="{{ route('clients.noarchive', $client->id) }}" class='btn btn-info btn-small'>Sacar de archivados
                                                         </a>
                                                     @endif
-                                                    @if ($client->user->archived !== 1)
+                                                    @if ($client->user->archived !== '1')
                                                         <a href="{{ route('clients.archive', $client->id) }}" class='btn btn-warning btn-small'>Archivar 
                                                         </a>
                                                     @endif
                                                 @endif
 
                                                 @if (Auth::user()->isAdmin())
-                                                    @if ($client->user->suspended === 1)
+                                                    @if ($client->user->suspended === '1')
                                                         <a href="{{ route('clients.nosuspended', $client->id) }}" class='btn btn-info btn-small'>Sacar de suspendidos
                                                         </a>
                                                     @endif
-                                                    @if ($client->user->suspended !== 1)
+                                                    @if ($client->user->suspended !== '1')
                                                         <a href="{{ route('clients.suspended', $client->id) }}" class='btn btn-warning btn-small'>Suspender 
                                                         </a>
                                                     @endif
@@ -122,6 +123,7 @@
                                                 @endif
                                                 </td>
                                             </tr>
+                                            @endif
                                             @endforeach
 
                                         </tbody>

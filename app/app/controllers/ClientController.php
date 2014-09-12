@@ -10,7 +10,7 @@ class ClientController extends BaseController {
 	public function getMovements()
 	{
 
-		if($this->client->user->archived === 1){
+		if($this->client->user->archived === '1'){
 			Auth::logout();
         	return Redirect::route('get.login')->withErrors(array('message' => 'Por favor comuniquese con un asesor, gracias!'));
 		}
@@ -35,7 +35,7 @@ class ClientController extends BaseController {
 		$object = [];
 
 		foreach ($client->processes as $process) {
-			if($process->archived === 0){
+			if($process->archived === '0'){
 				$arrayOne = [
 				"cod" => $process->id,
 				"folder_number" => $process->folder_number,

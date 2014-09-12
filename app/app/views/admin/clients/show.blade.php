@@ -109,11 +109,11 @@
                     <a href="{{ route('clients.processes.show', array($client->id, $process->id)) }}" class="btn btn-success btn-small">Ver <i class="icofont-angle-right"></i></a>
 
                     @if (Auth::user()->isAdmin())
-                      @if ($process->archived === 1)
+                      @if ($process->archived === '1')
                       <a href="{{ route('clients.pnoarchive', $process->id) }}" class='btn btn-info btn-small'>Sacar de archivados
                       </a>
                       @endif
-                      @if ($process->archived !== 1)
+                      @if ($process->archived !== '1')
                       <a href="{{ route('clients.parchive', $process->id) }}" class='btn btn-warning btn-small'>Archivar 
                       </a>
                       @endif
